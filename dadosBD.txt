@@ -1,0 +1,3 @@
+Dados necessários para cadastro/acesso:
+
+=> nome; matrícula; curso; período cursando; cadeira; senha(MD-SÍNKU);
