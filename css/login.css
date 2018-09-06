@@ -1,0 +1,32 @@
+@media screen{
+  body{
+    text-align: center;
+    background-color: #559055;
+    margin: auto;
+    padding: 0;
+  }
+  fieldset{
+    width: 30%;
+    padding: 20px;
+    margin: auto;
+    position: relative;
+    top: 200px;
+    border-radius: 10px;
+    background-color: #90c090;
+    box-shadow: 0px 0px 2px 0px black;
+  }
+  
+  h3, h4{
+    color: white;
+    text-shadow: 0px 0px 2px black;
+  }
+  
+  input{
+    margin-top: 10px;
+  }
+  
+  #sub{
+    padding: 8px 25px;
+    color: #559055;
+  }
+}
