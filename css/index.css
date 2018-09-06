@@ -1,11 +1,4 @@
 @media screen{
-  body{
-    text-align: center;
-    background-color: #559055;
-    margin: auto;
-    padding: 0;
-  }
-  
   img{
     display: block;
     position: relative;
@@ -14,13 +7,6 @@
     width: 790px;
     height: 230px;;
     margin: auto;
-  }
-  button{
-    position: relative;
-    top: 200px;
-    display: inline-block;
-    width: 140px;
-    text-align: center;
   }
   a{
     text-decoration: none;
