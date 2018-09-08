@@ -22,6 +22,7 @@ CREATE TABLE registro(
     hora_termino TIME NOT NULL,
     comentario VARCHAR(500),
     data_registro VARCHAR NOT NULL,
+    PRIMARY KEY (id_registro),
     FOREIGN KEY id_monitor REFERENCES monitor(id_monitor)
 );
 
