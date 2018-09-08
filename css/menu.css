@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.menu{
+  position: relative;
+}
+.menu ul{
+  list-style: none;
+  width: 100%;
+  background-color: #777;
+  height: 44px;
+  float: left;
+}
+.menu ul li{
+  
+  display: block;
+  float: left;
+  position: relative;
+  text-align: center;
+  border: 1px solid #333;
+  border-left: 1px solid white;
+  margin-right: 4px;
+}
+.menu a{
+  text-decoration: none;
+  color: white;
+  padding: 11px 1px;
+  display: block;
+  position: relative;
+}
+
+@media screen{
+  .menu ul li{
+    width: 160px;
+  }
+  .menu a{
+    
+  }
+}

@@ -1,34 +1,72 @@
-body{
-  text-align: center;
-  margin: auto;
-  padding: 0;
+@media screen{
+  body{
+    color: white;
+    background-color: #2a623e;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+  }
+
+  fieldset{
+    max-width: 35%;
+    min-width: 280px;
+    margin: auto;
+    margin-bottom: 30px;
+    position: relative;
+    top: 60px;
+    padding: 60px 10px;
+    border: 1.5px solid white;
+    border-radius: 8px;
+    display: block;
+  }
+
+  input, button{
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    color: #2a623e;
+    transition: 0.2s;
+    border-radius: 5px;
+    width: 70%;
+  }
+
+  #sub{
+    position: relative;
+    display: block;
+    top: 35px;
+    background-color: #821a1e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px 35px;
+    transition: 0.2s;
+    width: 50%;
+  }
 }
 
-fieldset{
-  max-width: 35%;
-  margin: auto;
-  position: relative;
-  top: 150px;
-  padding: 70px 10px;
-  border: 2px solid green;
-  border-radius: 8px;
-  display: block;
+input, select{
+  color: #2a623e;
 }
 
-input, button{
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  color: green;
-}
-
-#sub{
-  position: relative;
-  display: block;
-  top: 35px;
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 20px 35px;
+@media (max-width: 320px){
+  body{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  fieldset{
+    top: 50px;
+    padding: 45px 0px;
+  }
+  
+  input{
+    width: 75%;
+    font-size: 16px;
+    padding: 7px;
+  }
+  
+  #sub{
+    width: 60%;
+    background-color: #821a1e;
+  }
 }
