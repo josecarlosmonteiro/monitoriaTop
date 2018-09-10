@@ -41,5 +41,5 @@ CREATE TABLE senha(
 CREATE TABLE cadastro(
 	id_cadastro INT NOT NULL AUTO_INCREMENT,
 	matricula VARCHAR(50) NOT NULL,
-	PRIMARY KEY (id_cadastro0)
+	PRIMARY KEY (id_cadastro)
 )
