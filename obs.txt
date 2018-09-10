@@ -1,0 +1,4 @@
+gerar PDF:
+ob_start()
+dompdf
+Composer dompdf
