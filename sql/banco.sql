@@ -20,7 +20,7 @@ CREATE TABLE registro(
     data_monitoria DATE NOT NULL,
     hora_inicio TIME NOT NULL,
     hora_termino TIME NOT NULL,
-    comentario VARCHAR(500),
+    atividade VARCHAR(500),
     data_registro DATE NOT NULL,
     PRIMARY KEY (id_registro),
     FOREIGN KEY (id_monitor_rg) REFERENCES monitor(id_monitor)
@@ -34,12 +34,3 @@ CREATE TABLE senha(
 	PRIMARY KEY(id_senha),
 	FOREIGN KEY (id_monitor_s) REFERENCES monitor(id_monitor)	
 );
-
-
-------------------------------PROFESSOR------------------------------
-
-CREATE TABLE cadastro(
-	id_cadastro INT NOT NULL AUTO_INCREMENT,
-	matricula VARCHAR(50) NOT NULL,
-	PRIMARY KEY (id_cadastro)
-)
