@@ -1,25 +1,24 @@
 @media screen{
   body{
-    color: white;
-    background-color: #2a623e;
+    color: #333;
+    background-color: #333;
     text-align: center;
     margin: auto;
     padding: 0;
   }
-
   fieldset{
-    max-width: 35%;
-    min-width: 280px;
+    max-width: 25%;
+    min-width: 380px;
     margin: auto;
     margin-bottom: 30px;
     position: relative;
-    top: 60px;
+    top: 120px;
     padding: 60px 10px;
-    border: 1.5px solid white;
+    border: 1.5px solid silver;
     border-radius: 8px;
     display: block;
+    background-color: #fafbfc;
   }
-
   input, button{
     display: block;
     margin: 10px auto;
@@ -29,7 +28,6 @@
     border-radius: 5px;
     width: 70%;
   }
-
   #sub{
     position: relative;
     display: block;
@@ -48,25 +46,15 @@ input, select{
   color: #2a623e;
 }
 
-@media (max-width: 320px){
+@media (max-width: 420px){
   body{
     width: 300px;
     margin: 0 auto;
-    text-align: center;
   }
   fieldset{
-    top: 50px;
-    padding: 45px 0px;
-  }
-  
-  input{
-    width: 75%;
-    font-size: 16px;
-    padding: 7px;
-  }
-  
-  #sub{
-    width: 60%;
-    background-color: #821a1e;
+    width: 270px;
+    max-width: 290px;
+    min-width: 190px;
+    top: 10px;
   }
 }

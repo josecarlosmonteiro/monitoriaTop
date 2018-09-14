@@ -9,7 +9,7 @@
 <body>
 	<fieldset>
 		<h3>Cadastro</h3>
-		<form action="#" method="POST">
+		<form action="addUser.php" method="POST">
 			<input type="text" name="nome" placeholder="Nome" required>
 			<input type="text" name="nome" placeholder="Matrícula" required>
 			<label>

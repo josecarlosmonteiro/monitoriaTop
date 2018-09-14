@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="nav">
-        <img src="ifpe.png">
+        <img src="../img/ifpe.png">
         <label for="h"><span class="hamburger">&#9776;</span></label>
         <input type="checkbox" id="h"/>
         <div class="menu">
@@ -18,6 +18,7 @@
             <a href="#">Gerar documento</a>
             <a href="#">Enviar documento</a>
             <a href="#"><span>(MONITOR NOME)</span></a>
+            <a href="login.php">Sair</a>
         </div>
     </div>
     <footer class="footer">
