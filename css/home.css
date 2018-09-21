@@ -21,7 +21,8 @@ html {
     clear: right;
     text-decoration: none;
     color: white;
-    margin: 0 10px;
+    margin: 0;
+    padding: 20px;
     line-height: 70px;
 }
 .menu a:hover, .footer a:hover{
@@ -60,6 +61,9 @@ label {
     bottom: 0px;
     width: 100%;
     text-align: center;
+}
+.content{
+    background-color:black;
 }
 @media only screen and (max-width: 800px) {
     label {

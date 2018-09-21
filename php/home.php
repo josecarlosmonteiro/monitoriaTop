@@ -3,7 +3,6 @@
 <head>
     <title>Navegação TOP</title>
     <link rel="stylesheet" type="text/css" href="../css/home.css">
-    <link rel="stylesheet" type="text/css" href="../css/home.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -18,8 +17,11 @@
             <a href="#">Gerar documento</a>
             <a href="#">Enviar documento</a>
             <a href="#"><span>(MONITOR NOME)</span></a>
-            <a href="login.php">Sair</a>
+            <a href="../index.html">Sair</a>
         </div>
+    </div>
+    <div class="content">
+        
     </div>
     <footer class="footer">
         <a href="#">Developers</p></a>

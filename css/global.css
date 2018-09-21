@@ -40,6 +40,22 @@
     transition: 0.2s;
     width: 50%;
   }
+  .botao_a{
+    text-decoration: none;
+    color: white;
+    background-color: #821a1e;
+    border: 1px solid;
+    padding: 16px 20px;
+    width: 35%;
+    min-width: 120px;
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    transition: 0.3s;
+    margin: auto;
+    margin-top: 10px;
+  }
 }
 
 input, select{
@@ -52,7 +68,7 @@ input, select{
     margin: 0 auto;
   }
   fieldset{
-    width: 270px;
+    width: 250px;
     max-width: 290px;
     min-width: 190px;
     top: 10px;

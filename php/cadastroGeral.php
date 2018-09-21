@@ -8,10 +8,12 @@
 </head>
 <body>
 	<fieldset>
-		<h3>Cadastro</h3>
+		<h3>Cadastro de Alunos</h3>
 		<form action="addUser.php" method="POST">
 			<input type="text" name="nome" placeholder="Nome" required>
 			<input type="text" name="nome" placeholder="Matrícula" required>
+			<input type="password" name="senha" placeholder="Senha" required>
+			<input type="password" name="senha" placeholder="Confirmar Senha" required>
 			<label>
 				Curso: <select name="curso" required>
 					<option></option>
@@ -20,20 +22,12 @@
 				</select>
 			</label><br>
 			<label>
-				Período: <select name="periodo" required>
+				Período(cursando): <select name="periodoCursando" required>
 					<option></option>
+					<option>1</option>
 					<option>2</option>
 					<option>3</option>
-				</select>
-			</label><br>
-			<label>
-				Cadeira: <select name="cadeira" required>
-					<option></option>
-					<option>###</option>
-					<option>###</option>
-					<option>###</option>
-					<option>###</option>
-					<option>###</option>
+					<option>4</option>
 				</select>
 			</label>
 			<input id="sub" type="submit" value="Cadastrar">
