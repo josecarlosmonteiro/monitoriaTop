@@ -20,7 +20,7 @@
     background-color: #fafbfc;
   }
   input, button{
-    display: block;
+    display: inline-block;
     margin: 10px auto;
     padding: 10px;
     color: #2a623e;
@@ -39,6 +39,9 @@
     padding: 15px 35px;
     transition: 0.2s;
     width: 50%;
+  }
+  p{
+    float: left;
   }
   .botao_a{
     text-decoration: none;
