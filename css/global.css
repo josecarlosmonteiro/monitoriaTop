@@ -10,14 +10,15 @@
     max-width: 25%;
     min-width: 380px;
     margin: auto;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     position: relative;
-    top: 120px;
+    top: 40px;
     padding: 60px 10px;
     border: 1.5px solid silver;
     border-radius: 8px;
     display: block;
     background-color: #fafbfc;
+    color: #353;
   }
   input, button{
     display: inline-block;

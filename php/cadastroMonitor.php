@@ -13,7 +13,7 @@
 			<input type="text" name="nome" placeholder="Nome" required>
 			<input type="text" name="nome" placeholder="Matrícula" required>
 			<input type="password" name="senha" placeholder="Senha" required>
-			<input type="password" name="senha" placeholder="Confirmar Senha" required>
+			<input type="password" name="senha" placeholder="Confirmar Senha" required><br>
 			<label>
 				Monitor: <select name="tipoMonitor">
 					<option></option>
@@ -29,20 +29,12 @@
 				</select>
 			</label><br>
 			<label>
-				Período(cursando): <select name="periodoCursando" required>
-					<option></option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-				</select>
+				Período(cursando):
+				<input type="number" name="periodoCursando" required>
 			</label>
 			<label>
-				Período(monitoria): <select name="periodoMonitoria">
-					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-				</select>
+				Período(monitoria):
+				<input type="number" name="periodoMonitoria" required>
 			</label>
 			<input id="sub" type="submit" value="Cadastrar">
 		</form>

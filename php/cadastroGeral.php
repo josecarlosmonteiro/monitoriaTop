@@ -13,7 +13,7 @@
 			<input type="text" name="nome" placeholder="Nome" required>
 			<input type="text" name="nome" placeholder="Matrícula" required>
 			<input type="password" name="senha" placeholder="Senha" required>
-			<input type="password" name="senha" placeholder="Confirmar Senha" required>
+			<input type="password" name="senha" placeholder="Confirmar Senha" required><br>
 			<label>
 				Curso: <select name="curso" required>
 					<option></option>
@@ -22,13 +22,8 @@
 				</select>
 			</label><br>
 			<label>
-				Período(cursando): <select name="periodoCursando" required>
-					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-				</select>
+				Período(cursando)
+				<input type="number" name="periodoCursando" required>
 			</label>
 			<input id="sub" type="submit" value="Cadastrar">
 		</form>

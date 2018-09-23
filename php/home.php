@@ -12,11 +12,12 @@
         <label for="h"><span class="hamburger">&#9776;</span></label>
         <input type="checkbox" id="h"/>
         <div class="menu">
+            <span style="float: left; margin-left: 20px;">NomeUsuário - IPI 2</span>
+            <a href="#">
             <a href="#">Adicionar evento</a>
             <a href="#">Listar eventos</a>
             <a href="#">Gerar documento</a>
             <a href="#">Enviar documento</a>
-            <a href="#"><span>(MONITOR NOME)</span></a>
             <a href="../index.html">Sair</a>
         </div>
     </div>
