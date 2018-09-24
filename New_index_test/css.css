@@ -1,0 +1,301 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-color: #FFF;
+	width: 100%;
+    height: 100%;
+    margin: 0;
+}
+html{
+	font-family: 'monitoria';
+}
+/*font*/
+@font-face{
+	font-family: 'monitoria';
+	src:url('fonts/pn.otf');
+}
+/*------------*/
+
+.container{
+	width: 100%;
+	height: auto;
+	background-color:#000;
+}
+/*----------------------*/
+/*footers*/
+.preto{
+	background-color: #191919;
+	height: 200px;
+	width: 100%;
+}
+#footer{
+	position: relative;
+	background-color: #191919;
+	height: 100%;
+}
+#footer img{
+	padding: 5% 0px 5% 2%;
+}
+#copy{
+	background-color: #000;
+}
+.listas{
+	margin-top: 4%;
+	margin-right: 10%;
+	float: right;
+	width: 650px;
+	height: auto;
+	border: 1px solid white;
+}
+.listas li {
+	color: white;
+}
+.listas ul{
+	display: inline-block;
+	padding: 10px 50px;
+}
+.listas h1{
+	color: white;
+}
+
+/*----------------------*/
+/*Titulo da home*/
+.title{
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	margin-top: 100px;
+	position: absolute;
+	font-size: 40px;
+	opacity: 0.9;
+	transition: 1s;
+}
+.title h4{
+	color: red;
+}
+
+/*---------------------*/
+/*imagem atrás naquele pyke*/
+.background{
+	width: 100%;
+	background-image:url('imgs/_fundo2.jpg');
+	height: 629px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	font-size: 100%;
+}
+/*----------------------------*/
+/*Navbar /botoes*/
+.botao{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	padding: 10px;
+	width: 100%;
+	transition: 1s;
+}
+.botao:hover{
+	background-color: white;
+	color: red;
+}
+.nav {
+    text-align: right;
+    height: 70px;
+    line-height: 70px;
+    background-color: #000;
+    position: fixed;
+    width: 100%;
+  	background-color: rgba(0,0,0,0.8);
+  	z-index: 1000;
+}
+.menu {
+    margin: 0 30px 0 0;
+}
+.menu a{
+	font-size: 20px;
+    clear: right;
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    line-height: 70px;
+}
+.menu a:hover{
+    color: red;
+}
+
+label {
+    margin: 0 40px 0;
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    width: 26px;
+    float: right;
+}
+/*menu hamburger*/
+#h {
+    display: none;
+}
+.nav img {
+	padding: 10px;
+    float: left;
+    transition: 1s;
+ 
+}
+/*------------------*/
+.background h1{
+	color: white;
+	font-size: 200%;
+}
+/*----------------------*/
+
+/*área disponivel para colocar as classes dos cards são 3*/
+
+
+/*div dos cards*/
+.cards{
+	margin-top: -10%;
+	width: 100%;
+	max-width: 1000px;
+	height: 400px;
+	background-color:white; 
+	margin-bottom: 1%;
+	border-radius: 50px;
+}
+.cards h1{
+	padding: 5% 0px 0px 0px;
+}
+/*------------------*/
+.cards h4{
+	display: inline-block;
+	padding: 5%;
+	font-size: 22px;
+
+}
+
+/*-----------------------------------------*/
+/*Parte Responsiva*/
+@media only screen and (max-width:800px ){
+	.cards{
+		margin-top: -30%; 
+	}
+}
+@media only screen and (max-width:450px ){
+	.cards{
+		margin-top: -500px; 
+	}
+}
+@media only screen and (max-width: 767px) {
+	.title{
+		font-size: 15px;
+		margin-top: 80px;
+	}
+    label {
+        display: block;
+        cursor: pointer;
+    }
+    .menu {
+        text-align: center;
+        width: 100%;
+        display: none;
+        background-color: rgba(0,0,0,0.8);
+    }
+    .menu a {
+        display: block;
+        border-bottom: 1px solid #EAEAEB;
+        margin: 0;
+        color: #fff;
+    }
+    .menu a:hover{
+        color: red;
+    }
+    #h:checked + .menu {
+        display: block;
+    }
+    .nav img{
+        display: block;
+        position: absolute;
+       	padding: 10px;
+    }
+    .botao{
+    	display: hidden;
+    	background-color: rgba(0,0,0,0.0);
+    	height: 60px;
+    }
+    .background{
+    	height: 700px;
+    }
+    #footer img{
+		margin-left: 10%;
+	}
+}
+@media only screen and (max-width: 1200px){
+	.container{
+		height: 630px;
+	}
+	#footer img{
+		margin-left: 20%;
+	}
+	.listas{
+		margin-top: -200px;
+		padding: 0px;
+		margin-bottom: 0px;
+		margin-top:0%;
+		width: 400px;
+	}
+	.listas ul{
+
+	display: block;
+	padding: 10px 50px;
+	}
+	.cards{
+		border-radius: 0px;
+	}
+}
+@media only screen and (max-width: 710px){
+	.cards{
+		margin-top: -50%;
+	}
+}
+@media only screen and (max-width: 460px){
+	.listas{
+		width: 300px;
+	}
+}
+@media only screen and (max-width: 722px){
+	.listas{
+		margin-right: 30%;
+	}
+}
+@media only screen and (max-width: 1100px){
+	#footer img{
+		margin-left: 32%;
+		display: none;
+	}
+	.listas{
+		margin-right: 30%;
+		margin-top: 15%;
+	}
+}
+@media only screen and (max-width: 580px){
+	.listas{
+		margin-right: 10%;
+	}
+	.cards{
+		margin-top: -90%;
+	}
+}
+@media only screen and (max-width: 340px){
+	.listas{
+		margin-right: 3%;
+	}
+	.cards{
+		margin-top: -130%;
+	}
+}
+@media only screen and (max-width: 400px){
+	.cards{
+		margin-top: -130%;
+	}
+}
