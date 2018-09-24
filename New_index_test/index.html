@@ -47,7 +47,7 @@
 						<li>Carlos Monteiro - <font color="Cyan"> El Cana</font></li>
 						<li>Eduardo Bispo - <font color="Cyan">El Bi</font></li>
 						<li>Flávia Regina - <font color="Cyan">El Fast</font></li>
-						<li>Girylâne Fragoso - <font color="Cyan">El Eat</font></li>
+						<li>Girlâyne Fragoso - <font color="Cyan">El Eat</font></li>
 						<li>Guilherme Evaristo- <font color="Cyan">El Negron</font></li>
 						<li>Jhontas Rodrigues - <font color="Cyan">El Floki</font></li>
 						</center>
