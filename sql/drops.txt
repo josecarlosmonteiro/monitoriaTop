@@ -1,0 +1,14 @@
+select:
+
+SELECT
+   monitor.matricula,
+FROM
+   monitor
+INNER JOIN
+   senha ON monitor.matricula = senha.matricula_s
+WHERE
+   monitor.matricula = 
+
+ou:
+
+"SELECT monitor.nome FROM monitor INNER JOIN senha ON monitor.matricula = senha.matricula_s WHERE monitor.matricula = '$matricula' AND senha.senha = '$pw'"

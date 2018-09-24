@@ -5,6 +5,7 @@ CREATE DATABASE relatoriodigital;
 CREATE TABLE monitor(
 	matricula VARCHAR(50) NOT NULL,
 	nome VARCHAR(255) NOT NULL,
+	tipo ENUM('aluno', 'monitor'),
 	curso VARCHAR(50) NOT NULL,
 	periodo VARCHAR(3) NOT NULL,
 	PRIMARY KEY(matricula)
@@ -27,9 +28,8 @@ CREATE TABLE registro(
 
 -- criar tabela para senhas
 CREATE TABLE senha(
-	id_senha INT NOT NULL,
-	matricula_s INT,
+	matricula_s VARCHAR(25),
 	senha VARCHAR(255) NOT NULL,
-	PRIMARY KEY(id_senha),
+	PRIMARY KEY(matricula_s),
 	FOREIGN KEY (matricula_s) REFERENCES monitor(matricula)	
 );

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['user'])) { ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +16,13 @@
         <label for="h"><span class="hamburger">&#9776;</span></label>
         <input type="checkbox" id="h"/>
         <div class="menu">
-            <span style="float: left; margin-left: 20px;">NomeUsuário - IPI 2</span>
+            <span style="float: left; margin-left: 20px;"><?= $_SESSION['user'] ?> <?= $_SESSION['curso'] ?></span>
             <a href="#">
             <a href="#">Adicionar evento</a>
             <a href="#">Listar eventos</a>
             <a href="#">Gerar documento</a>
             <a href="#">Enviar documento</a>
-            <a href="../index.html">Sair</a>
+            <a href="logOut.php">Sair</a>
         </div>
     </div>
     <div class="content">
@@ -29,3 +33,7 @@
     </footer>
 </body>
 </html>
+<?php
+}else{
+    header('location: login.php');
+}
