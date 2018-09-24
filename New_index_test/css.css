@@ -152,13 +152,11 @@ label {
 
 /*área disponivel para colocar as classes dos cards são 3*/
 
-
-/*div dos cards*/
 .cards{
 	margin-top: -10%;
 	width: 100%;
-	max-width: 1000px;
-	height: 400px;
+	max-width: 1200px; /*se precisar de aumentar o tamanho da div mexer no max-width: */ 
+	height: 600px;
 	background-color:white; 
 	margin-bottom: 1%;
 	border-radius: 50px;
@@ -166,7 +164,6 @@ label {
 .cards h1{
 	padding: 5% 0px 0px 0px;
 }
-/*------------------*/
 .cards h4{
 	display: inline-block;
 	padding: 5%;
