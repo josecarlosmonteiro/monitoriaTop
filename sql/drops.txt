@@ -11,4 +11,4 @@ WHERE
 
 ou:
 
-"SELECT monitor.nome FROM monitor INNER JOIN senha ON monitor.matricula = senha.matricula_s WHERE monitor.matricula = '$matricula' AND senha.senha = '$pw'"
+"SELECT monitor.nome FROM monitor INNER JOIN senha ON monitor.matricula = senha.matricula_s WHERE monitor.matricula = '$matricula' AND senha.senha = '$senha'"

@@ -20,11 +20,6 @@ if (isset($_SESSION['erro'])) {
 		<form action="verifLogin.php" method="POST">
 			<input type="text" placeholder="matricula" name="matricula" required>
 			<input type="password" placeholder="senha" name="senha" required><br>
-			Acesso: <select name="tipoLogin" required>
-				<option></option>
-				<option>Aluno</option>
-				<option>Monitor</option>
-			</select>
 			<input type="submit" value="Login" id="sub">
 		</form>
 	</fieldset>
