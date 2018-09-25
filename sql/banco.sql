@@ -1,5 +1,5 @@
 -- criar banco
-CREATE DATABASE relatoriodigital;
+CREATE DATABASE relatoriodigital
 
 -- criar primeira tabela
 CREATE TABLE monitor(
@@ -9,7 +9,7 @@ CREATE TABLE monitor(
 	curso VARCHAR(50) NOT NULL,
 	periodo VARCHAR(3) NOT NULL,
 	PRIMARY KEY(matricula)
-);
+)
 
 -- criar tabela registro: irá armazenar os registros das aulas/CH semanal das bolsas
 CREATE TABLE registro(
@@ -24,7 +24,7 @@ CREATE TABLE registro(
     data_registro DATE NOT NULL,
     PRIMARY KEY (id_registro),
     FOREIGN KEY (matricula_rg) REFERENCES monitor(matricula)
-);
+)
 
 -- criar tabela para senhas
 CREATE TABLE senha(
@@ -32,4 +32,4 @@ CREATE TABLE senha(
 	senha VARCHAR(255) NOT NULL,
 	PRIMARY KEY(matricula_s),
 	FOREIGN KEY (matricula_s) REFERENCES monitor(matricula)	
-);
+)
