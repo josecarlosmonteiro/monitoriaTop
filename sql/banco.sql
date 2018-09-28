@@ -2,19 +2,19 @@
 CREATE DATABASE relatoriodigital
 
 -- criar primeira tabela
-CREATE TABLE monitor(
-	matricula VARCHAR(50) NOT NULL,
-	nome VARCHAR(255) NOT NULL,
-	tipo ENUM('aluno', 'monitor'),
-	curso VARCHAR(50) NOT NULL,
-	periodo VARCHAR(3) NOT NULL,
-	PRIMARY KEY(matricula)
-)
+CREATE TABLE aluno(
+	matricula varchar(50) PRIMARY KEY NOT NULL,
+    nome varchar(250) NOT NULL,
+    sobrenome varchar(250) NOT NULL,
+    tipo enum('aluno','voluntario','bolsista') NOT NULL,
+    curso varchar(50) NOT NULL,
+    periodo int NOT NULL,
+);
 
 -- criar tabela registro: irá armazenar os registros das aulas/CH semanal das bolsas
 CREATE TABLE registro(
 	id_registro INT NOT NULL AUTO_INCREMENT,
-    matricula_rg INT(50),
+    matricula_rg VARCHAR(50),
     curso_monitoria VARCHAR(50) NOT NULL,
     periodo_monitoria VARCHAR(50) NOT NULL,
     data_monitoria DATE NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE registro(
     data_registro DATE NOT NULL,
     PRIMARY KEY (id_registro),
     FOREIGN KEY (matricula_rg) REFERENCES monitor(matricula)
-)
+);
 
 -- criar tabela para senhas
 CREATE TABLE senha(
@@ -32,4 +32,4 @@ CREATE TABLE senha(
 	senha VARCHAR(255) NOT NULL,
 	PRIMARY KEY(matricula_s),
 	FOREIGN KEY (matricula_s) REFERENCES monitor(matricula)	
-)
+);

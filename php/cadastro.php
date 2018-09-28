@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="../css/global.css">
 	<link rel="stylesheet" href="../css/cadastro.css">
 
+	<script type="text/javascript" src="../js/cadastro.js"></script>
 
 </head>
 <body>
@@ -16,53 +17,51 @@
 			<input type="text" name="sobrenome" placeholder="Nome" required>
 			<input type="text" name="matricula" placeholder="Matrícula" required>
 			<input type="password" name="senha" placeholder="Senha" required>
-			<input type="password" name="confirmSenha" placeholder="Confirmar Senha" required=""><br>
+			<input type="password" name="confirmSenha" placeholder="Confirmar Senha" required>
+			<br>
 			<label>
-				Curso: <select name="curso" id="curso" onchange="cursoatual()" required >
+				Curso: <br> <select name="curso" id="curso" onchange="cursoatual()" required >
 					<option></option>
 					<option value="IPI">IPI</option>
 					<option value="LOG">LOG</option>
 				</select>
 			</label><br>
-			<label>
-				Período(cursando) <select name="periodoCursando" required id="LOG" style="display: none">
+			<label name="periodoCursando" id="LOG" style="display: none">
+				Período(cursando)<br> <select required onchange="tipoAluno()">
 					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
 				</select>
+			</label>
 
-				<select name="periodoCursando" required id="IPI" style="display: none">
+			<label id="IPI" style="display: none">
+				Período(cursando)<br> <select name="periodoCursando" required onchange="tipoAluno()">
 					<option></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+			</label>
+
+			<label id="tipo" style="display: none">
+				Oque você é: <br> <select name="tipoAluno" required onchange="tipoAluno()">
+					<option></option>
+					<option value="aluno">Aluno</option>
+					<option value="voluntario">Voluntario</option>
+					<option value="bolsista">Bolsista</option>
 				</select>
 			</label>
 
 
 
 
-			<input id="sub" type="submit" value="Cadastrar">
+
+
+			<input id="sub" type="submit" value="Cadastrar" style="display: none">
 		</form>
 
 	</fieldset>
-	<script>
-		// Função para definir a quantidade de periodos do curso
-		function cursoatual(){
-			curso = document.getElementById('curso').value;
-			if (curso == "IPI") {
-				document.getElementById(curso).style.display="block";
-				document.getElementById("LOG").style.display="none";
-			}else{
-				document.getElementById(curso).style.display="block";
-				document.getElementById("IPI").style.display="none";
-
-			}
-		}	
-
-
-	</script>
 </body>
 </html>

@@ -13,8 +13,8 @@
 		<h3>Monitoria digital</h3>
 		<h4>Login</h4>
 <?php
-if (isset($_SESSION['erro'])) {
-	echo $_SESSION['erro'];	
+if (isset($_SESSION['erroLogin'])) {
+	echo $_SESSION['erroLogin'];	
 }
 ?>
 		<form action="verifLogin.php" method="POST">
