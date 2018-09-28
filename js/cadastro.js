@@ -17,12 +17,20 @@ function cursoatual() {
 	}
 }
 
+// --------------SELECIONA O TIPO DO CURSO--------------
 function tipoAluno(){
 	tipo = document.getElementById('tipo').value;
 
 	if (tipo == "aluno") {
-		document.getElementById('sub').style.display = "block";
-		document.getElementById("monitorVoluntario").style.display = "none";
-		document.getElementById("monitorBolsista").style.display = "none";
+		document.getElementById("sub").style.display = "block";
+		document.getElementById("monitor").style.display = "none";
+	}else if (tipo == "voluntario" || tipo == "bolsista") {
+		document.getElementById("monitor").style.display = "block";
+		document.getElementById("sub").style.display = "none";
+	}else{
+		document.getElementById("monitor").style.display = "none";
+		document.getElementById("sub").style.display = "none";		
 	}
 }
+
+
