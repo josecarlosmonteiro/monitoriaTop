@@ -6,9 +6,9 @@ CREATE TABLE aluno(
 	matricula varchar(50) PRIMARY KEY NOT NULL,
     nome varchar(250) NOT NULL,
     sobrenome varchar(250) NOT NULL,
-    tipo enum('aluno','voluntario','bolsista') NOT NULL,
+    tipo enum('aluno','monitor') NOT NULL,
     curso varchar(50) NOT NULL,
-    periodo int NOT NULL,
+    periodo int NOT NULL
 );
 
 -- criar tabela registro: irá armazenar os registros das aulas/CH semanal das bolsas
@@ -23,7 +23,7 @@ CREATE TABLE registro(
     atividade VARCHAR(500),
     data_registro DATE NOT NULL,
     PRIMARY KEY (id_registro),
-    FOREIGN KEY (matricula_rg) REFERENCES monitor(matricula)
+    FOREIGN KEY (matricula_rg) REFERENCES aluno(matricula)
 );
 
 -- criar tabela para senhas
@@ -31,5 +31,5 @@ CREATE TABLE senha(
 	matricula_s VARCHAR(25),
 	senha VARCHAR(255) NOT NULL,
 	PRIMARY KEY(matricula_s),
-	FOREIGN KEY (matricula_s) REFERENCES monitor(matricula)	
+	FOREIGN KEY (matricula_s) REFERENCES aluno(matricula)	
 );

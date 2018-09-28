@@ -5,7 +5,7 @@ include 'conn.php';
 $matricula = $_POST['matricula'];
 $senha = $_POST['senha'];
 
-$query = $conn->prepare("SELECT monitor.nome, monitor.curso, monitor.periodo, monitor.tipo, monitor.matricula FROM monitor INNER JOIN senha ON monitor.matricula = senha.matricula_s WHERE monitor.matricula = ? AND senha.senha = ?");
+$query = $conn->prepare("SELECT aluno.nome, aluno.curso, aluno.periodo, aluno.tipo, aluno.matricula FROM aluno INNER JOIN senha ON aluno.matricula = senha.matricula_s WHERE aluno.matricula = ? AND senha.senha = ?");
 
 $query->execute([$matricula, $senha]);
 
