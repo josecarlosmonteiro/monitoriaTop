@@ -3,7 +3,7 @@
 	margin: 0;
 }
 body{
-	background-color: #FFF;
+	background-color: #000;
 	width: 100%;
     height: 100%;
     margin: 0;
@@ -39,7 +39,7 @@ html{
 	padding: 5% 0px 5% 2%;
 }
 #copy{
-	background-color: #000;
+	background-color: #000100;
 }
 .listas{
 	margin-top: 4%;
@@ -152,57 +152,79 @@ label {
 
 /*área disponivel para colocar as classes dos cards são 3*/
 
+
+/*div dos cards*/
 .cards{
-	margin-top: -10%;
+	margin-top: -150px;
 	width: 100%;
-	max-width: 1200px; /*se precisar de aumentar o tamanho da div mexer no max-width: */ 
-	height: 600px;
+	max-width: 1000px;
+	height: auto;
 	background-color:white; 
 	margin-bottom: 1%;
-	border-radius: 50px;
+	border-radius: 100px;
 }
-.car{ 
-		width: 1000px; 
-		margin: auto;
-		margin-top:100px; 
-		
-	}
-	.card{
-		box-shadow:0 4px 8px 0 rgba(0 ,0 ,0 ,0.6);
-		transition: 0.4s;
-		width: 300px;
-		height: 375px;
-		background: #fff;
-		text-align:center;
-		font-size: 16px;
-		font-family:sans-serif;
-		float:left;
-		margin: 10px;
-		border-radius: 10px ;
-		overflow: hidden;
-	}
-	.card:hover{ 
-		box-shadow:0 16px 32px 0 rgba(0 ,0 ,0 ,0.6);
-	}
-	.conatiner{ 
-		padding:2px 16px;
-	}
-
-.cards h1{
-	padding: 5% 0px 0px 0px;
-}
-.cards h4{
+.cardes li{
+	border-radius: 20px;
+	width: 100%;
+	max-width: 250px;
+	height: 350px;
+	background-color:#000;
+	margin-top:5%;
+	margin-left: 2%;
+	text-align: center;
+	margin-bottom: 5%;
 	display: inline-block;
-	padding: 5%;
-	font-size: 22px;
-
+	padding: 10px 10px 0px 0px;
+	box-shadow:0 4px 8px 0 rgba(0 ,0 ,0 ,0.6);
+	transition: 0.5s;
 }
-
+.titulo{
+	background-color: red;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	border-radius: 20px;
+	max-width: 300px;
+	margin-bottom: 1%;
+	box-shadow:0 4px 8px 0 rgba(0 ,0 ,0 ,0.6);
+}
+.titulo h1{
+	color: white;
+	transition: 1s;
+}
+.cardes li:hover{
+	box-shadow:0 16px 32px 0 rgba(0 ,0 ,0 ,0.6);	
+}
+.cardif{
+	background-image: url('imgs/ifpeishonblack2.jpg');
+	background-position-x:-10px;
+	transition: 0.5s;
+}
+.cardif:hover{
+	background-image: url('imgs/ifpeishonblack.png');
+}
+.cardq{
+	background-image: url('imgs/pp.jpg');
+	background-position-x:-11px;
+}
+.cardq:hover{
+	background-image: url('imgs/pp.png') 
+}
+.mn{
+	background-image: url('imgs/mn.jpg');
+	background-position-x:-11px;
+}
+.mn:hover{
+	background-image: url('imgs/mn.png');
+}
 /*-----------------------------------------*/
 /*Parte Responsiva*/
-@media only screen and (max-width:800px ){
+@media only screen and (max-width:840px ){
 	.cards{
 		margin-top: -30%; 
+	}
+	.cardes li{
+		display: block;
 	}
 }
 @media only screen and (max-width:450px ){
