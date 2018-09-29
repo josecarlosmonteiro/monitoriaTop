@@ -155,7 +155,7 @@ label {
 
 /*div dos cards*/
 .cards{
-	margin-top: -150px;
+	margin-top: -330px;
 	width: 100%;
 	max-width: 1000px;
 	height: auto;
@@ -167,7 +167,7 @@ label {
 	border-radius: 20px;
 	width: 100%;
 	max-width: 250px;
-	height: 350px;
+	height: 330px;
 	background-color:#000;
 	margin-top:5%;
 	margin-left: 2%;
