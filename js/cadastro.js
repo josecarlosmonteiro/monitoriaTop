@@ -34,5 +34,6 @@ function monitor(){
 
 	if (curso == "IPI") {
 		periodo = document.getElementById("periodoCursando").value;
+		
 	}
 }

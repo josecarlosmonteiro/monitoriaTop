@@ -27,7 +27,7 @@
 				</select>
 			</label><br>
 			<label name="periodoCursando" id="LOG" style="display: none">
-				Período(cursando)<br> <select required onchange="tipoAluno()">
+				Período(cursando)<br> <select id="cursoIPI" name="periodoCursando" required onchange="tipoAluno()">
 					<option></option>
 					<option value="1">1</option>
 					<option value="2">2</option>
