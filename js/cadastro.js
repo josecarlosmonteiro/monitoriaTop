@@ -18,11 +18,21 @@ function cursoatual() {
 }
 
 function tipoAluno(){
-	tipo = document.getElementById('tipo').value;
+	tipo = document.getElementById('tipoAluno').value;
 
 	if (tipo == "aluno") {
-		document.getElementById('sub').style.display = "block";
-		document.getElementById("monitorVoluntario").style.display = "none";
-		document.getElementById("monitorBolsista").style.display = "none";
+		document.getElementById("sub").style.display = "block";
+		document.getElementById("monitor").style.display = "none";
+	}else if (tipo == "monitor") {
+		document.getElementById("monitor").style.display = "block";		
+		document.getElementById("sub").style.display = "none";
+	}
+}
+
+function monitor(){
+	curso = document.getElementById('curso');
+
+	if (curso == "IPI") {
+		periodo = document.getElementById("periodoCursando").value;
 	}
 }

@@ -46,11 +46,10 @@
 			</label>
 
 			<label id="tipo" style="display: none">
-				Oque você é: <br> <select name="tipoAluno" required onchange="tipoAluno()">
+				Oque você é: <br> <select id="tipoAluno" required onchange="tipoAluno()">
 					<option></option>
 					<option value="aluno">Aluno</option>
-					<option value="voluntario">Voluntario</option>
-					<option value="bolsista">Bolsista</option>
+					<option value="monitor">Monitor</option>
 				</select>
 			</label>
 
@@ -59,7 +58,7 @@
 
 
 
-			<input id="sub" type="submit" value="Cadastrar" style="display: none">
+			<input id="sub" type="submit" value="cadastrar" style="display: none">
 		</form>
 
 	</fieldset>

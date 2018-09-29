@@ -236,7 +236,7 @@ label {
 }
 @media only screen and (max-width: 767px) {
 	.title{
-		font-size: 15px;
+		font-size: 18px;
 		margin-top: 80px;
 	}
     label {
