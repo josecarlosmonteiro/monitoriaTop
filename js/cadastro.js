@@ -13,23 +13,26 @@ function cursoatual() {
 	}else{
 		document.getElementById("IPI").style.display = "none";
 		document.getElementById("LOG").style.display = "none";		
-		document.getElementById("tipo").style.display = "block";
+		document.getElementById("tipo").style.display = "none";
 	}
 }
 
 // --------------SELECIONA O TIPO DO CURSO--------------
 function tipoAluno(){
-	tipo = document.getElementById('tipoAluno').value;
+	tipo = document.getElementById('tipoaluno').value;
 
 	if (tipo == "aluno") {
 		document.getElementById("sub").style.display = "block";
 		document.getElementById("monitor").style.display = "none";
-<<<<<<< HEAD
 	}else if (tipo == "monitor") {
 		document.getElementById("monitor").style.display = "block";		
 		document.getElementById("sub").style.display = "none";
+	}else{
+		document.getElementById("monitor").style.display = "none";		
+		document.getElementById("sub").style.display = "none";
 	}
 }
+
 
 function monitor(){
 	curso = document.getElementById('curso');
@@ -37,14 +40,12 @@ function monitor(){
 	if (curso == "IPI") {
 		periodo = document.getElementById("periodoCursando").value;
 		
-=======
 	}else if (tipo == "voluntario" || tipo == "bolsista") {
 		document.getElementById("monitor").style.display = "block";
 		document.getElementById("sub").style.display = "none";
 	}else{
 		document.getElementById("monitor").style.display = "none";
 		document.getElementById("sub").style.display = "none";		
->>>>>>> 6e066d0b5a20348fcf2ac4b36f18d47f9c2de341
 	}
 }
 
