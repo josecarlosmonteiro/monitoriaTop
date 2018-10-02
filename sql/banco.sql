@@ -8,15 +8,15 @@ CREATE TABLE aluno(
     sobrenome VARCHAR(250) NOT NULL,
     tipo enum('aluno','monitor') NOT NULL,
     curso VARCHAR(50) NOT NULL,
+    periodo_monitoria VARCHAR(50) NOT NULL,
     periodo int NOT NULL
 );
 
 -- cria tabela registro: irá armazenar os registros das aulas/CH semanal das bolsas
 CREATE TABLE registro(
-	id_registro INT NOT NULL AUTO_INCREMENT,
+    id_registro INT NOT NULL AUTO_INCREMENT,
     matricula_rg VARCHAR(50),
     curso_monitoria VARCHAR(50) NOT NULL,
-    periodo_monitoria VARCHAR(50) NOT NULL,
     data_monitoria DATE NOT NULL,
     hora_inicio TIME NOT NULL,
     hora_termino TIME NOT NULL,

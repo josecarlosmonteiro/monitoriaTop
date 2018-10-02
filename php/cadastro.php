@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +13,15 @@
 <body>
 	<fieldset>
 		<h3>Cadastro de Alunos</h3>
+
+			<?php if (isset($_SESSION['erroMat'])) {
+				echo $_SESSION['erroMat'];
+			}?>
 		<form action="addUser.php" method="POST">
 			<input type="text" name="nome" placeholder="Nome" required>
-			<input type="text" name="sobrenome" placeholder="Nome" required>
+			<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 			<input type="text" name="matricula" placeholder="Matrícula" required>
+			<br>
 			<input type="password" name="senha" placeholder="Senha" required>
 			<input type="password" name="confirmSenha" placeholder="Confirmar Senha" required>
 			<br>
@@ -27,7 +33,7 @@
 				</select>
 			</label><br>
 			<label name="periodoCursando" id="LOG" style="display: none">
-				Período(cursando)<br> <select id="cursoLOG" name="periodoCursando" required onchange="tipoAluno()">
+				Período(cursando)<br> <select id="cursoLOG" name="periodoCursando" onchange="tipoAluno()">
 					<option></option>
 					<option>--</option>
 					<option value="1">1</option>
@@ -38,7 +44,7 @@
 			</label>
 
 			<label id="IPI" style="display: none">
-				Período(cursando)<br> <select id="cursoIPI" name="periodoCursando" required onchange="tipoAluno()">
+				Período(cursando)<br> <select id="cursoIPI" name="periodoCursando" onchange="tipoAluno()">
 					<option></option>
 					<option>--</option>
 					<option value="1">1</option>
@@ -48,7 +54,7 @@
 			</label>
 
 			<label id="tipo" style="display: none">
-				Oque você é: <br> <select id="tipoaluno" required onchange="tipoAluno()">
+				Oque você é: <br> <select id="tipoaluno" name="tipo" onchange="tipoAluno()">
 					<option></option>
 					<option >--</option>
 					<option value="aluno">Aluno</option>
@@ -57,7 +63,7 @@
 			</label>
 		
 			<label id="monitor" style="display: none">
-					Período(cursando)<br> <select name="monitor_periodo" required>
+					Período(Monitoria)<br> <select name="monitor_periodo">
 					<option></option>
 						<option>--</option>
 						<option value="1">1</option>
@@ -76,3 +82,4 @@
 	</fieldset>
 </body>
 </html>
+<?php session_destroy(); ?>

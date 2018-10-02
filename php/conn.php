@@ -1,9 +1,7 @@
 <?php
-header('location: home.php');
-	
-$dbname = "id7135993_monitoria";
-$usuario="id7135993_monitoriatop";
-$senha = "monitoriatop";
+$dbname = "relatoriodigital";
+$usuario="root";
+$senha = "";
 try {
 	$conn = new PDO("mysql:host=localhost;dbname=$dbname", $usuario, $senha);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
