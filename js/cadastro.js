@@ -24,29 +24,14 @@ function tipoAluno(){
 	if (tipo == "aluno") {
 		document.getElementById("sub").style.display = "block";
 		document.getElementById("monitor").style.display = "none";
+		document.getElementById("sub").style.display = "block";
 	}else if (tipo == "monitor") {
 		document.getElementById("monitor").style.display = "block";		
 		document.getElementById("sub").style.display = "none";
+		document.getElementById("sub").style.display = "block";
 	}else{
 		document.getElementById("monitor").style.display = "none";		
 		document.getElementById("sub").style.display = "none";
+		document.getElementById("sub").style.display = "block";
 	}
 }
-
-
-function monitor(){
-	curso = document.getElementById('curso');
-
-	if (curso == "IPI") {
-		periodo = document.getElementById("periodoCursando").value;
-		
-	}else if (tipo == "voluntario" || tipo == "bolsista") {
-		document.getElementById("monitor").style.display = "block";
-		document.getElementById("sub").style.display = "none";
-	}else{
-		document.getElementById("monitor").style.display = "none";
-		document.getElementById("sub").style.display = "none";		
-	}
-}
-
-

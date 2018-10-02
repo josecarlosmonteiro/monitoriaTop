@@ -57,12 +57,19 @@
 			</label>
 		
 			<label id="monitor" style="display: none">
-				<h1>TEST</h1>
+					Período(cursando)<br> <select name="monitor_periodo" required>
+					<option></option>
+						<option>--</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<br>
+
+					<input type="text" name="cadeira_monitor" placeholder="Digite a cadeira em que é monitor">
+				</label>
+				<br>
+
 			</label>
-		
-		
-		
-		
 		<input id="sub" type="submit" value="Cadastrar" style="display: none">
 
 		</form>
