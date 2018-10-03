@@ -17,13 +17,19 @@
 			<?php if (isset($_SESSION['erroMat'])) {
 				echo $_SESSION['erroMat'];
 			}?>
-		<form action="addUser.php" method="POST">
+		<form action="addUser.php" method="POST" name="cadastro">
 			<input type="text" name="nome" placeholder="Nome" required>
 			<input type="text" name="sobrenome" placeholder="Sobrenome" required>
 			<input type="text" name="matricula" placeholder="Matrícula" required>
 			<br>
-			<input type="password" name="senha" placeholder="Senha" required>
-			<input type="password" name="confirmSenha" placeholder="Confirmar Senha" required>
+			<?php 
+			if (isset($_SESSION['nao'])) {
+				echo $_SESSION['nao'];
+			}
+
+			 ?>
+			<input type="password" name="senha" placeholder="Senha"  required="">
+			<input type="password" name="confirmSenha" placeholder="Confirmar Senha" required="">
 			<br>
 			<label>
 				Curso: <br> <select name="curso" id="curso" onchange="cursoatual()" required >

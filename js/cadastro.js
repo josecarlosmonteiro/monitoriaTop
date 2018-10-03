@@ -1,3 +1,15 @@
+//Validação de Senhas
+
+function validar(){
+	var senha = cadastro.senha.value;
+	var senhaRep = cadastro.confirmsenha.value;
+	if (senha == "" || senha.length <= 8) {
+		alert('impossivel continuar com o campo Senha Vazio');
+		cadastro.senha.focus();
+		return false;
+	}
+}
+
 // --------------SELECIONA O TIPO DO CURSO--------------
 function cursoatual() {
 	curso = document.getElementById('curso').value;

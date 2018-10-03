@@ -1,9 +1,13 @@
 <?php
 session_start();
-include 'conn.php';
-$query = $conn->prepare('SELECT matricula FROM aluno WHERE matricula=?');
-$query->execute([$_POST['matricula']]);
-$data = $query->fetchAll();
+if ($_POST['senha'] != $_POST['confirmSenha']) {
+	header('Location:cadastro.php');
+	$_SESSION['nao'] = "Senhas não conferem, Por favor repita";
+}else{	
+	include 'conn.php';
+	$query = $conn->prepare('SELECT matricula FROM aluno WHERE matricula=?');
+	$query->execute([$_POST['matricula']]);
+	$data = $query->fetchAll();
 
 if(sizeof($data)>=1){
 	$_SESSION['erroMat'] = "Matrícula já cadastrada";
@@ -21,5 +25,6 @@ if(sizeof($data)>=1){
 		$senha = $conn->prepare('INSERT INTO senha (matricula_s, senha) VALUES (?, ?)');
 		$senha->execute([$_POST['matricula'], $_POST['senha']]);
 		}
-}	
+	}
+}
 ?>
