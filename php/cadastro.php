@@ -6,7 +6,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="../css/global.css">
 	<link rel="stylesheet" href="../css/cadastro.css">
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 	<script type="text/javascript" src="../js/cadastro.js"></script>
 
 </head>
@@ -24,7 +24,7 @@
 			<br>
 			<?php 
 			if (isset($_SESSION['nao'])) {
-				echo $_SESSION['nao'];
+					echo "<h3 class= animated shake >".$_SESSION['nao']."</h3>";
 			}
 
 			 ?>
