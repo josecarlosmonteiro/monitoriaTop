@@ -24,7 +24,7 @@
 			<br>
 			<?php 
 			if (isset($_SESSION['nao'])) {
-					echo "<h3 class= animated shake >".$_SESSION['nao']."</h3>";
+					echo "<br><br><font color=red><h3 class= 'animated shake' >".$_SESSION['nao']."</h3></font>";
 			}
 
 			 ?>
