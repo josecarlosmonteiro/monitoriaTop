@@ -16,11 +16,11 @@ CREATE TABLE aluno(
 CREATE TABLE registro(
     id_registro INT NOT NULL AUTO_INCREMENT,
     matricula_rg VARCHAR(50),
-    curso_monitoria VARCHAR(50) NOT NULL,
     data_monitoria DATE NOT NULL,
     hora_inicio TIME NOT NULL,
     hora_termino TIME NOT NULL,
     atividade VARCHAR(500),
+    tipo_atividade VARCHAR(100),
     data_registro DATE NOT NULL,
     PRIMARY KEY (id_registro),
     FOREIGN KEY (matricula_rg) REFERENCES aluno(matricula)
