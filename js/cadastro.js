@@ -44,6 +44,6 @@ function tipoAluno(){
 	}else{
 		document.getElementById("monitor").style.display = "none";		
 		document.getElementById("sub").style.display = "none";
-		document.getElementById("sub").style.display = "block";
+		document.getElementById("sub").style.display = "none";
 	}
 }
