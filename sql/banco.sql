@@ -42,3 +42,24 @@ CREATE TABLE curso_cadeira(
     curso VARCHAR(255),
     periodo VARCHAR(255)
 );
+
+-- tabelas para o forum
+
+CREATE TABLE perguntas(
+    id_pergunta int(20) PRIMARY KEY AUTO_INCREMENT,
+    perg_matricula VARCHAR(50),
+    perg_nome VARCHAR(250),
+    titulo VARCHAR(50) NOT NULL,
+    corpo VARCHAR(500) NOT NULL,
+    FOREIGN KEY (perg_matricula) REFERENCES aluno(matricula),
+    FOREIGN KEY (perg_nome) REFERENCES aluno(nome)
+);
+
+CREATE TABLE respostas(
+    id_resposta int(20) PRIMARY KEY AUTO_INCREMENT,
+    fk_id_pergunta VARCHAR(500) NOT NULL,
+    resp_nome VARCHAR NOT NULL,
+    text_resposta VARCHAR(500) NOT NULL,
+    FOREIGN KEY (fk_id_pergunta) REFERENCES perguntas(id_pergunta),
+    FOREIGN KEY (resp_nome) REFERENCES aluno(nome)
+);
