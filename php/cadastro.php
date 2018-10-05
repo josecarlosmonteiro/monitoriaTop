@@ -60,7 +60,7 @@
 			</label>
 
 			<label id="tipo" style="display: none">
-				Oque você é: <br> <select id="tipoaluno" name="tipo" onchange="tipoAluno()">
+				Qual o seu papel? <br> <select id="tipoaluno" name="tipo" onchange="tipoAluno()">
 					<option></option>
 					<option >--</option>
 					<option value="aluno">Aluno</option>

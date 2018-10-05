@@ -41,5 +41,4 @@ CREATE TABLE curso_cadeira(
     cadeira VARCHAR(255),
     curso VARCHAR(255),
     periodo VARCHAR(255)
-
-)
+);

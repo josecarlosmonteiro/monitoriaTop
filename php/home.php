@@ -18,8 +18,8 @@ if (isset($_SESSION['user'])) { ?>
         <div class="menu">
             <span style="float: left; margin-left: 20px;"><?= $_SESSION['user'] ?> <?= $_SESSION['curso'] ?></span>
             <a href="#">
-            <a href="#">Adicionar evento</a>
-            <a href="#">Listar eventos</a>
+            <a href="">Forum</a>
+            <a href="registros.php">Registros</a>
             <a href="#">Gerar documento</a>
             <a href="#">Enviar documento</a>
             <a href="logOut.php">Sair</a>

@@ -9,12 +9,13 @@ if (isset($_SESSION['user'])) { ?>
 	<meta charset="utf-8">
 	<title>Registros</title>
 	<link rel="stylesheet" type="text/css" href="../CSS/global.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
 
 	<fieldset>
 		<form action="addEvento.php" method="POST">
-			Data da monitoria: <input required type="date" name="data_monitoria"> <br>
+			Data da monitoria: <br> <input required type="date" name="data_monitoria"> <br>
 			Hora de início:  <br> <input required type="time" name="hora_inicio"> <br>
 			Hora de termino:  <br> <input required type="time" name="hora_termino"> <br>
 			Tipo da atividade (ex: reunião, aula, etc...): <input required type="text" name="tipo_atividade"> <br>
@@ -47,7 +48,8 @@ if (isset($_SESSION['user'])) { ?>
 						<td><?= $lista['hora_termino'] ?> </td>
 						<td><?= $lista['tipo_atividade'] ?></td>
 						<td><?= $lista['atividade'] ?> </td>
-						<td><a href="rmRegistro.php?id=<?=$lista['id_registro']?>">remover</a></td>
+						<td><a href="editRegistro.php?id=<?=$lista['id_registro']?>"> <i class="far fa-edit"></i> </a></td>
+						<td><a href="rmRegistro.php?id=<?=$lista['id_registro']?>"> <i class="far fa-trash-alt"></i> </a></td>
 					</tr>
 		<?php	endforeach; ?>
 			</table>
