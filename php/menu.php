@@ -1,45 +1,43 @@
 <?php 
-	$tipo = 'deb';
+	//indicação do tipo do aluno (monitor / aluno)
+	$type = 'mnt';
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../css/menu.css">
 	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/menu.css">
 </head>
 <body>
-	<div class="menu">
-		<nav id="monitor">
-			<ul>
-				<font color="white;"><a id="btn_menu" onclick="drop()">&#9776;</a></font>
-					<nav id="links">
-						<?php if($tipo == 'monitor'){ ?>					
-						<li id="user">NomeMonitor - IPI</li>
-						<li><a href="#">Sair</a></li>
-						<li><a href="#">Atividades</a></li>
-						<li><a href="#">Mensagens</a></li>
-						<li><a href="#">Início</a></li>
-					<?php }else{ ?>
-						<li id="user">NomeAluno - Log</li>
-						<li><a href="#">Sair</a></li>
-						<li><a href="#">Mensagens</a></li>
-						<li><a href="#">Início</a></li>
-						<?php } ?>
-					</nav>
-			</ul>
+	<nav class="menu">
+		<ul>
+		<button id="btnMenu" onclick="alternar()">&#9776;</button>
+		<?php if($type=='mnt'){ ?>	
+			<li id="idUser">NomeMonitor - CRS-2</li>
+		<?php }else{ ?>
+			<li id="idUser">NomeAluno - CRS-1</li>
+		<?php } ?>
+		<nav id="navRight">
+		<?php if($type=='mnt'){ ?>
+			<li><a href="#">Gerar Documento</a></li>
+		<?php } ?>
+			<li><a href="#" >Atividades</a></li>
+			<li><a href="#">Avisos</a></li>
+			<li><a href="#">Sair</a></li>
 		</nav>
-	</div>
+		</ul>
+	</nav>
 </body>
 </html>
-<script>
-	function drop(){
-		var estado = document.getElementById("links");
-		if(estado.style.display === "block"){
-			estado.style.display = "none";
+<script type="text/javascript">
+	function alternar(){
+		var status = document.getElementById("navRight");
+		if(status.style.display == "block"){
+			status.style.display = "none"
 		}else{
-			estado.style.display = "block";
+			status.style.display = "block"
 		}
 	}
 </script>

@@ -1,6 +1,6 @@
 <?php
-session_start();
-if (isset($_SESSION['user'])) { ?>
+//session_start();
+//if (isset($_SESSION['user'])) { ?>
 
 <!DOCTYPE html>
 <html>
@@ -11,20 +11,7 @@ if (isset($_SESSION['user'])) { ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <div class="nav">
-        <img src="../img/ifpe.png">
-        <label for="h"><span class="hamburger">&#9776;</span></label>
-        <input type="checkbox" id="h"/>
-        <div class="menu">
-            <span style="float: left; margin-left: 20px;"><?= $_SESSION['user'] ?> <?= $_SESSION['curso'] ?></span>
-            <a href="#">
-            <a href="">Forum</a>
-            <a href="registros.php">Registros</a>
-            <a href="#">Gerar documento</a>
-            <a href="#">Enviar documento</a>
-            <a href="logOut.php">Sair</a>
-        </div>
-    </div>
+    <?php include 'menu.php'; ?>
     <div class="content">
         
     </div>
@@ -34,6 +21,6 @@ if (isset($_SESSION['user'])) { ?>
 </body>
 </html>
 <?php
-}else{
-    header('location: login.php');
-}
+//}else{
+  //  header('location: login.php');
+//}
