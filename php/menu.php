@@ -32,12 +32,19 @@
 </body>
 </html>
 <script type="text/javascript">
+	var btn = document.getElementById("btnMenu");
+	if(btn.style.display === "none"){
+		status.style.display = "block";
+	}
 	function alternar(){
 		var status = document.getElementById("navRight");
-		if(status.style.display == "block"){
+		if(status.style.display === "block"){
 			status.style.display = "none"
 		}else{
 			status.style.display = "block"
 		}
+	}
+	if(btn.style.display === "none"){
+		status.style.display = "block"
 	}
 </script>

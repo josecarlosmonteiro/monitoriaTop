@@ -3,117 +3,76 @@
   padding: 0;
 }
 
-.menu ul{
-  list-style: none;
-  width: 100%;
-  display: block;
-  float: left;
-  background-color: #596;
-  position: relative;
-  height: 50px;
-}
-
-.menu ul li{
-  display: block;
-  float: left;
-
-  text-align: center;
-  position: relative;
-  right: 0;
-  color: white;
-}
-
-.menu a{
-  color: white;
-  text-decoration: none;
-  padding: 15px;
-  display: block;
-  color: black;
-}
-
-#navRight{
-  float: right;
-  background-color: gray;
-  margin: 0;
-  width: 70%;
-  display: inline-block;
-  position: relative;
-}
-
-#idUser{
-  float: left;
-  position: absolute;
-  top: -10px;
-  left: 5px;
-  padding: 15px;
-  margin-left: -5px;
-  width: 20%;
-}
-
-#btnMenu{
-  display: none;
-}
-
 @media screen{
-  .menu a, #idUser{
-    transition: 0.2s;
+  .menu ul{
+    width: 100%;
+    background-color: #586;
+    height: 50px;
+    position: relative;
+    list-style: none;
   }
-  .menu #idUser:hover{
-    border: 1px solid darkgreen;
-    padding: 25px 15px;
-    background-color: #485;
+  .menu #navRight{
+    position: absolute;
+    right: 0;
+    width: 47%;
+    min-width: 700px;
+    background-color: #333;
+    display: block;
+  }
+  .menu ul li{
+    display: block;
+    float: left;
+    text-align: center;
+    width: 25%;
+  }
+  #navRight{
+    float: right;
+  }
+  .menu a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 15px 5px;
   }
   .menu a:hover{
-    background-color: #485;
-    padding: 25px 15px;
-    border: 1px solid darkgreen;
+    background-color: #475;
   }
-}
-
-@media (max-width: 550px){
-  #navRight{
+  #idUser{
+    display: inline-block;
+    float: left;
+    color: white;
+    padding: 15px;
+    position: absolute;
+  }
+  #btnMenu{
     display: none;
   }
+}
 
-  #btnMenu{
-    display: inline-block;
-    float: right;
+@media (max-width: 800px){
+  .menu #navRight{
+    display: none;
     position: relative;
-    margin: 5px;
-    padding: 1px 16px;
-    color: white;
-    font-size: 25px;
   }
-
-  #idUser{
-    display: inline;
-    float: left;
-    color: black;
-    width: 20%;
-  }
-
-  .menu*{
-    transition: 0s;
-  }
-
   .menu ul li{
     width: 100%;
+    display: inline-block;
+  }
+  #btnMenu{
     display: block;
-    position: relative;
-    top: 48px;
-    left: 0px;
-  }
-
-  .menu a{
-    width: 100%;
-    padding: 10px;
-    margin: 0px auto;
-    background-color: #485;
-  }
-
-  .menu a:hover{
-    padding: 15px;
+    float: right;
     border: none;
+    padding: 8px 20px;
+    position: absolute;
+    right: 0;
+    background-color: #475;
+    color: white;
+    font-size: 30px;
   }
-
+  #idUser{
+    position: relative;
+    padding: 15px 0px;
+    top: 0;
+    width: 190px;
+  }
 }
