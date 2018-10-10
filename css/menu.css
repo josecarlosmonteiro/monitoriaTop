@@ -3,76 +3,75 @@
   padding: 0;
 }
 
+.menu ul{
+  list-style: none;
+  background-color: #333;
+  display: block;
+  position: relative;
+  height: 50px;
+}
+
+.menu ul li{
+  display: block;
+  position: relative;
+  float: left;
+  width: 17%;
+  text-align: center;
+  font-size: 15px;
+}
+
+.menu ul li a{
+  padding: 15px;
+  display: block;
+  color: white;
+  text-decoration: none;
+  background-color: #444;
+}
+
+#user{
+  text-decoration: none;
+  color: white;
+  padding: 15px 10px;
+  float: right;
+}
+
+label{
+  display: none;
+}
+
 @media screen{
-  .menu ul{
-    width: 100%;
-    background-color: #586;
-    height: 50px;
-    position: relative;
-    list-style: none;
-  }
-  .menu #navRight{
-    position: absolute;
-    right: 0;
-    width: 47%;
-    min-width: 700px;
-    background-color: #333;
-    display: block;
-  }
-  .menu ul li{
-    display: block;
-    float: left;
-    text-align: center;
-    width: 25%;
-  }
-  #navRight{
-    float: right;
-  }
   .menu a{
-    text-decoration: none;
-    color: white;
-    display: block;
-    padding: 15px 5px;
+    transition: 0.3s;
   }
   .menu a:hover{
-    background-color: #475;
-  }
-  #idUser{
-    display: inline-block;
-    float: left;
-    color: white;
-    padding: 15px;
-    position: absolute;
-  }
-  #btnMenu{
-    display: none;
+    background-color: #555;
   }
 }
 
-@media (max-width: 800px){
-  .menu #navRight{
-    display: none;
-    position: relative;
+@media (max-width: 650px){
+  .menu ul{
+    background-color: #333;
   }
   .menu ul li{
+    display: none;
     width: 100%;
+    text-align: center;
+  }
+  .menu ul li a{
+    border-bottom: 1px solid black;
+  }
+  #user{
+    padding: 15px 10px;
+  }
+  label{
     display: inline-block;
-  }
-  #btnMenu{
-    display: block;
-    float: right;
-    border: none;
-    padding: 8px 20px;
-    position: absolute;
-    right: 0;
-    background-color: #475;
     color: white;
-    font-size: 30px;
+    padding: 8px 30px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
   }
-  #idUser{
-    position: relative;
-    padding: 15px 0px;
-    top: 0;
-    width: 190px;
+  #btnMenu:checked ~ .menu{
+    display: block;
   }
 }
