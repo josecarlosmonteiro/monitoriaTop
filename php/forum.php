@@ -1,6 +1,15 @@
 <?php
 session_start();
 include 'conn.php';
+
+$query = $conn->prepare("SELECT id_pergunta, perg_nome, titulo, corpo FROM perguntas ORDER BY id_pergunta DESC");
+$query->execute();
+$data = $query->fetchALL(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+var_dump($data);
+echo "</pre>";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +28,8 @@ include 'conn.php';
 			padding: 20px;
 		}
 		.notice{
-			width: 90%;
+			width: auto;
+			max-width: 5000px;
 			margin: 20px auto;
 			text-align: left;
 			border: 2px solid gray;
@@ -35,10 +45,12 @@ include 'conn.php';
 <body>
 	<div class="feed">
 		<h1>Feed de Dúvidas</h1>
+		<?php foreach ($data as $forum) { ?>	
 		<div class="notice">
-			<h3>Como imprimir uma array bidimensional? - <a href="#">Fulano - IPI/1</a></h3>
+			<input type="hiden">
+			<h3> <?= $forum['titulo'] ?> - <a href="#"><?= $forum['perg_nome'] ?> - IPI/1</a></h3>
 			<hr>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error eum nostrum enim sunt ex voluptate nisi rerum voluptatibus harum saepe? Maiores temporibus nostrum ducimus cupiditate id, commodi tenetur voluptate voluptatum!</p>
+			<p><?= $forum['corpo'] ?></p>
 			<a href="#">Responder</a>
 
 			<div class="resposta">
@@ -46,19 +58,9 @@ include 'conn.php';
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum recusandae beatae in perspiciatis ratione minus iure eligendi!</p>
 			</div>
 		</div>
+		<?php } ?>
 
-		<div class="notice">
-			<h3>Como imprimir uma array bidimensional? - <a href="#">Fulano - IPI/1</a></h3>
-			<hr>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia vitae hic autem possimus soluta ducimus dolorem non ea impedit officiis, minima totam, modi iste quo veniam quibusdam quasi natus aut?</p>
-			<a href="#">Responder</a>
-		</div>
-		<div class="notice">
-			<h3>Como imprimir uma array bidimensional? - <a href="#">Fulano - IPI/1</a></h3>
-			<hr>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam eum nostrum eligendi maxime, maiores architecto quibusdam modi, debitis fugit veritatis quo sapiente reprehenderit amet! Explicabo fuga quasi ex repudiandae rerum.</p>
-			<a href="#">Responder</a>
-		</div>
+		
 	</div>
 </body>
 </html>
