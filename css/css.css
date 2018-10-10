@@ -121,8 +121,16 @@ html{
     margin: 0 10px;
     line-height: 70px;
 }
-.menu a:hover{
+.menu a:hover, .btn-log:hover{
     color: red;
+}
+.btn-log{
+	background: none;
+	border: none;
+	color:white;
+	font-family: 'monitoria';
+	font-size: 20px;
+	cursor: pointer;	
 }
 
 label {
