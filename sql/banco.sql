@@ -35,14 +35,14 @@ CREATE TABLE senha(
 );
 
 -- cria tabela de cadeira dos cursos
-
+-------------------------------------------------------
 CREATE TABLE curso_cadeira(
     id_cadeira INT PRIMARY KEY NOT NULL,
     cadeira VARCHAR(255),
     curso VARCHAR(255),
     periodo VARCHAR(255)
 );
-
+-------------------------------------------------------
 -- tabelas para o forum
 
 CREATE TABLE perguntas(
