@@ -48,7 +48,7 @@ label{
   }
 }
 
-@media (max-width: 550px){
+@media (max-width: 590px){
   .menu ul li{
     display: none;
     width: 100%;
