@@ -19,13 +19,13 @@ if(sizeof($data)>=1){
 			$aluno->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando']]);
 			$senha = $conn->prepare('INSERT INTO senha (matricula_s, senha) VALUES (?, ?)');
 			$senha->execute([$_POST['matricula'], $_POST['senha']]);
-			// header('location: login.php');
+			header('location: login.php');
 		}else{
 			$monitor = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, periodo_monitoria) VALUES (?, ?, ?, ?, ?, ?, ?)');
 			$monitor->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['monitor_periodo']]);
 			$senha = $conn->prepare('INSERT INTO senha (matricula_s, senha) VALUES (?, ?)');
 			$senha->execute([$_POST['matricula'], $_POST['senha']]);
-			// header('location: login.php');
+			header('location: login.php');
 		}
 	}
 }

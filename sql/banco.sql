@@ -8,7 +8,7 @@ CREATE TABLE aluno(
     sobrenome VARCHAR(250) NOT NULL,
     tipo enum('aluno','monitor') NOT NULL,
     curso VARCHAR(50) NOT NULL,
-    periodo_monitoria VARCHAR(50) NOT NULL,
+    periodo_monitoria VARCHAR(50),
     periodo int NOT NULL
 );
 
