@@ -8,8 +8,8 @@
 <body>
 	<nav class="menu">
 		<ul>
-			<input type="checkbox" id="btnMenu">
-			<label for="btnMenu">&#9776;</label>
+			<input type="checkbox" id="btnMenu" style="display: none;">
+			<label for="btnMenu" id="btn">&#9776;</label>
 			<a id="user" href="#">NomeUsuário - CRS-1</a>
 			<li><a href="#">Documento</a></li>
 			<li><a href="#">Atividades</a></li>
