@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'conn.php';
+require_once 'conn.php';
 if ($_POST['senha'] != $_POST['confirmSenha']) {
 	header('location:cadastro.php');
 	$_SESSION['nao'] = "Senhas não conferem, Por favor repita";
@@ -11,6 +11,9 @@ if ($_POST['senha'] != $_POST['confirmSenha']) {
 
 if(sizeof($data)>=1){
 	$_SESSION['erroMat'] = "Matrícula já cadastrada";
+	$_SESSION['mt'] = $_POST['matricula'];
+	$_SESSION['nm'] = $_POST['nome'];
+	$_SESSION['sn'] = $_POST['sobrenome'];
 	header('location: cadastro.php');
 
 }else{

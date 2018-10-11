@@ -1,6 +1,10 @@
 <?php
-//session_start();
-//if (isset($_SESSION['user'])) { ?>
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('location:login.php');
+} 
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +23,3 @@
     </footer>
 </body>
 </html>
-<?php
-//}else{
-  //  header('location: login.php');
-//}

@@ -10,11 +10,11 @@
 		<ul>
 			<input type="checkbox" id="btnMenu" style="display: none;">
 			<label for="btnMenu" id="btn">&#9776;</label>
-			<a id="user" href="#">NomeUsuário - CRS-1</a>
+			<a id="user" href="#"><?=$_SESSION['user']?>- CRS-1</a>
 			<li><a href="#">Documentos</a></li>
 			<li><a href="#">Atividades</a></li>
 			<li><a href="#">Avisos</a></li>
-			<li><a href="#">Sair</a></li>
+			<li><a href="logout.php">Sair</a></li>
 		</ul>
 	</nav>
 </body>

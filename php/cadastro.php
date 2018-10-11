@@ -1,4 +1,21 @@
-<?php session_start(); ?>
+<?php session_start();
+
+if (isset($_SESSION['nm'])) {
+	$nomeForm = $_SESSION['nm'];
+}else{
+	$nomeForm = "";
+}
+if (isset($_SESSION['sn'])) {
+	$sobreNomeForm = $_SESSION['sn'];
+}else{
+	$sobreNomeForm = "";
+}
+if (isset($_SESSION['mt'])) {
+	$matForm = $_SESSION['mt'];
+}else{
+	$matForm = "";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +35,9 @@
 				echo $_SESSION['erroMat'];
 			}?>
 		<form action="addUser.php" method="POST" name="cadastro">
-			<input type="text" name="nome" placeholder="Nome" required>
-			<input type="text" name="sobrenome" placeholder="Sobrenome" required>
-			<input type="text" name="matricula" placeholder="Matrícula" required>
+			<input type="text" name="nome" placeholder="Nome" required value="<?= $nomeForm; ?>">
+ 			<input type="text" name="sobrenome" placeholder="Sobrenome" required value="<?= $sobreNomeForm; ?>">
+			<input type="text" name="matricula" placeholder="Matrícula" required value="<?= $matForm; ?>">
 			<br>
 			<?php 
 			if (isset($_SESSION['nao'])) {
