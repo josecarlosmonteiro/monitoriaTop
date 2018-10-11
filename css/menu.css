@@ -48,30 +48,20 @@ label{
   }
 }
 
-@media (max-width: 650px){
-  .menu ul{
-    background-color: #333;
-  }
+@media (max-width: 590px){
   .menu ul li{
     display: none;
     width: 100%;
-    text-align: center;
-  }
-  .menu ul li a{
     border-bottom: 1px solid black;
   }
-  #user{
-    padding: 15px 10px;
-  }
-  label{
-    display: inline-block;
+  .menu ul #btn{
     color: white;
-    padding: 8px 30px;
-    text-align: center;
-    font-size: 25px;
+    display: block;
+    float: left;
+    padding: 12px 20px;
     cursor: pointer;
   }
-  #btnMenu:checked ~ .menu{
+  .menu ul #btnMenu:checked ~ li{
     display: block;
-  }
+  } 
 }

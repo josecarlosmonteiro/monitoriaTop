@@ -16,6 +16,9 @@
 if (isset($_SESSION['erroLogin'])) {
 	echo $_SESSION['erroLogin'];	
 }
+if (isset($_SESSION['user'])) {
+	header('location:home.php');
+}
 ?>
 		<form action="verifLogin.php" method="POST">
 			<input type="text" placeholder="matricula" name="matricula" required>
