@@ -4,6 +4,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <style>
+
+::-webkit-input-placeholder {
+	color: #fff;
+}
+:-moz-placeholder{
+	color: #fff;
+}
+:-ms-input-placeholder{
+	color: #fff;
+}
+
+input{
+ 	display: block;
+ 	height: auto;
+ 	width: auto;
+ 	margin: 5px;
+ 	border-radius: 90px;
+	border: 1px solid black;
+ 	font-size: 16pt;
+ 	padding: 8px 15px;
+ 	border:none;
+ 	background-color: rgba(255,255,255,0.3);
+ 	color:white;
+ 	outline: none;
+}
+
+input[type=submit]{
+	background-color: red;
+	border: none;
+	cursor: pointer;
+}
+
 .modal {
     display: none; 
     position: fixed; 
@@ -77,10 +109,13 @@
 <button id="botao">Open Modal</button>
 <div id="modalP" class="modal">
   <div class="modalConteudo">
-    <h1>Login</h1>
       <span class="fechar"></span>
       <form action="">
-          <!-- Aqui arthur -->
+
+         <input type="text" name="usuario" placeholder="matricula" required="">
+		<input type="password" name="senha" placeholder="Senha" required="">
+		<input type="submit" value="Entrar">
+
         </form>
     </div>
   </div>
