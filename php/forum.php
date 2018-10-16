@@ -6,10 +6,6 @@ $query = $conn->prepare("SELECT id_pergunta, perg_nome, titulo, corpo FROM pergu
 $query->execute();
 $data = $query->fetchALL(PDO::FETCH_ASSOC);
 
-echo "<pre>";
-var_dump($data);
-echo "</pre>";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,9 +41,21 @@ echo "</pre>";
 <body>
 	<div class="feed">
 		<h1>Feed de Dúvidas</h1>
+		<?php 
+			if (isset($_SESSION['matricula'])) { ?>
+				<form action="addPerg.php" method="POST">
+					<input type="text" required name="titulo" placeholder="Digite o título da pergunta">
+					<input type="text" required name="corpo" placeholder="Digite sua pergunta">
+					<input type="submit" value="Enviar">
+				</form>
+			<?php 
+				}else{
+					echo "Faça login para realizar perguntas.";
+				}
+			 ?>	
 		<?php foreach ($data as $forum) { ?>	
 		<div class="notice">
-			<input type="hiden">
+			<input type="hidden">
 			<h3> <?= $forum['titulo'] ?> - <a href="#"><?= $forum['perg_nome'] ?> - IPI/1</a></h3>
 			<hr>
 			<p><?= $forum['corpo'] ?></p>
@@ -56,9 +64,15 @@ echo "</pre>";
 			<div class="resposta">
 				<h3><a href="#">Fulano</a> - Monitor Lógica (IPI/2)</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum recusandae beatae in perspiciatis ratione minus iure eligendi!</p>
+				<form action="addResp.php" method="POST">
+					<input type="hidden" name="id" value="<?= $forum['id_pergunta'] ?>">
+					<input type="text" placeholder="Digite uma resposta" name="resposta">
+					<input type="submit" value="responder">
+				</form>
 			</div>
 		</div>
-		<?php } ?>
+		<?php echo $forum['id_pergunta']; 
+		} ?>
 
 		
 	</div>

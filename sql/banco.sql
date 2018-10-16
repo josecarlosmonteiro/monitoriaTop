@@ -1,6 +1,8 @@
 -- cria banco
 CREATE DATABASE relatoriodigital;
 
+USE relatoriodigital;
+
 -- cria primeira tabela
 CREATE TABLE aluno(
 	matricula VARCHAR(50) PRIMARY KEY NOT NULL,
