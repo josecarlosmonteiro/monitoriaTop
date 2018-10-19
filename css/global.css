@@ -1,69 +1,123 @@
-@media screen{
-  body{
-    color: #333;
-    background-color: #333;
-    text-align: center;
-    margin: auto;
-    padding: 0;
-  }
- fieldset{
-    max-width: 35%;
-    min-width: 450px;
-    margin: auto;
-    margin-bottom: 60px;
-    position: relative;
-    top: 40px;
-    padding: 60px 10px;
-    border: 1.5px solid silver;
-    border-radius: 8px;
-    display: block;
-    background-color: #fafbfc;
-    color: #353;
-  }
-  input, button{
-    display: inline-block;
-    margin: 10px auto;
-    padding: 10px;
-    color: #2a623e;
-    transition: 0.2s;
-    border-radius: 5px;
-    width: 70%;
-  }
-  #sub{
-    position: relative;
-    display: block;
-    top: 35px;
-    background-color: #821a1e;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 15px 35px;
-    transition: 0.2s;
-    width: 50%;
-  }
-  p{
-    float: left;
-  }
-  .botao_a{
-    text-decoration: none;
-    color: white;
-    background-color: #821a1e;
-    border: 1px solid;
-    padding: 16px 20px;
-    width: 35%;
-    min-width: 120px;
-    display: inline-block;
-    border: none;
-    border-radius: 8px;
-    position: relative;
-    transition: 0.3s;
-    margin: auto;
-    margin-top: 10px;
-  }
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  font-family: "helvetica neue", sans-serif;
 }
 
-input, select{
-  color: #2a623e;
+fieldset{
+  width: 50%;
+  max-width: 700px;
+  min-width: 200px;
+  margin: 20px auto;
+  margin-top: 60px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  color: white;
+}
+
+#links{
+  color: white;
+  margin: 30px auto;
+  display: block;
+}
+
+.btnSubmit{
+  padding: 10px 20px;
+  width: 180px;
+  margin: 10px auto;
+  text-align: center;
+  display: block;
+  border: none;
+  border-radius: 8px;
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+}
+
+.card{
+  border-bottom: 2px solid gray;
+  margin: 10px auto;
+  padding: 20px;
+  width: 80%;
+  text-align: left;
+  color: white;
+}
+
+.content{
+  width: 75%;
+  text-align: center;;
+  margin: auto;
+  background-color: #444;
+  padding: 50px 0px;
+}
+
+.footer{
+    background-color: #24292e ;
+    padding: 15px 0px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.campoInput{
+  display: none;
+}
+
+#btnPergunta{
+  display: block;
+  color: white;
+  padding: 10px 20px;
+  border-bottom: 2px solid gray;
+  width: 90px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+#checkPergunta:checked ~ .campoInput{
+  display: block;
+}
+
+input, textarea, select{
+  width: 80%;
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #353535;
+  color: white;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+
+#inputAcess, select{
+  max-width: 200px;
+  min-width: 90px;
+}
+
+#inputForum{
+  background-color: #444;
+  display: block;
+  padding: 10px;
+  margin: 5px auto;
+  width: 50%;
+}
+
+#topico{
+  color: white;
+  transition: 0.3s;
+  margin: 5px;
+  font-size: 20px;
+  text-align: left;
+}
+
+#userForum{
+  text-decoration: none;
+  color: white;
+  float: right;
+  font-size: 16px;
 }
 
 @media (max-width: 420px){

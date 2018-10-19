@@ -20,61 +20,39 @@ $data_resp = $query_resp->fetchALL();
 <head>
 	<title></title>
 	<meta charset="utf-8">
-	<style>
-		body{
-			background-color: #ddd;
-			text-align: center;
-		}
-		.feed{
-			width: 1080px;
-			margin: auto;
-			background-color: white;
-			padding: 20px;
-		}
-		.notice{
-			width: auto;
-			max-width: 5000px;
-			margin: 20px auto;
-			text-align: left;
-			border: 2px solid gray;
-			border-radius: 8px;
-			padding: 10px;
-		}
-		.resposta{
-			width: 70%;
-			margin: 15px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<?php include "menu.php" ?>
 </head>
 <body>
-	<div class="feed">
-		<h1>Forum TOP</h1>
-		<a href="forum.php">Voltar</a>
-		<div class="notice">
+	<div class="content">
+		<div class="card">
 			<input type="hidden">
-			<h3> <?= $data_perg[0]['titulo'] ?> - <?= $data_perg[0]['nome'] ?> / <?=$data_perg[0]['tipo']?> - <?= $data_perg[0]['curso'] ?> / <?= $data_perg[0]['periodo'] ?></h3>
-			<p><?= $data_perg[0]['corpo'] ?></p>
+			<h3 id="topico"> <?= $data_perg[0]['titulo'] ?> - <?= $data_perg[0]['nome'] ?> ( <?=$data_perg[0]['tipo']?> <?= $data_perg[0]['curso'] ?> / <?= $data_perg[0]['periodo'] ?> ) </h3><br>
+			<p><?= $data_perg[0]['corpo'] ?></p><br><hr><br>
+			
 		<?php foreach ($data_resp as $resp) { ?>	
-			<div class="resposta">
-				<h4><?= $resp['nome'] ?> - <?= $resp['tipo'] ?> <?= $resp['curso'] ?> </h4>
-				<p><?= $resp['text_resposta'] ?></p> <?php if ($resp['resp_matricula'] == $_SESSION['matricula']) { ?>
+			<div class="card">
+				<p><span style="font-size: 18px;"><?= $resp['nome'] ?> (<?= $resp['tipo'] ?>):  </span>
+				<?= $resp['text_resposta'] ?></p><br>
+				<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) { ?>
 					<a href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
 				<?php } ?>
-		<?php }
-				if (isset($_SESSION['matricula'])) { ?>
-				<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
-					<input required="" type="text" placeholder="Digite uma resposta" name="resposta">
-					<input type="submit" value="responder">
-				</form>
-				<?php }else{
-					echo "Faça login para responder perguntas.";
-				} ?>
-
 			</div>
-		</div>
-		
+		<?php }
+
+			if (isset($_SESSION['matricula'])) { ?>
+			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
+				<input id="inputForum" required="" type="text" placeholder="Digite uma resposta" name="resposta">
+				<input class="btnSubmit" type="submit" value="responder">
+			</form>
+			<?php }else{
+				echo "Faça login para responder perguntas.";
+			} ?>
+		</div>	
 	</div>
 
-
+	<div class="footer">
+        <a href="#">Developers</p></a>
+    </div>
 </body>
 </html>

@@ -11,11 +11,16 @@ html {
 .footer{
     position:absolute;
     background-color: #24292e ;
-    padding: 0px;
+    padding: 20px 0px;
     bottom: 0px;
     width: 100%;
     text-align: center;
 }
+
+.footer a{
+    color: white;
+}
+
 .content{
     background-color:black;
 }

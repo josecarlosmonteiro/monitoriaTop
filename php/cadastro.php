@@ -35,19 +35,17 @@ if (isset($_SESSION['mt'])) {
 				echo $_SESSION['erroMat'];
 			}?>
 		<form action="addUser.php" method="POST" name="cadastro">
-			<input type="text" name="nome" placeholder="Nome" required value="<?= $nomeForm; ?>">
- 			<input type="text" name="sobrenome" placeholder="Sobrenome" required value="<?= $sobreNomeForm; ?>">
-			<input type="text" name="matricula" placeholder="Matrícula" required value="<?= $matForm; ?>">
-			<br>
+			<input id="inputAcess" type="text" name="nome" placeholder="Nome" required value="<?= $nomeForm; ?>">
+ 			<input id="inputAcess" type="text" name="sobrenome" placeholder="Sobrenome" required value="<?= $sobreNomeForm; ?>">
+			<input id="inputAcess" type="text" name="matricula" placeholder="Matrícula" required value="<?= $matForm; ?>">
 			<?php 
 			if (isset($_SESSION['nao'])) {
 					echo "<br><br><font color=red><h3 class= 'animated shake' >".$_SESSION['nao']."</h3></font>";
 			}
 
 			 ?>
-			<input type="password" name="senha" placeholder="Senha"  required="">
-			<input type="password" name="confirmSenha" placeholder="Confirmar Senha" required="">
-			<br>
+			<input id="inputAcess" type="password" name="senha" placeholder="Senha"  required="">
+			<input id="inputAcess" type="password" name="confirmSenha" placeholder="Confirmar Senha" required="">
 			<label>
 				Curso: <br> <select name="curso" id="curso" onchange="cursoatual()" required >
 					<option>--</option>
@@ -94,14 +92,14 @@ if (isset($_SESSION['mt'])) {
 						<option value="3">3</option>
 						<br>
 
-					<input type="text" name="cadeira_monitor" placeholder="Digite a cadeira em que é monitor">
+					<input type="text" name="cadeira_monitor" placeholder="Cadeira da Monitoria (primeiras letras maiúsculas, não use siglas)">
 				</label>
 				<br>
-
 			</label>
-		<input id="sub" type="submit" value="Cadastrar" style="display: none">
+		<input class="btnSubmit" id="sub" type="submit" value="Cadastrar" style="display: none">
 
 		</form>
+		<a class="btnSubmit" href="../">Retornar</a>
 	</fieldset>
 </body>
 </html>

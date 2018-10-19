@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/global.css">
-	<link rel="stylesheet" href="../css/login.css">
 	<title>Login - Monitoria Digital</title>
 </head>
 <body>
@@ -20,9 +19,11 @@ if (isset($_SESSION['user'])) {
 }
 ?>
 		<form action="verifLogin.php" method="POST">
-			<input type="text" placeholder="matricula" name="matricula" required>
-			<input type="password" placeholder="senha" name="senha" required><br>
-			<input type="submit" value="Login" id="sub">
+			<input id="inputAcess" type="text" placeholder="matricula" name="matricula" required>
+			<input id="inputAcess" type="password" placeholder="senha" name="senha" required>
+			<a id="links" href="cadastro.php">Cadastrar-se</a>
+			<input class="btnSubmit" type="submit" value="Login" id="sub">
+			<a class="btnSubmit" href="../">Retornar</a>
 		</form>
 	</fieldset>
 </body>

@@ -3,9 +3,10 @@
   padding: 0;
 }
 
+
 .menu ul{
   list-style: none;
-  background-color: #333;
+  background-color: #24292e;
   display: block;
   position: relative;
   height: 50px;
@@ -15,7 +16,7 @@
   display: block;
   position: relative;
   float: left;
-  width: 17%;
+  width: 115px;
   text-align: center;
   font-size: 15px;
 }
@@ -25,14 +26,16 @@
   display: block;
   color: white;
   text-decoration: none;
-  background-color: #444;
+  background-color: #24292e;
 }
 
 #user{
   text-decoration: none;
   color: white;
-  padding: 15px 10px;
+  padding: 15px;
+  width: 105px;
   float: right;
+  text-align: center;
 }
 
 label{
@@ -48,7 +51,7 @@ label{
   }
 }
 
-@media (max-width: 590px){
+@media (max-width: 750px){
   .menu ul li{
     display: none;
     width: 100%;
@@ -63,5 +66,8 @@ label{
   }
   .menu ul #btnMenu:checked ~ li{
     display: block;
-  } 
+  }
+  #user{
+    width: 120px;
+  }
 }
