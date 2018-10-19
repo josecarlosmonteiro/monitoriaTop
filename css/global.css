@@ -56,6 +56,7 @@ fieldset{
   margin: auto;
   background-color: #444;
   padding: 50px 0px;
+  min-height: 790px;
 }
 
 .footer{
