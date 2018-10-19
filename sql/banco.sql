@@ -4,6 +4,7 @@ CREATE DATABASE relatoriodigital;
 USE relatoriodigital;
 
 -- cria primeira tabela
+
 CREATE TABLE aluno(
 	matricula VARCHAR(50) PRIMARY KEY NOT NULL,
     nome VARCHAR(250) NOT NULL,
@@ -15,7 +16,16 @@ CREATE TABLE aluno(
     password VARCHAR(32)
 );
 
+-- Cria a tabela de cursos
+
+CREATE TABLE cadeira(
+    id_curso INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome_cadeira VARCHAR(255),
+    curso_cadeira VARCHAR(255) 
+); 
+
 -- cria tabela registro: irá armazenar os registros das aulas/CH semanal das bolsas
+
 CREATE TABLE registro(
     id_registro INT NOT NULL AUTO_INCREMENT,
     matricula_rg VARCHAR(50),

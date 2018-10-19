@@ -1,0 +1,48 @@
+--scripts de inserçao de dados na tabela cadeira IPI
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Redes de Computadores", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Fundamentos da Informática", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Inglês Instrimental", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Segurança do Trabalho", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Português INstrumental", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Matemática Aplicada", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("POO(Progamação Orientada a Objetos)", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Desenvolvimento para Web", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Projeto e Pratica I", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Banco de Dados", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Ética Profisssional e Cidadania", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Sistemas Operacionais", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Segurança de Sistemas para Internet", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Interação Humano Computador", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Desenvolvimento para Web II", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Projeto e Prática II", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Empreendedorismo", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Engenharia de Software", "IPI");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Implantação e Administração de Serviçoes Web", "IPI");
+
+----scripts de inserçao de dados na tabela cadeira LOG
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Logística Reversa e Meio Abiente","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Matemática Básica","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Introdução à Administrção","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Informática Básica","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Português Aplicado","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Metodologia Cientifica","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Introdução à Logística","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Ética Profissional","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Gerenciamento e Economia de Sistemas Logísticos","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Gestão de Pessoas","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Estatística Básica","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Logística de Transporte e Destribuição","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Logística de Armazenagem","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Comércio e Relações Internacionais","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Legislção e Tributação em Logística","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Inglês Instrumental","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Gestão da Cadeia de Suprimento","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Gestão da Qualidade","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Higiene e Segurança do Trabalho","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Gestão da Produção","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Gestão de Materiais, Estoque e Compras","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Custos Logísticos","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Inglês Instrumental II", "LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Tópicos especiais em Logística","LOG");
+INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Tecnologia e Sistemas de Informção Logística","LOG");
