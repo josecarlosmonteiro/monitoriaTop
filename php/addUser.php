@@ -21,16 +21,12 @@ if(sizeof($data)>=1){
 
 }else{
 		if ($_POST['tipo']=="aluno") {
-			$aluno = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo) VALUES (?, ?, ?, ?, ?, ?)');
-			$aluno->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando']]);
-			$senha = $conn->prepare('INSERT INTO senha (matricula_s, senha) VALUES (?, ?)');
-			$senha->execute([$_POST['matricula'], $_POST['senha']]);
+			$aluno = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, password) VALUES (?, ?, ?, ?, ?, ?, ?)');
+			$aluno->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['senha']]);
 			header('location: login.php');
 		}else{
-			$monitor = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, periodo_monitoria) VALUES (?, ?, ?, ?, ?, ?, ?)');
-			$monitor->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['monitor_periodo']]);
-			$senha = $conn->prepare('INSERT INTO senha (matricula_s, senha) VALUES (?, ?)');
-			$senha->execute([$_POST['matricula'], $_POST['senha']]);
+			$monitor = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, periodo_monitoria, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+			$monitor->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['monitor_periodo'], $_POST['senha']]);
 			header('location: login.php');
 		}
 	}

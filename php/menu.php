@@ -13,6 +13,7 @@
 			<a id="user" href="#"><?=$_SESSION['user']?>- CRS-1</a>
 			<li><a href="#">Documentos</a></li>
 			<li><a href="#">Atividades</a></li>
+			<li><a href="forum.php">Forum</a></li>
 			<li><a href="#">Avisos</a></li>
 			<li><a href="logout.php">Sair</a></li>
 		</ul>

@@ -28,7 +28,7 @@ if (isset($_SESSION['user'])) { ?>
 	<fieldset>
 		
 	<?php
-		$query = $conn->prepare("SELECT registro.id_registro, registro.data_monitoria, registro.hora_inicio, registro.hora_termino, registro.atividade, registro.tipo_atividade FROM registro INNER JOIN aluno ON registro.matricula_rg =aluno.matricula WHERE registro.matricula_rg = ?");
+		$query = $conn->prepare("SELECT registro.id_registro, registro.data_monitoria, registro.hora_inicio, registro.hora_termino, registro.atividade, registro.tipo_atividade FROM registro INNER JOIN aluno ON registro.matricula_rg = aluno.matricula WHERE registro.matricula_rg = ?");
 		$query->execute([$_SESSION['matricula']]);
 
 		$data = $query->fetchALL(PDO::FETCH_ASSOC);

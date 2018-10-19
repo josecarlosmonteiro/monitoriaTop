@@ -2,7 +2,7 @@
 session_start();
 include 'conn.php';
 
-$query = $conn->prepare("SELECT id_pergunta, perg_nome, titulo, corpo FROM perguntas ORDER BY id_pergunta DESC");
+$query = $conn->prepare("SELECT p.id_pergunta, p.titulo, a.nome, a.tipo, a.periodo, a.curso FROM perguntas p INNER JOIN aluno a ON a.matricula = p.perg_matricula ORDER BY p.id_pergunta DESC");
 $query->execute();
 $data = $query->fetchALL(PDO::FETCH_ASSOC);
 
@@ -41,6 +41,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 <body>
 	<div class="feed">
 		<h1>Feed de Dúvidas</h1>
+		<a href="home.php">Inicio</a>
 		<?php 
 			if (isset($_SESSION['matricula'])) { ?>
 				<form action="addPerg.php" method="POST">
@@ -55,26 +56,9 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 			 ?>	
 		<?php foreach ($data as $forum) { ?>	
 		<div class="notice">
-			<input type="hidden">
-			<h3> <?= $forum['titulo'] ?> - <a href="#"><?= $forum['perg_nome'] ?> - IPI/1</a></h3>
-			<hr>
-			<p><?= $forum['corpo'] ?></p>
-			<a href="#">Responder</a>
-
-			<div class="resposta">
-				<h3><a href="#">Fulano</a> - Monitor Lógica (IPI/2)</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum recusandae beatae in perspiciatis ratione minus iure eligendi!</p>
-				<form action="addResp.php" method="POST">
-					<input type="hidden" name="id" value="<?= $forum['id_pergunta'] ?>">
-					<input type="text" placeholder="Digite uma resposta" name="resposta">
-					<input type="submit" value="responder">
-				</form>
-			</div>
+			<a href="perg.php?id=<?= $forum['id_pergunta'] ?>"> <h3> <?= $forum['titulo'] ?> - <a href="#"><?= $forum['nome'] ?> (<?=$forum['tipo']?>) <?= $forum['curso'] ?>/<?= $forum['periodo'] ?></a></h3> </a>
 		</div>
-		<?php echo $forum['id_pergunta']; 
-		} ?>
-
-		
+		<?php } ?>
 	</div>
 </body>
 </html>
