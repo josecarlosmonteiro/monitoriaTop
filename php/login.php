@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/global.css">
 	<title>Login - Monitoria Digital</title>
+	<style type="text/css">
+	</style>
 </head>
 <body>
 	<fieldset>

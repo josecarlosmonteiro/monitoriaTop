@@ -1,8 +1,12 @@
+*{
+  text-decoration: none;
+}
 body{
   margin: 0;
   padding: 0;
   background-color: #333;
   font-family: "helvetica neue", sans-serif;
+
 }
 
 fieldset{
