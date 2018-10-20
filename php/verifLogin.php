@@ -2,8 +2,8 @@
 session_start();
 include 'conn.php';
 
-$_SESSION['matricula'] = $_POST['matricula'];
-$senha = $_POST['senha'];
+$_SESSION['matricula'] = addslashes($_POST['matricula']);
+$senha = addslashes($_POST['senha']);
 
 $query = $conn->prepare("SELECT nome, curso, periodo, tipo, matricula, password FROM aluno WHERE matricula = ? AND password = ?");
 
@@ -20,5 +20,5 @@ if (sizeof($data[0])>1) {
 	header('location: home.php');
 }else{
 	$_SESSION['erroLogin'] = "Dados incorretos";
-	header('location: login.php');
+	header('location: ../index.php');
 }

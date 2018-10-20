@@ -23,11 +23,11 @@ if(sizeof($data)>=1){
 		if ($_POST['tipo']=="aluno") {
 			$aluno = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, password) VALUES (?, ?, ?, ?, ?, ?, ?)');
 			$aluno->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['senha']]);
-			header('location: login.php');
+			header('location:../index.php');
 		}else{
 			$monitor = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, periodo_monitoria, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 			$monitor->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['monitor_periodo'], $_POST['senha']]);
-			header('location: login.php');
+			header('location: ../index.php');
 		}
 	}
 }

@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +12,7 @@
 	<link rel="stylesheet" href="css/modal.css">
 	<style>
 .box
-{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);width: 400px;padding: 40px;background: rgba(0,0,0);box-sizing: border-box;box-shadow: 0 15px 25px rgba(0,0,0,0.5);border-radius: 10px; overflow: auto; z-index: 10000;}
+{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);width: 400px;padding: 40px;background: rgba(0,0,0,.9);box-sizing: border-box;box-shadow: 0 15px 25px rgba(0,0,0,0.9);border-radius: 10px; overflow: auto; z-index: 10000;border: 3px outset white;}
 .box h1{margin: 0 0 30px;padding: 0;color: #fff;text-align: center;}
 .box .inputBox{position: relative;}
 .box .inputBox input
@@ -18,6 +20,9 @@
 .box input[type="submit"]
 {background: transparent;border: none;outline: none;color: #fff;background: red;padding: 10px 20px;cursor: pointer;border-radius: 5px; transition: 1s;}
 .box input[type="submit"]:hover{background-color:darkred;}
+.box h5{
+	color: red;	
+}
 @-webkit-keyframes animatetop {from {top:-300px; opacity:0} to {top:0; opacity:1}}
 
 @keyframes animatetop {
@@ -47,8 +52,9 @@
 	animation: modal 0.8s;
 }
 @media only screen and(max-width: 450px){
-	
+
 }
+
 	</style>
 </head>
 <body>
@@ -114,16 +120,25 @@
 			</footer>
 		</div>
 	</div>
-	<div id="modal-login" class="modal-container" >
+	<div id="modal-login" class="modal-container">
 		<div class="modal">
 			<div class="box">
 				<h1>Logar</h1>
-				<form action="demonio">
+				<?php 
+					if (isset($_SESSION['erroLogin'])) { ?>
+						<h5>   <?= $_SESSION['erroLogin']?></h5>
+						<?php unset($_SESSION['erroLogin']) ?>
+					<?php 
+					}else{
+						header('location:php/home.php');
+					}
+					 ?>
+				<form action="php/verifLogin.php" method="POST">
 					<div class="inputBox">
-						<input type="text" placeholder="Matricula" name="nome">
+						<input type="text" placeholder="Matricula" name="matricula" required=""  >
 					</div>
 					<div class="inputBox">
-						<input type="password" placeholder="Senha" name="senha">
+						<input type="password" placeholder="Senha" name="senha"  required=""  >
 					</div>
 					<input type="submit" name="" value="Entrar">
 				</form>
