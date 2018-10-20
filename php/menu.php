@@ -12,7 +12,7 @@
 			<input type="checkbox" id="btnMenu" style="display: none;">
 			<label for="btnMenu" id="btn">&#9776;</label>
 			<a id="user" href="#"><?=$_SESSION['user']?> - CRS-1</a>
-			<li><a href="home.php">Início</a></li>
+			<li><a href="../index.php">Início</a></li>
 
 			<?php 
 			if ($_SESSION['tipo'] == "monitor") : ?>
