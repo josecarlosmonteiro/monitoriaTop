@@ -11,8 +11,9 @@ CREATE TABLE aluno(
     sobrenome VARCHAR(250) NOT NULL,
     tipo enum('aluno','monitor') NOT NULL,
     curso VARCHAR(50) NOT NULL,
-    periodo_monitoria VARCHAR(50),
-    periodo int NOT NULL,
+    periodo INT NOT NULL,
+    curso_monitoria VARCHAR(50),
+    cadeira_monitoria VARCHAR(50),
     password VARCHAR(32)
 );
 
@@ -39,6 +40,20 @@ CREATE TABLE registro(
     FOREIGN KEY (matricula_rg) REFERENCES aluno(matricula)
 );
 
+--Cria tabela de agendamento das monitorias 
+
+CREATE TABLE monitoria(
+    id_monitoria INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    matricula_monitor VARCHAR(50),
+    inicio_monitoria TIME,
+    termino_monitoria TIME,
+    data_monitoria DATE,
+    status enum('agendada', 'realizada'),
+    FOREIGN KEY (matricula_monitor) REFERENCES aluno(matricula)
+);  
+
+--Cria a tabela de perguntas do forum
+
 CREATE TABLE perguntas(
     id_pergunta int(20) PRIMARY KEY AUTO_INCREMENT,
     perg_matricula VARCHAR(50),
@@ -46,6 +61,8 @@ CREATE TABLE perguntas(
     corpo VARCHAR(500) NOT NULL,
     FOREIGN KEY (perg_matricula) REFERENCES aluno(matricula)
 );
+
+--cria a tabela de respostas do forum
 
 CREATE TABLE respostas(
     id_resposta int PRIMARY KEY AUTO_INCREMENT,

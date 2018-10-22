@@ -1,5 +1,4 @@
 --scripts de inserçao de dados na tabela cadeira IPI
-INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("");
 INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Redes de Computadores", "IPI");
 INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Fundamentos da Informática", "IPI");
 INSERT INTO cadeira (nome_cadeira, curso_cadeira) VALUES ("Inglês Instrimental", "IPI");

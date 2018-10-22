@@ -47,3 +47,7 @@ function tipoAluno(){
 		document.getElementById("sub").style.display = "none";
 	}
 }
+
+function curso_monitoria(){
+	monitor = document.getElementById('')
+}
