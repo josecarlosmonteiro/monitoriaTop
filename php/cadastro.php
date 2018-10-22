@@ -89,26 +89,28 @@ if (isset($_SESSION['mt'])) {
 					Qual o seu papel? <br> <select id="tipoaluno" name="tipo" onchange="tipoAluno()">
 						<option></option>
 						<option >--</option>
-						<option value="aluno">Aluno</option>
-						<option value="monitor">Monitor</option>
+						<option value="Aluno">Aluno</option>
+						<option value="Monitor">Monitor</option>
 					</select>
 				</label>
 			
-				<label id="curso_monitoria" style="display: none;">
-					Curso (monitoria) <br> <select name="monitoria_curso" onchange="curso_monitoria()"></select>
-					<option value="IPI">IPI</option>
-					<option value="LOG">LOG</option>
+				<label id="curso_m" style="display: none;">
+					Curso (monitoria) <br> <select id="monitoria_curso" name="monitoria_curso" onchange="curso_monitoria()">
+					<option value="">--</option>
+					<option value="IPI">Informática para Internet</option>
+					<option value="LOG">Logística</option>
+					</select>
 				</label>
 
-				</label>
-				<label id="monitor_ipi" style="display: none;">
+				<label id="ipi_m" style="display: none;">
 					Cadeira(monitoria) <br> <select name="monitor_ipi">
 						<option>--</option>
 						<?php foreach ($data_ipi as $ipi) : ?>
 							<option value="<?= $ipi['nome_cadeira'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
 						<?php endforeach ?>
-				</select>
-				<label id="monitor_log" style="display: none;">
+					</select>
+				</label>
+				<label id="log_m" style="display: none;">
 					Cadeira (monitoria) <br> <select name="monitor_log">
 						<option>--</option>
 						<?php foreach ($data_log as $log) : ?>
@@ -116,8 +118,8 @@ if (isset($_SESSION['mt'])) {
 						<?php endforeach ?>
 						<option></option>
 					</select>
-					
 				</label>
+					
 				
 			</label>
 

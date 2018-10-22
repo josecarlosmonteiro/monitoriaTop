@@ -33,35 +33,33 @@ function cursoatual() {
 function tipoAluno(){
 	tipo = document.getElementById('tipoaluno').value;
 
-	if (tipo == "aluno") {
+	if (tipo == "Aluno") {
 		document.getElementById("sub").style.display = "block";
 		document.getElementById("monitor").style.display = "none";
 		document.getElementById("sub").style.display = "block";
-		document.getElementById("curso_monitoria").style.display = "none";
-	}else if (tipo == "monitor") {
-		document.getElementById("monitor").style.display = "block";		
-		document.getElementById("curso_monitoria").style.display = "block";
+		document.getElementById("curso_m").style.display = "none";
+	}else if (tipo == "Monitor") {
+		document.getElementById("curso_m").style.display = "block";
 		document.getElementById("sub").style.display = "none";
 		document.getElementById("sub").style.display = "block";
 	}else{
-		document.getElementById("monitor").style.display = "none";		
 		document.getElementById("sub").style.display = "none";
 		document.getElementById("sub").style.display = "none";
-		document.getElementById("curso_monitoria").style.display = "none";
+		document.getElementById("curso_m").style.display = "none";
 	}
 }
 
 function curso_monitoria(){
-	monitor = document.getElementById('curso_monitoria').value;
+	monitor = document.getElementById('monitoria_curso').value;
 
 	if (monitor == "IPI") {
-		document.getElementById('monitor_ipi').style.display = "block";
-		document.getElementById('monitor_log').style.display = "none";
+		document.getElementById('ipi_m').style.display = "block";
+		document.getElementById('log_m').style.display = "none";
 	}else if (monitor == "LOG") {
-		document.getElementById('monitor_log').style.display = "block";
-		document.getElementById('monitor_ipi').style.display = "none";
+		document.getElementById('log_m').style.display = "block";
+		document.getElementById('ipi_m').style.display = "none";
 	}else{
-		document.getElementById('monitor_log').style.display = "none";
-		document.getElementById('monitor_ipi').style.display = "none";
+		document.getElementById('log_m').style.display = "none";
+		document.getElementById('ipi_m').style.display = "none";
 	}
 }
