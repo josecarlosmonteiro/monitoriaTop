@@ -61,7 +61,7 @@
 	<div class="container">
 		<header class="background">
 			<div class="nav">
-					<a href="index.html"><img src="imgs/lmd.png" class="animated swing"></a>
+					<a href="index.php"><img src="imgs/lmd.png" class="animated swing"></a>
         			<label for="h"><font color="white">&#9776;</font></label>
         			<input type="checkbox" id="h"/>
         		<div class="menu">
