@@ -1,4 +1,4 @@
-//Validação de Senhas
+ //Validação de Senhas
 
 function validar(){
 	var senha = cadastro.senha.value;
@@ -37,17 +37,31 @@ function tipoAluno(){
 		document.getElementById("sub").style.display = "block";
 		document.getElementById("monitor").style.display = "none";
 		document.getElementById("sub").style.display = "block";
+		document.getElementById("curso_monitoria").style.display = "none";
 	}else if (tipo == "monitor") {
 		document.getElementById("monitor").style.display = "block";		
+		document.getElementById("curso_monitoria").style.display = "block";
 		document.getElementById("sub").style.display = "none";
 		document.getElementById("sub").style.display = "block";
 	}else{
 		document.getElementById("monitor").style.display = "none";		
 		document.getElementById("sub").style.display = "none";
 		document.getElementById("sub").style.display = "none";
+		document.getElementById("curso_monitoria").style.display = "none";
 	}
 }
 
 function curso_monitoria(){
-	monitor = document.getElementById('')
+	monitor = document.getElementById('curso_monitoria').value;
+
+	if (monitor == "IPI") {
+		document.getElementById('monitor_ipi').style.display = "block";
+		document.getElementById('monitor_log').style.display = "none";
+	}else if (monitor == "LOG") {
+		document.getElementById('monitor_log').style.display = "block";
+		document.getElementById('monitor_ipi').style.display = "none";
+	}else{
+		document.getElementById('monitor_log').style.display = "none";
+		document.getElementById('monitor_ipi').style.display = "none";
+	}
 }

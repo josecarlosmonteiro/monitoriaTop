@@ -2,10 +2,14 @@
 session_start();
 include 'conn.php';
 
-$query = $conn->prepare("SELECT nome_cadeira, curso_cadeira FROM cadeira ORDER BY id_curso ASC");
-$query->execute();
+$query_log = $conn->prepare("SELECT nome_cadeira FROM cadeira WHERE curso_cadeira = 'LOG' ORDER BY id_curso ASC");
+$query_log->execute();
 
-$data = $query->fetchALL();
+$query_ipi = $conn->prepare("SELECT nome_cadeira FROM cadeira WHERE curso_cadeira = 'IPI' ORDER BY id_curso ASC");
+$query_ipi->execute();
+
+$data_log = $query_log->fetchALL();
+$data_ipi = $query_ipi->fetchALL();
 
 if (isset($_SESSION['nm'])) {
 	$nomeForm = $_SESSION['nm'];
@@ -90,27 +94,24 @@ if (isset($_SESSION['mt'])) {
 					</select>
 				</label>
 			
-				<label id="monitor" style="display: none">
-						Curso(monitoria)<br> <select name="monitor_periodo">
-						<option></option>
-							<option>--</option>
-							<option value="IPI">Informática para Internet</option>
-							<option value="LOG">Logistica</option>
-							<br>
-						</select>
+				<label id="curso_monitoria" style="display: none;">
+					Curso (monitoria) <br> <select name="monitoria_curso" onchange="curso_monitoria()"></select>
+					<option value="IPI">IPI</option>
+					<option value="LOG">LOG</option>
+				</label>
 
 				</label>
-				<label id="monitor_ipi" style="display: block;">
+				<label id="monitor_ipi" style="display: none;">
 					Cadeira(monitoria) <br> <select name="monitor_ipi">
 						<option>--</option>
-						<?php foreach ($data as $ipi) : ?>
-							<option value="" ><?= $ipi['nome_cadeira'] ?></option>
+						<?php foreach ($data_ipi as $ipi) : ?>
+							<option value="<?= $ipi['nome_cadeira'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
 						<?php endforeach ?>
 				</select>
-				<label id="monitor_log" style="display: block;">
+				<label id="monitor_log" style="display: none;">
 					Cadeira (monitoria) <br> <select name="monitor_log">
 						<option>--</option>
-						<?php foreach ($data_LOG as $log) : ?>
+						<?php foreach ($data_log as $log) : ?>
 							<option value="<?= $log['nome_cadeira'] ?>"><?= $log['nome_cadeira'] ?></option>
 						<?php endforeach ?>
 						<option></option>

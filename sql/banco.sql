@@ -1,4 +1,6 @@
 -- cria banco
+DROP DATABASE IF EXISTS relatoriodigital;
+
 CREATE DATABASE relatoriodigital;
 
 USE relatoriodigital;
@@ -19,7 +21,7 @@ CREATE TABLE aluno(
 
 -- Cria a tabela de cursos
 
-CREATE TABLE cadeira(
+CREATE TABLE disciplina(
     id_curso INT  PRIMARY KEY AUTO_INCREMENT,
     nome_cadeira VARCHAR(255),
     curso_cadeira VARCHAR(255) 

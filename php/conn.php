@@ -1,7 +1,7 @@
 <?php
 $dbname = "relatoriodigital";
 $usuario="root";
-$senha = "";
+$senha = "ifpe";
 try {
 	$conn = new PDO("mysql:host=localhost;dbname=$dbname", $usuario, $senha);
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
