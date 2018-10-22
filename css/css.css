@@ -7,9 +7,13 @@ body{
 	width: 100%;
     height: 100%;
     margin: 0;
+    overflow-x: hidden;
 }
 html{
 	font-family: 'monitoria';
+}
+button{
+	outline: none;
 }
 /*font*/
 @font-face{
@@ -85,6 +89,7 @@ html{
 	background-repeat: no-repeat;
 	background-size: 100%;
 	font-size: 100%;
+	background-size: cover;
 }
 /*----------------------------*/
 /*Navbar /botoes*/
@@ -108,7 +113,7 @@ html{
     position: fixed;
     width: 100%;
   	background-color: rgba(0,0,0,0.8);
-  	z-index: 1000;
+  	z-index: 1;
 }
 .menu {
     margin: 0 30px 0 0;
@@ -242,9 +247,13 @@ label {
 		margin-top: -500px; 
 	}
 }
+.modal-container{
+	
+
+}
 @media only screen and (max-width: 767px) {
 	.title{
-		font-size: 20px;
+		font-size: 26px;
 		margin-top: 80px;
 	}
     label {
@@ -259,7 +268,6 @@ label {
     }
     .menu a {
         display: block;
-        border-bottom: 1px solid #EAEAEB;
         margin: 0;
         color: #fff;
     }
@@ -315,7 +323,7 @@ label {
 		margin-top: -50%;
 	}
 }
-@media only screen and (max-width: 460px){
+@media only screen and (max-width: 500px){
 	.listas{
 		width: 300px;
 	}
@@ -338,7 +346,7 @@ label {
 		display: none;
 	}
 	.listas{
-	321	margin-right: 30%;
+	margin-right: 30%;
 		margin-top: 15%;
 	}
 }
