@@ -15,7 +15,7 @@
            	<div class="user">
            			<i class="fas fa-user-circle"></i>
            		<ul>
-          			<li><a href="php/cadastro.php" class="float">SAIR</a></li>
+          			<li>(USERNAME)</li>
           		</ul>
           	</div>
         </div>			  
