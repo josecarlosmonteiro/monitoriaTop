@@ -5,7 +5,7 @@ include 'conn.php';
 //só não ta pegando por conta da variavel $id, o where não ta dandoo o select na linha do registro do useer.
 // $id = $_SESSION['user'];
 $id = $_SESSION['id'];
-$matircula = $_SESSION['matricula'];
+$matricula = $_SESSION['matricula'];
 $data_monitoria = addslashes($_POST['data_monitoria']);
 $hora_inicio = addslashes($_POST['hora_inicio']);
 $hora_termino = addslashes($_POST['hora_termino']);
