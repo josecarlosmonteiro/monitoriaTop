@@ -17,9 +17,7 @@
 			if ($_SESSION['tipo'] == "monitor") : ?>
 				<li><a href="#">Documentos</a></li>
 			<?php endif ?>
-			<li><a href="tabelaM.php">Monitores</a></li>
-			<li><a href="#">Avisos</a></li>
-				<li><a href="#">Atividades</a></li>
+				<li><a href="atividades.php">Atividades</a></li>
 			<li><a href="logout.php">Sair</a></li>
 		</ul>
 	</nav>

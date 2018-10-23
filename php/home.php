@@ -23,8 +23,6 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 <body>
     
     <div class="content">
-        <input type="checkbox" id="checkPergunta" style="display: none;">
-        <label for="checkPergunta" id="btnPergunta">Perguntar</label>
         <div class="campoInput">
         <?php 
             if (isset($_SESSION['matricula'])) { ?>

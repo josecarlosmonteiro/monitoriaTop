@@ -19,17 +19,29 @@ fieldset{
   padding: 40px;
   text-align: center;
   color: white;
+  background-color: #222;
+}
+
+.fieldset-large{
+  width: 95%;
 }
 
 table{
-  width: 65%;
+  width: 95%;
   max-width: 600px;
   min-width: 350px;
-  margin: 30px auto;
+  margin: auto;
 }
 
-tr{
-  border-bottom: 1px solid gray;
+td{
+  border: 1px solid gray;
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+
+td:hover{
+  background-color: #aa1010;
+  color: white;
 }
 
 #links{
@@ -42,8 +54,8 @@ tr{
 #linksTable{
   text-decoration: underline;
   color: white;
-  margin: 15px auto;
-  display: block; 
+  display: block;
+  padding: 10px;
 }
 
 .resposta{
@@ -87,7 +99,7 @@ tr{
   padding: 12px;
   font-size: 16px;
   width: 140px;
-  margin: 10px auto;
+  margin: 15px auto;
   text-align: center;
   display: block;
   border: 1px solid #222;
@@ -110,10 +122,12 @@ tr{
 .content{
   width: 75%;
   text-align: center;;
-  margin: 60px auto 0px auto;
-  background-color: #444;
+  margin:auto;
+  background-color: #222;
   padding: 50px 0px;
   min-height: 800px;
+  color: white;
+  margin-top: 10px;
 }
 
 .footer{
@@ -123,10 +137,6 @@ tr{
     width: 100%;
     text-align: center;
     display: block;
-}
-
-.campoInput{
-  display: none;
 }
 
 #btnPergunta{
@@ -140,10 +150,6 @@ tr{
   cursor: pointer;
   background-color: #cc1010;
   transition: 0.3s;
-}
-
-#checkPergunta:checked ~ .campoInput{
-  display: block;
 }
 
 input, textarea, select{
@@ -163,7 +169,6 @@ input, textarea, select{
 }
 
 #inputForum{
-  background-color: #444;
   display: block;
   padding: 10px;
   margin: 5px auto;
@@ -174,8 +179,14 @@ input, textarea, select{
   color: white;
   transition: 0.3s;
   margin: 5px;
-  font-size: 20px;
+  font-size: 22px;
   text-align: left;
+  transition: 0.3s;
+}
+
+#topico:hover{
+  color: #ee2525;
+  text-decoration: underline;
 }
 
 #userForum{
