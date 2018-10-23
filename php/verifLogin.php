@@ -1,9 +1,10 @@
 <?php
 session_start();
 include 'conn.php';
+$senhatop = md5($_POST['senha']);
 
 $_SESSION['matricula'] = addslashes($_POST['matricula']);
-$senha = addslashes($_POST['senha']);
+$senha = addslashes($senhatop);
 
 $query = $conn->prepare("SELECT nome, curso, periodo, tipo, matricula, password FROM aluno WHERE matricula = ? AND password = ?");
 

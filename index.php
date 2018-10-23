@@ -94,7 +94,9 @@
 @media only screen and(max-width: 450px){
 
 }
-
+input:focus{
+ background-color: none;
+}
 	</style>
 </head>
 <body>

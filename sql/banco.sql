@@ -1,4 +1,5 @@
 -- cria banco
+DROP DATABASE relatoriodigital;
 
 CREATE DATABASE relatoriodigital;
 
