@@ -9,7 +9,7 @@
 	<nav class="menu">
 		<ul>
 			<input type="checkbox" id="btnMenu" style="display: none;">
-			<label for="btnMenu" id="btn">&#9776;</label>
+			<label for="btnMenu" class="btn">&#9776;</label>
 			<a id="user" href="#"><?=$_SESSION['user']?> - CRS-1</a>
 			<li><a href="home.php">Início</a></li>
 
