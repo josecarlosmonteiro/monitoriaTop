@@ -2,10 +2,10 @@
 session_start();
 include 'conn.php';
 
-$query_log = $conn->prepare("SELECT nome_cadeira FROM cadeira WHERE curso_cadeira = 'LOG' ORDER BY id_curso ASC");
+$query_log = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE curso_cadeira = 'LOG' ORDER BY id_curso ASC");
 $query_log->execute();
 
-$query_ipi = $conn->prepare("SELECT nome_cadeira FROM cadeira WHERE curso_cadeira = 'IPI' ORDER BY id_curso ASC");
+$query_ipi = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE curso_cadeira = 'IPI' ORDER BY id_curso ASC");
 $query_ipi->execute();
 
 $data_log = $query_log->fetchALL();
@@ -103,7 +103,7 @@ if (isset($_SESSION['mt'])) {
 				</label>
 
 				<label id="ipi_m" style="display: none;">
-					Cadeira(monitoria) <br> <select name="monitor_ipi">
+					Cadeira(monitoria) <br> <select name="monitor_disciplina">
 						<option>--</option>
 						<?php foreach ($data_ipi as $ipi) : ?>
 							<option value="<?= $ipi['nome_cadeira'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
@@ -111,7 +111,7 @@ if (isset($_SESSION['mt'])) {
 					</select>
 				</label>
 				<label id="log_m" style="display: none;">
-					Cadeira (monitoria) <br> <select name="monitor_log">
+					Cadeira (monitoria) <br> <select name="monitor_disciplina">
 						<option>--</option>
 						<?php foreach ($data_log as $log) : ?>
 							<option value="<?= $log['nome_cadeira'] ?>"><?= $log['nome_cadeira'] ?></option>

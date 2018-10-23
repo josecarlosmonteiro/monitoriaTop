@@ -25,8 +25,8 @@ if(sizeof($data)>=1){
 			$aluno->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['senha']]);
 			header('location:../index.php');
 		}else{
-			$monitor = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, periodo_monitoria, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-			$monitor->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['monitor_periodo'], $_POST['senha']]);
+			$monitor = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, curso_monitoria, password, cadeira_monitoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
+			$monitor->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $_POST['curso'], $_POST['periodoCursando'], $_POST['monitoria_curso'], $_POST['senha'], $_POST['monitor_disciplina']]);
 			header('location: ../index.php');
 		}
 	}

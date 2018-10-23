@@ -1,5 +1,4 @@
 -- cria banco
-DROP DATABASE IF EXISTS relatoriodigital;
 
 CREATE DATABASE relatoriodigital;
 
@@ -42,7 +41,7 @@ CREATE TABLE registro(
     FOREIGN KEY (matricula_rg) REFERENCES aluno(matricula)
 );
 
---Cria tabela de agendamento das monitorias 
+-- Cria tabela de agendamento das monitorias 
 
 CREATE TABLE monitoria(
     id_monitoria INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -54,7 +53,7 @@ CREATE TABLE monitoria(
     FOREIGN KEY (matricula_monitor) REFERENCES aluno(matricula)
 );  
 
---Cria a tabela de perguntas do forum
+-- Cria a tabela de perguntas do forum
 
 CREATE TABLE perguntas(
     id_pergunta int(20) PRIMARY KEY AUTO_INCREMENT,
@@ -64,7 +63,7 @@ CREATE TABLE perguntas(
     FOREIGN KEY (perg_matricula) REFERENCES aluno(matricula)
 );
 
---cria a tabela de respostas do forum
+-- cria a tabela de respostas do forum
 
 CREATE TABLE respostas(
     id_resposta int PRIMARY KEY AUTO_INCREMENT,

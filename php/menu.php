@@ -18,12 +18,9 @@
 			if ($_SESSION['tipo'] == "monitor") : ?>
 				<li><a href="#">Documentos</a></li>
 			<?php endif ?>
-<<<<<<< HEAD
 			<li><a href="tabelaM.php">Monitores</a></li>
 			<li><a href="#">Avisos</a></li>
-=======
 				<li><a href="#">Atividades</a></li>
->>>>>>> 726969ac23e9a751ea36743db70fae8d9c2e82ca
 			<li><a href="logout.php">Sair</a></li>
 		</ul>
 	</nav>
