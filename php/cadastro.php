@@ -49,6 +49,7 @@ if (isset($_SESSION['mt'])) {
 			<input id="inputAcess" type="text" name="nome" placeholder="Nome" required value="<?= $nomeForm; ?>">
  			<input id="inputAcess" type="text" name="sobrenome" placeholder="Sobrenome" required value="<?= $sobreNomeForm; ?>">
 			<input id="inputAcess" type="text" name="matricula" placeholder="Matrícula" required value="<?= $matForm; ?>">
+			<input id="inputAcess" type="email"  name="email" placeholder="E-mail" required="e-mail inválido">
 			<?php 
 			if (isset($_SESSION['nao'])) {
 					echo "<br><br><font color=red><h3 class= 'animated shake' >".$_SESSION['nao']."</h3></font>";
@@ -58,14 +59,14 @@ if (isset($_SESSION['mt'])) {
 			<input id="inputAcess" type="password" name="senha" placeholder="Senha"  required="">
 			<input id="inputAcess" type="password" name="confirmSenha" placeholder="Confirmar Senha" required="">
 			<label>
-				Curso: <br> <select name="curso" id="curso" onchange="cursoatual()" required >
+				Curso: <br> <select name="curso_aluno" id="curso" onchange="cursoatual()" required >
 					<option>--</option>
 					<option value="IPI">IPI</option>
 					<option value="LOG">LOG</option>
 				</select>
 			</label><br>
 				<label name="periodoCursando" id="LOG" style="display: none">
-					Período(cursando)<br> <select id="cursoLOG" name="periodoCursando" onchange="tipoAluno()">
+					Período(cursando)<br> <select id="cursoLOG" name="periodoCursandolog" onchange="tipoAluno()">
 						<option></option>
 						<option>--</option>
 						<option value="1">1</option>
@@ -76,7 +77,7 @@ if (isset($_SESSION['mt'])) {
 				</label>
 
 				<label id="IPI" style="display: none">
-					Período(cursando)<br> <select id="cursoIPI" name="periodoCursando" onchange="tipoAluno()">
+					Período(cursando)<br> <select id="cursoIPI" name="periodoCursandoipi" onchange="tipoAluno()">
 						<option></option>
 						<option>--</option>
 						<option value="1">1</option>
@@ -103,7 +104,7 @@ if (isset($_SESSION['mt'])) {
 				</label>
 
 				<label id="ipi_m" style="display: none;">
-					Cadeira(monitoria) <br> <select name="monitor_disciplina">
+					Cadeira(monitoria) <br> <select name="monitor_disciplinaipi">
 						<option>--</option>
 						<?php foreach ($data_ipi as $ipi) : ?>
 							<option value="<?= $ipi['nome_cadeira'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
@@ -111,7 +112,7 @@ if (isset($_SESSION['mt'])) {
 					</select>
 				</label>
 				<label id="log_m" style="display: none;">
-					Cadeira (monitoria) <br> <select name="monitor_disciplina">
+					Cadeira (monitoria) <br> <select name="monitor_disciplinalog">
 						<option>--</option>
 						<?php foreach ($data_log as $log) : ?>
 							<option value="<?= $log['nome_cadeira'] ?>"><?= $log['nome_cadeira'] ?></option>
@@ -119,7 +120,6 @@ if (isset($_SESSION['mt'])) {
 						<option></option>
 					</select>
 				</label>
-					
 				
 			</label>
 
