@@ -102,8 +102,8 @@ button{
 	transition: 1s;
 }
 .botao:hover{
-	background-color: white;
-	color: red;
+	background: transparent;
+	color: white;
 }
 .nav {
     text-align: right;
@@ -125,6 +125,7 @@ button{
     color: white;
     margin: 0 10px;
     line-height: 70px;
+    transition: 0.3s;
 }
 .menu a:hover, .btn-log:hover{
     color: red;

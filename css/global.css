@@ -6,7 +6,6 @@ body{
   padding: 0;
   background-color: #333;
   font-family: "helvetica neue", sans-serif;
-
 }
 
 fieldset{
@@ -47,18 +46,57 @@ tr{
   display: block; 
 }
 
+.resposta{
+  width: 45%;
+  height: 47px;
+  padding: 0;
+  margin: auto;
+  display: block;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+
+.resposta input{
+  border: none;
+  padding: 0;
+  margin: 5px 0px;
+  background: transparent;
+  float: left;
+  padding: 10px;
+  width: 70%;
+}
+
+#btnResposta{
+  display: inline-block;
+  color: white;
+  float: right;
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  width: 60px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+#btnResposta:hover{
+  background-color: #aa1010;
+}
+
 .btnSubmit{
-  padding: 10px 20px;
-  width: 180px;
+  padding: 12px;
+  font-size: 16px;
+  width: 140px;
   margin: 10px auto;
   text-align: center;
   display: block;
-  border: none;
+  border: 1px solid #222;
   border-radius: 8px;
-  background-color: #777;
+  background-color: #cc1010;
   color: white;
   cursor: pointer;
 }
+
 
 .card{
   border-bottom: 2px solid gray;
@@ -72,10 +110,10 @@ tr{
 .content{
   width: 75%;
   text-align: center;;
-  margin: auto;
+  margin: 60px auto 0px auto;
   background-color: #444;
   padding: 50px 0px;
-  min-height: 790px;
+  min-height: 800px;
 }
 
 .footer{
@@ -95,10 +133,13 @@ tr{
   display: block;
   color: white;
   padding: 10px 20px;
-  border-bottom: 2px solid gray;
+  border: none;
+  border-radius: 8px;
   width: 90px;
   margin: 10px auto;
   cursor: pointer;
+  background-color: #cc1010;
+  transition: 0.3s;
 }
 
 #checkPergunta:checked ~ .campoInput{

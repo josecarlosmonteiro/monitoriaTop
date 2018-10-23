@@ -5,21 +5,61 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Monitoria Digital - IFPE</title>
-	<link rel="stylesheet" href="css/css.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/css.css">
 	<link rel="stylesheet" href="css/animate.css">
-	<link rel="shortcut icon" href="imgs/Logoxs.png">
 	<link rel="stylesheet" href="css/modal.css">
+	<link rel="shortcut icon" href="imgs/Logoxs.png">
 	<style>
-.box
-{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);width: 400px;padding: 40px;background: rgba(0,0,0,.9);box-sizing: border-box;box-shadow: 0 15px 25px rgba(0,0,0,0.9);border-radius: 10px; overflow: auto; z-index: 10000;border: 3px outset white;}
-.box h1{margin: 0 0 30px;padding: 0;color: #fff;text-align: center;}
-.box .inputBox{position: relative;}
-.box .inputBox input
-{width: 100%;padding: 10px 0;font-size: 16px;color: #fff;letter-spacing: 1px;margin-bottom: 30px;border: none;border-bottom:  1px solid #fff;outline: none;background: transparent;}
-.box input[type="submit"]
-{background: transparent;border: none;outline: none;color: #fff;background: red;padding: 10px 20px;cursor: pointer;border-radius: 5px; transition: 1s;}
-.box input[type="submit"]:hover{background-color:darkred;}
+.box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 400px;padding: 40px;
+	background: rgba(0,0,0,.9);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,0.9);
+	border-radius: 10px; 
+	overflow: auto; 
+	z-index: 10000;
+	border: 3px outset white;
+}
+.box h1{
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+}
+.box .inputBox{
+	position: relative;
+}
+.box .inputBox input{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom:  1px solid #fff;
+	outline: none;
+	background: transparent;
+}
+.box input[type="submit"]{
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: red;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px; 
+	transition: 1s;
+}
+.box input[type="submit"]:hover{
+	background-color:darkred;
+}
 .box h5{
 	color: red;	
 }

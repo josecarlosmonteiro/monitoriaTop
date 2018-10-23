@@ -35,15 +35,17 @@ $data_resp = $query_resp->fetchALL();
 				<p><span style="font-size: 18px;"><?= $resp['nome'] ?> (<?= $resp['tipo'] ?>):  </span>
 				<?= $resp['text_resposta'] ?></p><br>
 				<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) { ?>
-					<a href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
+					<a style="color: white; text-decoration: underline;" href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
 				<?php } ?>
 			</div>
 		<?php }
 
 			if (isset($_SESSION['matricula'])) { ?>
 			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
-				<input id="inputForum" required="" type="text" placeholder="Digite uma resposta" name="resposta">
-				<input class="btnSubmit" type="submit" value="responder">
+				<div class="resposta">
+					<input type="text" name="resposta" required placeholder="Responder...">
+					<input type="submit" value="&#10148;" id="btnResposta">
+				</div>
 			</form>
 			<?php }else{
 				echo "Faça login para responder perguntas.";

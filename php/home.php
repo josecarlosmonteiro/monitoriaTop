@@ -45,7 +45,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
         <?php } ?>
     </div>
     <div class="footer">
-        <a href="#">Developers</p></a>
+        <a href="#" style="color: white;">Developers</a>
     </div>
 </body>
 </html>
