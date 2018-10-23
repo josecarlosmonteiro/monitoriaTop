@@ -4,7 +4,7 @@
 	session_start();
 
 if (!isset($_SESSION['matricula'])) {
-	header('location: login.php');
+	header('location: index.php');
 }
 	$query_log = $conn->prepare("SELECT id_curso, nome_cadeira FROM disciplina WHERE curso_cadeira = 'LOG'");
 	$query_log->execute();

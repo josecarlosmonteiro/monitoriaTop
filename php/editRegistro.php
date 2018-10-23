@@ -2,7 +2,7 @@
 session_start();
 include 'conn.php';
 if (!isset($_SESSION['matricula'])) {
-	header('location: login.php');
+	header('location: index.php');
 }
 $_SESSION['id'] = $_GET['id'];
 

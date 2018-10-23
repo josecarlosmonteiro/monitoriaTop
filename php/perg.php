@@ -2,6 +2,10 @@
 include 'conn.php';
 session_start();
 
+if (!isset($_SESSION['matricula'])) {
+	header('location: index.php');
+}
+
 $_SESSION['idperg'] = $_GET['id'];
 
 $query_perg = $conn->prepare("SELECT p.titulo,p.corpo, p.perg_matricula, a.nome, a.tipo, a.curso, a.periodo FROM perguntas p INNER JOIN aluno a ON p.perg_matricula = a.matricula WHERE p.id_pergunta = ?");

@@ -11,7 +11,7 @@
 		<a href="index.html"><img src="../imgs/lmd.png" class="animated swing"></a>
         <div class="menu">
            	<a href="php/home.php">INICIO</a>
-           	<button href="php/login.php" class="btn-log" id="botao">ATIVIDADES</button>
+           	<button href="php/index.php" class="btn-log" id="botao">ATIVIDADES</button>
            	<div class="user">
            			<i class="fas fa-user-circle"></i>
            		<ul>
