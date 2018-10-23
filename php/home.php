@@ -23,19 +23,20 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 <body>
     
     <div class="content">
+        <h1 style="text-decoration: underline;">Fórum</h1>
         <div class="campoInput">
-        <?php 
-            if (isset($_SESSION['matricula'])) { ?>
-                <form action="addPerg.php" method="POST">
-                    <input id="inputForum" type="text" required name="titulo" placeholder="Digite o título da pergunta">
-                    <textarea id="inputForum" type="text" required name="corpo" placeholder="Digite sua pergunta"></textarea>
-                    <input class="btnSubmit" type="submit" value="Enviar">
-                </form> <?php 
-            }else{
+        <?php if (isset($_SESSION['matricula'])) { ?>
+            <form action="addPerg.php" method="POST">
+                <input id="inputForum" type="text" required name="titulo" placeholder="Título da pergunta...">
+                <textarea id="inputForum" type="text" required name="corpo" placeholder="Digite sua pergunta..."></textarea>
+                <input class="btnSubmit" type="submit" value="Enviar">
+            </form>
+        <?php }else{
                 echo "Faça login para realizar perguntas.";
             } ?>
         </div>
-            
+        <hr><br><br>
+
             <?php foreach ($data as $forum) { ?>    
                 <div class="card">
                     <a id="topico" href="perg.php?id=<?= $forum['id_pergunta'] ?>"> <h3> <?= $forum['titulo'] ?> </h3> <a href="#" id="userForum"><?= $forum['nome'] ?> (<?=$forum['tipo']?>) <?= $forum['curso'] ?>/<?= $forum['periodo'] ?></a></a>
@@ -43,7 +44,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
         <?php } ?>
     </div>
     <div class="footer">
-        <a href="#" style="color: white;">Developers</a>
+        <a href="developers.php" style="color: white;">Developers</a>
     </div>
 </body>
 </html>

@@ -168,11 +168,7 @@
 					if (isset($_SESSION['erroLogin'])) { ?>
 						<h5>   <?= $_SESSION['erroLogin']?></h5>
 						<?php unset($_SESSION['erroLogin']) ?>
-					<?php 
-					}else{
-						header('location:php/home.php');
-					}
-					 ?>
+				<?php } ?>
 				<form action="php/verifLogin.php" method="POST">
 					<div class="inputBox">
 						<input type="text" placeholder="Matricula" name="matricula" required=""  >

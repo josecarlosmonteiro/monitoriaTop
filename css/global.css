@@ -40,8 +40,10 @@ td{
 }
 
 td:hover{
+  border: 1px solid white;
   background-color: #aa1010;
   color: white;
+  transform: scale(1.1);
 }
 
 #links{
@@ -56,6 +58,17 @@ td:hover{
   color: white;
   display: block;
   padding: 10px;
+}
+
+#btnResposta{
+  display: inline-block;
+  float: right;
+  width: 80px;
+  margin: 0px;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #aa1010;
+  text-align: center;
 }
 
 .resposta{
@@ -76,19 +89,6 @@ td:hover{
   float: left;
   padding: 10px;
   width: 70%;
-}
-
-#btnResposta{
-  display: inline-block;
-  color: white;
-  float: right;
-  padding: 10px;
-  margin: 0;
-  text-align: center;
-  width: 60px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-size: 20px;
 }
 
 #btnResposta:hover{
@@ -124,8 +124,8 @@ td:hover{
   text-align: center;;
   margin:auto;
   background-color: #222;
-  padding: 50px 0px;
-  min-height: 800px;
+  padding: 40px;
+  min-height: 500px;
   color: white;
   margin-top: 10px;
 }
@@ -166,13 +166,28 @@ input, textarea, select{
 #inputAcess, select{
   max-width: 200px;
   min-width: 90px;
+  transition: 0.3s;
+}
+
+.campoInput{
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 25px;
+  width: 60%;
+  margin: 20px auto;
+  background-color: #333;
 }
 
 #inputForum{
   display: block;
   padding: 10px;
   margin: 5px auto;
-  width: 50%;
+  width: 80%;
+  transition: 0.3s;
+}
+
+#inputForum:focus, #inputAcess:focus{
+  background-color: #222; 
 }
 
 #topico{

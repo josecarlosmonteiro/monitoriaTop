@@ -32,7 +32,7 @@ $data_resp = $query_resp->fetchALL();
 			
 		<?php foreach ($data_resp as $resp) { ?>	
 			<div class="card">
-				<p><span style="font-size: 18px; color: #ff3030;"><?= $resp['nome'] ?> (<?= $resp['tipo'] ?>):  </span>
+				<p><span style="font-size: 18px; color: #ff3030;"><?= $resp['nome'] ?> (<?= $resp['tipo'] ?>):</span>
 				<?= $resp['text_resposta'] ?></p><br>
 				<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) { ?>
 					<a style="color: white; text-decoration: underline;" href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
@@ -44,7 +44,7 @@ $data_resp = $query_resp->fetchALL();
 			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
 				<div class="resposta">
 					<input type="text" name="resposta" required placeholder="Responder...">
-					<input type="submit" value="&#10148;" id="btnResposta">
+					<input type="submit" value="&#10095;" id="btnResposta">
 				</div>
 			</form>
 			<?php }else{

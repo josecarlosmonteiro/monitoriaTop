@@ -10,11 +10,6 @@
 	<title></title>
 	<link rel="stylesheet" href="../css/global.css">
 	<?php	include 'menu.php';	?>
-	<style>
-		table tr td{
-			border: 1px solid white;
-		}
-	</style>
 </head>
 <body>
 	<fieldset>
