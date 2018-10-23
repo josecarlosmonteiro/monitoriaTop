@@ -2,23 +2,33 @@
 session_start();
 require_once 'conn.php';
 
-if ($_POST['monitoria_curso'] == "IPI") {
-	$monitoria_curso = $_POST['monitor_disciplinaipi'];
-}elseif ($_POST['monitoria_curso'] == "LOG") {
-	$monitoria_curso = $_POST['monitoria_disciplinalog'];
+$nome = $_POST['nome'];
+$sobrenome = $_POST['sobrenome'];
+$matricula = $_POST['matricula'];
+$tipo = $_POST['tipo'];
+$curso_aluno = $_POST['curso_aluno'];
+$monitoria_curso = $_POST['monitoria_curso'];
+$senha = md5($_POST['senha']);
+$email = $_POST['email'];
+
+
+if ($monitoria_curso == "IPI") {
+	$monitoria_cursoP = $_POST['monitor_disciplinaipi'];
+}elseif ($monitoria_curso == "LOG") {
+	$monitoria_cursoP = $_POST['monitor_disciplinalog'];
 }else{
-	$monitoria_curso = null;
+	$monitoria_cursoP = null;
 }
 
 if ($_POST['curso_aluno'] == "IPI") {
-	$curso = $_POST['periodoCursandoipi'];
+	$curso_periodo = $_POST['periodoCursandoipi'];
 }elseif ($_POST['curso_aluno'] == "LOG") {
-	$curso = $_POST['periodoCursandolog'];
+	$curso_periodo = $_POST['periodoCursandolog'];
 }else{
-	$curso = null;
+	$curso_periodo = null;
 }
 
-/*if ($_POST['senha'] != $_POST['confirmSenha']) {
+if ($_POST['senha'] != $_POST['confirmSenha']) {
 	header('location:cadastro.php');
 	$_SESSION['nao'] = "Senhas não conferem, Por favor repita";
 	$_SESSION['mt'] = $_POST['matricula'];
@@ -42,8 +52,11 @@ if(sizeof($data)>=1){
 			$aluno->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $curso, $_POST['periodoCursando'], $_POST['senha'], $_POST['email']]);
 			header('location:../index.php');
 		}else{
-			$monitor = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, curso_monitoria, password, cadeira_monitoria, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
-			$monitor->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $curso, $_POST['periodoCursando'], $_POST['monitoria_curso'], $_POST['senha'], $monitoria_curso, $_POST['email']]);
+
+
+
+			$monitor = $conn->prepare("INSERT INTO aluno(nome, sobrenome, email, matricula, curso, periodo, tipo, curso_monitoria, cadeira_monitoria, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			$monitor->execute([$nome, $sobrenome, $email, $matricula, $curso_aluno, $curso_periodo, $tipo, $monitoria_curso, $monitoria_cursoP, $senha]);
 			header('location: ../index.php');
 		}
 	}
