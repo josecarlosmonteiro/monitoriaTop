@@ -23,7 +23,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 <body>
     
     <div class="content">
-        <h1 style="text-decoration: underline;">Fórum</h1>
+        <h1 style="text-decoration: underline;">Tópicos</h1>
         <div class="campoInput">
         <?php if (isset($_SESSION['matricula'])) { ?>
             <form action="addPerg.php" method="POST">

@@ -65,10 +65,13 @@ td:hover{
   float: right;
   width: 80px;
   margin: 0px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   font-size: 20px;
   background-color: #aa1010;
   text-align: center;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
 }
 
 .resposta{
@@ -157,10 +160,11 @@ input, textarea, select{
   display: block;
   margin: 10px auto;
   padding: 10px;
-  background-color: #353535;
+  background-color: #222;
   color: white;
   border: 2px solid gray;
   border-radius: 8px;
+  outline: none;
 }
 
 #inputAcess, select{
@@ -175,7 +179,7 @@ input, textarea, select{
   padding: 25px;
   width: 60%;
   margin: 20px auto;
-  background-color: #333;
+  background-color: #222;
 }
 
 #inputForum{
@@ -213,13 +217,44 @@ input, textarea, select{
 
 @media (max-width: 420px){
   body{
-    width: 300px;
     margin: 0 auto;
   }
   fieldset{
-    width: 250px;
-    max-width: 290px;
-    min-width: 190px;
+    width: 80%; 
     top: 10px;
+    margin: auto;
+  }
+  table td{
+    width: 80%;
+    padding: 5px;
+    display: block;
+  }
+  table a{
+    margin: 0 auto;
+    padding: 0px;
+    width: 80%;
+  }
+  .content{
+    width: 80%;
+    margin: auto;
+  }
+  .campoInput{
+    width: 100%;
+    padding: 0px;
+    margin: 10px auto;
+    max-width: 300px;
+  }
+  .card{
+    width: 100%;
+    margin: 15px auto;
+    padding: 0;
+  }
+  #inputForum{
+    border: none;
+    border-bottom: 2px solid gray;
+    border-radius: 0px;
+    text-align: center;
+    margin: 15px auto;
+    padding: 5px;
   }
 }
