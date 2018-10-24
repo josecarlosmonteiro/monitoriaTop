@@ -8,7 +8,7 @@ if (isset($_SESSION['user'])) { ?>
 <head>
 	<meta charset="utf-8">
 	<title>Registros</title>
-	<link rel="stylesheet" type="text/css" href="../CSS/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
@@ -20,7 +20,7 @@ if (isset($_SESSION['user'])) { ?>
 			Hora de termino:  <br> <input required type="time" name="hora_termino"> <br>
 			Tipo da atividade (ex: reunião, aula, etc...): <input required type="text" name="tipo_atividade"> <br>
 			Descrição da atividade: <br> <input required type="text" name="descricao"> <br>
-			<input id="sub" type="submit">
+			<input id="sub" type="submit" value="Adicionar">
 		</form>
 	</fieldset>
 

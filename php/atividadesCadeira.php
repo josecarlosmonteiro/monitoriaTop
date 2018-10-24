@@ -2,16 +2,20 @@
 include 'conn.php';
 session_start();
 
-$id = $_GET['cadeira'];
+if (!isset($_SESSION['matricula'])) {
+	header('location: login.php');
+}
+
+$_SESSION['idCadeira'] = $_GET['cadeira'];
 
 //query que exibe o nome da cadeira selecionada
 $query_nome = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE id_curso = ?");
-$query_nome->execute([$id]);
+$query_nome->execute([$_SESSION['idCadeira']]);
 $data_nome = $query_nome->fetchALL();
 
 //query que exibe as monitorias
-$query_monitoria = $conn->prepare("SELECT m.id_monitoria, m.matricula_monitor, m.titulo_atividade, m.descricao_atividade, m.inicio_monitoria, m.termino_monitoria, m.data_monitoria FROM monitoria m INNER JOIN disciplina d WHERE m.id_curso_monitoria = ? ORDER BY m.id_monitoria DESC");
-$query_monitoria->execute([$id]);
+$query_monitoria = $conn->prepare("SELECT id_monitoria, matricula_monitor, titulo_atividade, descricao_atividade, inicio_monitoria, termino_monitoria, data_monitoria FROM monitoria WHERE id_curso_monitoria = ?");
+$query_monitoria->execute([$_SESSION['idCadeira']]);
 $data_monitoria = $query_monitoria->fetchALL();
 
 //query responsavel por listar os monitores
@@ -21,7 +25,7 @@ $data_monitor = $query_monitor->fetchALL();
 
  ?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 	<title>Lista de Atividades</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
@@ -31,6 +35,21 @@ $data_monitor = $query_monitor->fetchALL();
 
 	<div class="content">
 		<h1><?= $data_nome[0]['nome_cadeira']?></h1>
+		<?php if ($_SESSION['tipo'] == "monitor"): ?>
+			<form action="addMonitoria.php" method="POST">
+				Nome da atividade:
+				<input type="text" name="titulo" placeholder="Nome da atividade">
+				Data:
+				<input type="date" name="data_monitoria">
+				Hora de início:
+				<input type="time" name="hora_inicio">
+				Hora de término:
+				<input type="time" name="hora_termino">
+				Descrição:
+				<input type="text" name="descricao">
+				<input type="submit" value="Adicionar">
+			</form>
+		<?php endif ?>
 
 		<fieldset class="fieldset-large">
 			<table>
@@ -50,20 +69,6 @@ $data_monitor = $query_monitor->fetchALL();
 						<td><?= $monitoria['descricao_atividade'] ?></td>
 					</tr>
 				<?php endforeach ?>
-				<tr>
-					<td>Nome da Atividade</td>
-					<td>XX/XX</td>
-					<td>00:00</td>
-					<td>00:00</td>
-					<td>Breve descrição da atividade</td>
-				</tr>
-				<tr>
-					<td>Nome da Atividade</td>
-					<td>XX/XX</td>
-					<td>00:00</td>
-					<td>00:00</td>
-					<td>Breve descrição da atividade</td>
-				</tr>
 
 			</table>
 		</fieldset>

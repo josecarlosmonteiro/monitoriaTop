@@ -1,6 +1,9 @@
 <?php 
 session_start();
 include 'conn.php';
+if (!isset($_SESSION['matricula'])) {
+	header('location: login.php');
+}
 $_SESSION['id'] = $_GET['id'];
 
 $query = $conn->prepare("SELECT registro.data_monitoria, registro.hora_inicio, registro.hora_termino, registro.atividade, registro.tipo_atividade FROM registro INNER JOIN aluno ON registro.matricula_rg = aluno.matricula WHERE registro.matricula_rg = ? AND registro.id_registro = ?");
