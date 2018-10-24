@@ -19,8 +19,8 @@ $query_monitoria->execute([$_SESSION['idCadeira']]);
 $data_monitoria = $query_monitoria->fetchALL();
 
 //query responsavel por listar os monitores
-$query_monitor = $conn->prepare("SELECT a.nome, a.email FROM aluno a INNER JOIN monitoria m WHERE m.id_curso_monitoria = ? ORDER BY a.nome ASC");
-$query_monitor->execute([$id]);
+$query_monitor = $conn->prepare("SELECT nome, email FROM aluno WHERE cadeira_monitoria = ?");
+$query_monitor->execute([$data_nome[0]['nome_cadeira']]);
 $data_monitor = $query_monitor->fetchALL();
 
  ?>
@@ -85,14 +85,6 @@ $data_monitor = $query_monitor->fetchALL();
 						<td><?= $monitor['email'] ?></td>
 					</tr>
 				<?php endforeach ?>
-				<tr>
-					<td>Fulano</td>
-					<td>contato@email.com</td>
-				</tr>
-				<tr>
-					<td>Fulano</td>
-					<td>contato@email.com</td>
-				</tr>
 			</table>
 		</fieldset>
 	</div>
