@@ -15,7 +15,7 @@
 
 			<?php 
 			if ($_SESSION['tipo'] == "monitor") : ?>
-				<li><a href="#">Documentos</a></li>
+				<li><a href="documentos.php">Documentos</a></li>
 			<?php endif ?>
 				<li><a href="atividades.php">Atividades</a></li>
 			<li><a href="logout.php">Sair</a></li>
