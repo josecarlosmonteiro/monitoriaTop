@@ -27,8 +27,8 @@ $data_resp = $query_resp->fetchALL();
 	<div class="content">
 		<div class="card">
 			<input type="hidden">
-			<h3 id="topico"> <?= $data_perg[0]['titulo'] ?> - <?= $data_perg[0]['nome'] ?> ( <?=$data_perg[0]['tipo']?> <?= $data_perg[0]['curso'] ?> / <?= $data_perg[0]['periodo'] ?> ) </h3><br>
-			<p><?= $data_perg[0]['corpo'] ?></p><br><hr><br>
+			<h3 id="topico"> <?= $data_perg[0]['titulo'] ?> <br> <?= $data_perg[0]['nome'] ?>(<?=$data_perg[0]['tipo']?> <?= $data_perg[0]['curso'] ?><?= $data_perg[0]['periodo'] ?>) </h3><br>
+			<p><?= $data_perg[0]['corpo'] ?></p><br><hr>
 			
 		<?php foreach ($data_resp as $resp) { ?>	
 			<div class="card">
@@ -41,9 +41,9 @@ $data_resp = $query_resp->fetchALL();
 		<?php }
 
 			if (isset($_SESSION['matricula'])) { ?>
-			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
+			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST" id="formResp">
 				<div class="resposta">
-					<input type="text" name="resposta" required placeholder="Responder...">
+					<input id="inputForum" type="text" name="resposta" required placeholder="Responder...">
 					<input type="submit" value="&#10095;" id="btnResposta">
 				</div>
 			</form>

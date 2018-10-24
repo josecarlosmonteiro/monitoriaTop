@@ -21,7 +21,7 @@
   position: relative;
   float: left;
   width: 10%;
-  min-width: 97px;
+  min-width: 110px;
   text-align: center;
   font-size: 15px;
 }
@@ -42,10 +42,15 @@
   text-decoration: none;
   color: white;
   padding: 19px;
-  width: 110px;
+  width: 115px;
   float: right;
   text-align: center;
   background-color: #cc1010;
+}
+
+#btnDrop{
+  float: left;
+  display: none;
 }
 
 label{
@@ -65,6 +70,7 @@ label{
 @media (max-width: 750px){
   .menu ul{
     border-bottom: 2px solid black;
+    position: fixed;
   }
   .menu ul li{
     display: none;
@@ -72,12 +78,11 @@ label{
     border-bottom: 1px solid black;
     opacity: 0.9;
   }
-  .menu ul #btn{
-    color: white;
+  #btnDrop{
     display: block;
-    float: left;
-    padding: 20px;
-    cursor: pointer;
+    padding: 18px 25px;
+    font-size: 20px;
+    margin: 0px;
   }
   .menu ul #btnMenu:checked ~ li{
     display: block;

@@ -18,12 +18,12 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<link rel="stylesheet" href="../css/global.css">
-	<link rel="stylesheet" href="../css/menu.css">
 	<?php	include 'menu.php';	?>
 
 	<style>
 		#tabelaIpi, #tabelaLog, #listaIpi, #listaLog{
-			display: block;
+			display: none;
+			margin: 25px auto;
 		}
 		#listaIpi:checked ~ #tabelaIpi, #listaLog:checked ~ #tabelaLog{
 			display: block;
@@ -39,27 +39,37 @@
 
 		<div style="text-align: center;">
 			<input type="checkbox" id="listaIpi">
-			<label for="listaIpi" id="" class="btnDrop">Cadeiras IPI &#9776;</label>
+			<label for="listaIpi" id="btnList" class="btn">Cadeiras IPI &#9776;</label>
 
 			<input type="checkbox" id="listaLog">
-			<label for="listaLog" id="" class="btnDrop">Cadeiras LOG &#9776;</label>
+			<label for="listaLog" id="btnList" class="btn">Cadeiras LOG &#9776;</label>
 
-			<table id="tabelaIpi">
-				<th>Informática para Internet</th>
-				<?php foreach ($data_ipi as $disc) : ?> 
-					<tr>
-						<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
-				<?php endforeach ?>
-			</table>
-			<table id="tabelaIpi">
-				<th>Logística</th>
-				<?php foreach ($data_log as $disc) : ?> 
-					<tr>
-						<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
-				<?php endforeach ?>
-			</table>
+			<div id="tabelaIpi">
+				<table>
+					<h3>Informática para Internet</h3>
+					<hr><br>
+					<?php foreach ($data_ipi as $disc) : ?> 
+						<tr>
+							<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
+					<?php endforeach ?>
+				</table>
+			</div>
+
+			<div id="tabelaLog">
+				<table>
+					<h3>Logística</h3>
+					<hr><br>
+					<?php foreach ($data_log as $disc) : ?> 
+						<tr>
+							<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
+					<?php endforeach ?>
+				</table>
+			</div>
 		</div>
 	</div>
+	 <div class="footer">
+        <a href="developers.php" style="color: white;">Developers</a>
+    </div>
 </body>
 </html>
 

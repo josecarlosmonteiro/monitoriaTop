@@ -22,28 +22,140 @@ fieldset{
   background-color: #222;
 }
 
-.fieldset-large{
-  width: 95%;
+input, textarea, select{
+  width: 80%;
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #222;
+  color: white;
+  border: 2px solid gray;
+  border-radius: 8px;
+  outline: none;
 }
 
 table{
   width: 95%;
   max-width: 600px;
-  min-width: 350px;
+  min-width: 300px;
   margin: auto;
+  text-align: center;
+  text-align: center;
 }
 
 td{
   border: 1px solid gray;
   padding: 5px 10px;
   transition: 0.3s;
+  margin: 20px auto;
 }
 
 td:hover{
   border: 1px solid white;
   background-color: #aa1010;
   color: white;
-  transform: scale(1.1);
+  transform: scaleX(1.05);
+}
+
+.fieldset-large{
+  width: 95%;
+}
+
+.btnSubmit{
+  padding: 12px;
+  font-size: 16px;
+  width: 140px;
+  margin: 15px auto;
+  text-align: center;
+  display: block;
+  border: 1px solid #222;
+  border-radius: 8px;
+  background-color: #cc1010;
+  color: white;
+  cursor: pointer;
+}
+
+.card{
+  border-bottom: 2px solid gray;
+  margin: 10px auto;
+  padding: 20px;
+  width: 80%;
+  text-align: left;
+  color: white;
+}
+
+.content{
+  width: 75%;
+  text-align: center;;
+  margin:auto;
+  background-color: #222;
+  padding: 40px;
+  min-height: 700px;
+  color: white;
+  margin-top: 10px;
+}
+
+.resposta{
+  width: 45%;
+  height: 47px;
+  padding: 0;
+  margin: auto;
+  display: block;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+
+.resposta input{
+  border: none;
+  padding: 0;
+  margin: 5px 0px;
+  background: transparent;
+  float: left;
+  padding: 10px;
+  width: 70%;
+}
+
+.campoInput{
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 25px;
+  width: 60%;
+  margin: 20px auto;
+  background-color: #222;
+}
+
+.btn{
+  display: inline-block;
+  padding: 19px 25px;
+  color: white;
+  background-color: #111;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.footer{
+    background-color: #24292e ;
+    padding: 15px 0px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
+.footer a{
+  color: white;
+  text-decoration: underline;
+}
+
+#btnList{
+  width: 140px;
+  margin: 10px;
+  text-align: center;
+  transition: 0.3s;
+  border: 1px solid gray;
+}
+#btnList:hover{
+  background-color: #aa1010;
 }
 
 #links{
@@ -74,72 +186,10 @@ td:hover{
   top: 2px;
 }
 
-.resposta{
-  width: 45%;
-  height: 47px;
-  padding: 0;
-  margin: auto;
-  display: block;
-  border: 2px solid gray;
-  border-radius: 8px;
-}
 
-.resposta input{
-  border: none;
-  padding: 0;
-  margin: 5px 0px;
-  background: transparent;
-  float: left;
-  padding: 10px;
-  width: 70%;
-}
 
 #btnResposta:hover{
   background-color: #aa1010;
-}
-
-.btnSubmit{
-  padding: 12px;
-  font-size: 16px;
-  width: 140px;
-  margin: 15px auto;
-  text-align: center;
-  display: block;
-  border: 1px solid #222;
-  border-radius: 8px;
-  background-color: #cc1010;
-  color: white;
-  cursor: pointer;
-}
-
-
-.card{
-  border-bottom: 2px solid gray;
-  margin: 10px auto;
-  padding: 20px;
-  width: 80%;
-  text-align: left;
-  color: white;
-}
-
-.content{
-  width: 75%;
-  text-align: center;;
-  margin:auto;
-  background-color: #222;
-  padding: 40px;
-  min-height: 500px;
-  color: white;
-  margin-top: 10px;
-}
-
-.footer{
-    background-color: #24292e ;
-    padding: 15px 0px;
-    bottom: 0px;
-    width: 100%;
-    text-align: center;
-    display: block;
 }
 
 #btnPergunta{
@@ -155,31 +205,10 @@ td:hover{
   transition: 0.3s;
 }
 
-input, textarea, select{
-  width: 80%;
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-  background-color: #222;
-  color: white;
-  border: 2px solid gray;
-  border-radius: 8px;
-  outline: none;
-}
-
 #inputAcess, select{
   max-width: 200px;
   min-width: 90px;
   transition: 0.3s;
-}
-
-.campoInput{
-  border: 1px solid gray;
-  border-radius: 8px;
-  padding: 25px;
-  width: 60%;
-  margin: 20px auto;
-  background-color: #222;
 }
 
 #inputForum{
@@ -227,6 +256,7 @@ input, textarea, select{
   table td{
     width: 80%;
     padding: 5px;
+    margin: 5px auto;
     display: block;
   }
   table a{
@@ -235,8 +265,10 @@ input, textarea, select{
     width: 80%;
   }
   .content{
-    width: 80%;
+    width: 92%;
     margin: auto;
+    padding: 80px 10px;
+    min-height: 310px;
   }
   .campoInput{
     width: 100%;
@@ -245,9 +277,19 @@ input, textarea, select{
     max-width: 300px;
   }
   .card{
-    width: 100%;
+    width: 90%;
     margin: 15px auto;
-    padding: 0;
+    padding: 10px;
+  }
+  .btn{
+    display: block;
+    margin: auto;
+  }
+  .resposta{
+    border: none;
+    margin: 10px auto;
+    width: 90%;
+    float: left;
   }
   #inputForum{
     border: none;
@@ -256,5 +298,15 @@ input, textarea, select{
     text-align: center;
     margin: 15px auto;
     padding: 5px;
+  }
+  #btnResposta{
+    width: 50px;
+    padding: 10px 20px;
+    display: block;
+    float: left;
+  }
+  #btnList{
+    width: 70%;
+    margin: 10px auto;
   }
 }
