@@ -1,6 +1,6 @@
 <?php
 session_start();
-/*
+
 if (!isset($_SESSION['user'])) {
     header('location:../index.php');
 }
@@ -10,7 +10,6 @@ include 'conn.php';
 $query = $conn->prepare("SELECT p.id_pergunta, p.titulo, a.nome, a.tipo, a.periodo, a.curso FROM perguntas p INNER JOIN aluno a ON a.matricula = p.perg_matricula ORDER BY p.id_pergunta DESC");
 $query->execute();
 $data = $query->fetchALL(PDO::FETCH_ASSOC);
-*/
 ?>
 
 <!DOCTYPE html>

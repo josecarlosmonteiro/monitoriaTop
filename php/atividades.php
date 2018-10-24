@@ -1,6 +1,16 @@
 <?php 
-	//include 'conn.php'; 
+	include 'conn.php'; 
 	session_start();
+
+	$query_log = $conn->prepare("SELECT id_curso, nome_cadeira FROM disciplina WHERE curso_cadeira = 'LOG'");
+	$query_log->execute();
+
+	$query_ipi = $conn->prepare("SELECT id_curso, nome_cadeira FROM disciplina WHERE curso_cadeira = 'IPI'");
+	$query_ipi->execute();
+
+	$data_log = $query_log->fetchALL();
+	$data_ipi = $query_ipi->fetchALL();
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -13,7 +23,7 @@
 
 	<style>
 		#tabelaIpi, #tabelaLog, #listaIpi, #listaLog{
-			display: none;
+			display: block;
 		}
 		#listaIpi:checked ~ #tabelaIpi, #listaLog:checked ~ #tabelaLog{
 			display: block;
@@ -35,18 +45,18 @@
 			<label for="listaLog" id="" class="btnDrop">Cadeiras LOG &#9776;</label>
 
 			<table id="tabelaIpi">
-				<tr>
-					<td><a id="linksTable" href="atividadesCadeira.php?cadeira=Lógica de Programação">Lógica de Programação</a></td>
-				</tr>
-				<tr>
-					<td><a id="linksTable" href="atividadesCadeira.php?cadeira=Redes de Computadores">Redes de Computadores</a></td>
-				</tr>
+				<th>Informática para Internet</th>
+				<?php foreach ($data_ipi as $disc) : ?> 
+					<tr>
+						<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
+				<?php endforeach ?>
 			</table>
-			<table class="tabelaCadeiras" id="tabelaLog">
-				<tr>
-					<td><a id="linksTable" href="atividadesCadeira.php?cadeira=Contabilidade">Matemática</a></td>
-					<td><a id="linksTable" href="atividadesCadeira.php?cadeira=Contabilidade">Ética</a></td>
-				</tr>
+			<table id="tabelaIpi">
+				<th>Logística</th>
+				<?php foreach ($data_log as $disc) : ?> 
+					<tr>
+						<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
+				<?php endforeach ?>
 			</table>
 		</div>
 	</div>
