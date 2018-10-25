@@ -23,5 +23,5 @@ $query->bindParam(7,$matricula);
 $query->execute();
 
 
-header('location: registros.php');
+header('location: documentos.php');
 ?>
