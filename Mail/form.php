@@ -1,6 +1,6 @@
 <html>
 	<body>
-		<form action="index.php" method="post">
+		<form action="inde.php" method="post">
 			<input type="text" name="nome">
 			<input type="email" name="email">
 			<input type="submit">
