@@ -165,9 +165,15 @@ tr:hover, tr:hover td{
 
 #links{
   color: white;
-  margin: 30px auto;
+  margin: 10px auto;
   display: block;
   text-decoration: underline;
+}
+
+#linksResp{
+  display: inline-block;
+  margin: 10px auto;
+  color: white;
 }
 
 #linksTable{

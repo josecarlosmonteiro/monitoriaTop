@@ -2,8 +2,7 @@
 session_start();
 include 'conn.php';
 
-//só não ta pegando por conta da variavel $id, o where não ta dandoo o select na linha do registro do useer.
-// $id = $_SESSION['user'];
+
 $id = $_SESSION['id'];
 $matricula = $_SESSION['matricula'];
 $data_monitoria = addslashes($_POST['data_monitoria']);
