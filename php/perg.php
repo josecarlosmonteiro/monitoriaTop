@@ -11,7 +11,7 @@ $_SESSION['idperg'] = $_GET['id'];
 $query_perg = $conn->prepare("SELECT p.titulo,p.corpo, p.perg_matricula, a.nome, a.tipo, a.curso, a.periodo FROM perguntas p INNER JOIN aluno a ON p.perg_matricula = a.matricula WHERE p.id_pergunta = ?");
 $query_perg->execute([$_SESSION['idperg']]);
 
-$query_resp = $conn->prepare("SELECT r.text_resposta,r.id_resposta, r.resp_id_pergunta, r.resp_matricula, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? ORDER BY r.id_resposta ASC");
+$query_resp = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.resp_id_pergunta, r.resp_matricula, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? ORDER BY r.id_resposta ASC");
 $query_resp->execute([$_SESSION['idperg']]);
 
 
@@ -37,7 +37,7 @@ $data_resp = $query_resp->fetchALL();
 		<?php foreach ($data_resp as $resp) { ?>	
 			<div class="card">
 				<p><span style="font-size: 18px; color: #ff3030;"><?= $resp['nome'] ?> (<?= $resp['tipo'] ?>):</span>
-				<?= $resp['text_resposta'] ?></p><br>
+				<?= $resp['text_resposta'] ?></p><a href="editResp.php?id=<?=$resp['id_resposta']?>" id="linksResp">editar</a><br>
 				<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) { ?>
 					<a style="color: white; text-decoration: underline;" href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
 				<?php } ?>
