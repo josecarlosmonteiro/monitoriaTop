@@ -11,7 +11,7 @@ body{
 fieldset{
   width: 50%;
   max-width: 700px;
-  min-width: 200px;
+  min-width: 550px;
   margin: 20px auto;
   margin-top: 60px;
   border: 1px solid gray;
@@ -22,7 +22,7 @@ fieldset{
   background-color: #222;
 }
 
-input, textarea, select{
+input, textarea{
   width: 80%;
   display: block;
   margin: 10px auto;
@@ -43,14 +43,19 @@ table{
   text-align: center;
 }
 
-td{
+td, tr{
   border: 1px solid gray;
   padding: 5px 10px;
   transition: 0.3s;
   margin: 20px auto;
 }
 
-td:hover{
+td a{
+  color: white;
+  border-bottom: 1px solid;
+}
+
+tr:hover, tr:hover td{
   border: 1px solid white;
   background-color: #aa1010;
   color: white;
@@ -206,9 +211,14 @@ td:hover{
 }
 
 #inputAcess, select{
-  max-width: 200px;
-  min-width: 90px;
+  max-width: 220px;
+  min-width: 120px;
   transition: 0.3s;
+  margin: 10px 0px;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  width: 90%;
 }
 
 #inputForum{
@@ -223,6 +233,21 @@ td:hover{
   background-color: #222; 
 }
 
+#blockForm *{
+  margin: 15px;
+}
+
+#blockForm{
+  width: 28%;
+  min-width: 280px;
+  margin: 10px 20px auto;
+  padding: 10px;
+  display: inline-block;
+  min-height: 250px;
+  text-align: left;
+  float: left;
+}
+
 #topico{
   color: white;
   transition: 0.3s;
@@ -233,7 +258,7 @@ td:hover{
 }
 
 #topico:hover{
-  color: #ee2525;
+  color: white;
   text-decoration: underline;
 }
 

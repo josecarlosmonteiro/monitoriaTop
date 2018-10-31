@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 include 'conn.php';
@@ -36,7 +37,6 @@ if (isset($_SESSION['mt'])) {
 	<link rel="stylesheet" href="../css/cadastro.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 	<script type="text/javascript" src="../js/cadastro.js"></script>
-
 </head>
 <body>
 	<fieldset>
@@ -46,25 +46,35 @@ if (isset($_SESSION['mt'])) {
 				echo $_SESSION['erroMat'];
 			}?>
 		<form action="addUser.php" method="POST" name="cadastro">
-			<input id="inputAcess" type="text" name="nome" placeholder="Nome" required value="<?= $nomeForm; ?>">
- 			<input id="inputAcess" type="text" name="sobrenome" placeholder="Sobrenome" required value="<?= $sobreNomeForm; ?>">
-			<input id="inputAcess" type="text" name="matricula" placeholder="Matrícula" required value="<?= $matForm; ?>">
-			<input id="inputAcess" type="email"  name="email" placeholder="E-mail" required="e-mail inválido">
-			<?php 
-			if (isset($_SESSION['nao'])) {
-					echo "<br><br><font color=red><h3 class= 'animated shake' >".$_SESSION['nao']."</h3></font>";
-			}
+			<div id="blockForm">
+				Nome:
+				<input id="inputAcess" type="text" name="nome" placeholder="Nome" required value="<?= $nomeForm; ?>">
+	 			Matrícula:
+				<input id="inputAcess" type="text" name="matricula" placeholder="matric0000" required value="<?= $matForm; ?>">
+				Senha:
+				<input id="inputAcess" type="password" name="senha" placeholder="senha"  required="">
+			</div>
+			<div id="blockForm">
+				Sobrenome:
+	 			<input id="inputAcess" type="text" name="sobrenome" placeholder="Sobrenome" required value="<?= $sobreNomeForm; ?>">
+				E-mail:
+				<input id="inputAcess" type="email"  name="email" placeholder="aluno@email.com" required="e-mail inválido">
+				<?php 
+				if (isset($_SESSION['nao'])) {
+						echo "<br><br><font color=red><h3 class= 'animated shake' >".$_SESSION['nao']."</h3></font>";
+				}
 
-			 ?>
-			<input id="inputAcess" type="password" name="senha" placeholder="Senha"  required="">
-			<input id="inputAcess" type="password" name="confirmSenha" placeholder="Confirmar Senha" required="">
-			<label>
+				 ?>
+				Repetir senha:
+				<input id="inputAcess" type="password" name="confirmSenha" placeholder="repetir" required="">
+			</div>
+				<label>
 				Curso: <br> <select name="curso_aluno" id="curso" onchange="cursoatual()" required >
-					<option>--</option>
-					<option value="IPI">IPI</option>
-					<option value="LOG">LOG</option>
-				</select>
-			</label><br>
+						<option>--</option>
+						<option value="IPI">IPI</option>
+						<option value="LOG">LOG</option>
+					</select>
+				</label>
 				<label name="periodoCursando" id="LOG" style="display: none">
 					Período(cursando)<br> <select id="cursoLOG" name="periodoCursandolog" onchange="tipoAluno()">
 						<option></option>
@@ -75,7 +85,6 @@ if (isset($_SESSION['mt'])) {
 						<option value="4">4</option>
 					</select>
 				</label>
-
 				<label id="IPI" style="display: none">
 					Período(cursando)<br> <select id="cursoIPI" name="periodoCursandoipi" onchange="tipoAluno()">
 						<option></option>
@@ -85,7 +94,7 @@ if (isset($_SESSION['mt'])) {
 						<option value="3">3</option>
 					</select>
 				</label>
-
+			
 				<label id="tipo" style="display: none">
 					Qual o seu papel? <br> <select id="tipoaluno" name="tipo" onchange="tipoAluno()">
 						<option></option>
@@ -94,7 +103,6 @@ if (isset($_SESSION['mt'])) {
 						<option value="Monitor">Monitor</option>
 					</select>
 				</label>
-			
 				<label id="curso_m" style="display: none;">
 					Curso (monitoria) <br> <select id="monitoria_curso" name="monitoria_curso" onchange="curso_monitoria()">
 					<option value="">--</option>
@@ -102,7 +110,7 @@ if (isset($_SESSION['mt'])) {
 					<option value="LOG">Logística</option>
 					</select>
 				</label>
-
+			
 				<label id="ipi_m" style="display: none;">
 					Cadeira(monitoria) <br> <select name="monitor_disciplinaipi">
 						<option>--</option>
@@ -121,14 +129,11 @@ if (isset($_SESSION['mt'])) {
 					</select>
 				</label>
 				
-			</label>
-
-				<br>
-			</label>
-		<input class="btnSubmit" id="sub" type="submit" value="Cadastrar" style="display: none">
-
+			
+			<input class="btnSubmit" id="sub" type="submit" value="Cadastrar" style="display: none">
+			<a class="btnSubmit" href="../">Retornar</a>
 		</form>
-		<a class="btnSubmit" href="../">Retornar</a>
+		
 	</fieldset>
 </body>
 </html>
