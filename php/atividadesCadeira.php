@@ -14,7 +14,7 @@ $query_nome->execute([$_SESSION['idCadeira']]);
 $data_nome = $query_nome->fetchALL();
 
 //query que exibe as monitorias
-$query_monitoria = $conn->prepare("SELECT id_monitoria, matricula_monitor, titulo_atividade, descricao_atividade, inicio_monitoria, termino_monitoria, data_monitoria FROM monitoria WHERE id_curso_monitoria = ?");
+$query_monitoria = $conn->prepare("SELECT id_monitoria, matricula_monitor, titulo_atividade, descricao_atividade, inicio_monitoria, termino_monitoria, data_monitoria FROM monitoria WHERE id_curso_monitoria = ? AND status = 'agendada'");
 $query_monitoria->execute([$_SESSION['idCadeira']]);
 $data_monitoria = $query_monitoria->fetchALL();
 
@@ -35,7 +35,7 @@ $data_monitor = $query_monitor->fetchALL();
 
 	<div class="content">
 		<h1><?= $data_nome[0]['nome_cadeira']?></h1>
-		<?php if ($_SESSION['tipo'] == "monitor"): ?>
+		<?php if ($_SESSION['tipo'] == "monitor" && $_SESSION['cadeira_monitor'] == $data_nome[0]['nome_cadeira']): ?>
 			<form action="addMonitoria.php" method="POST">
 				Nome da atividade:
 				<input type="text" name="titulo" placeholder="Nome da atividade">
@@ -67,6 +67,9 @@ $data_monitor = $query_monitor->fetchALL();
 						<td><?= $monitoria['inicio_monitoria'] ?></td>
 						<td><?= $monitoria['termino_monitoria'] ?></td>
 						<td><?= $monitoria['descricao_atividade'] ?></td>
+						<?php if ($monitoria['matricula_monitor'] == $_SESSION['matricula']) : ?>
+							<td><a href="mvRegisto.php">marcar como realizada</a></td>
+						<?php endif ?>
 					</tr>
 				<?php endforeach ?>
 

@@ -20,6 +20,8 @@ $data_edit = $query_edit->fetchALL();
  <head>
  	<meta charset="UTF-8">
  	<title>Editar Resposta</title>
+ 	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<?php	include "menu.php" ?>
  </head>
  <body>
  <form action="upResp.php" method="POST">
