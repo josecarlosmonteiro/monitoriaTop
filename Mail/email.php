@@ -1,34 +1,50 @@
 <?php 
-require_once "./PHPMailer/src/SMTP.php";
-require_once "./PHPMailer/src/PHPMailer.php";
-//pega a váriavel do post, filtra e transforma em array
-$post = filter_input_array(INPUT_GET, FILTER_DEFAULT);
-//atribuicao
-$erro = true;
+use PHPMailer\PHPMailer\PHPMailer;
+require './vendor/autoload.php';
+
+
+$post = filter_input_array(INPUT_POST,FILTER_DEFAULT);
 $nome = $post['nome'];
 $email = $post['email'];
-//Chamando classes
-$phpMailer = new PHPMailer();
-$phpMailer->CharSet = "utf-8";//Definir o método de acentuação
-$phpMailer->SMTPDebug = 3;//Mostrar se teve algum erro
-$phpMailer->isSMTP();//Tem que ser um email cadastrado e válido, se não, não pega.
-$phpMailer->Host ="smtp.gmail.com";//Host do seu site, da sua aplicação
-$phpMailer->SMTPAuth = true;//Verificar se o email que você colocou da sua hospedagem existe mesmo
-$phpMailer->Username = "monitoriadigitalsuporte@gmail.com";//Email do host
-$phpMailer->Password = "monitoriaTop69";//Senha do host
-$phpMailer->SMTPSecurity = "tls";//metódo de segurança smtp  Transport layer security, protocolo de criptografia.
-$phpMailer->Port = 587;//Porta do smtp, padrao de todos os servidores 587
-$phpMailer->FromName = "MonitoriaDigital-Suporte";//Nome do suported do site
-$phpMailer->From = "monitoriadigitalsuport@gmail.com";//Email da agência que está enviando
-$phpMailer->addAddress("{$email}", "{$nome}");//Endereco que vai ser enviado
-$phpMailer->isHTML(true);//Permitir que o email possa ser um arquivo html
-$phpMailer->Subject = "Olá,$nome, Confirme seu email.";//Titulo 
-$phpMailer->body = "PEGOU POHA";//Corpo, pode ser um HTML 
-
-if (!$phpMailer->send()) {
-    echo "Mailer Error: " . $phpMailer->ErrorInfo;//detectar o erro 
-} else {
+$mail = new PHPMailer;
+//Aqui é a call do bozo, onde você decide qual protocolo vai usar, se é pop3 etc..
+$mail->isSMTP();
+//Aqui é onde os erros vão ficar evidentes
+// 0 = não mostrar msgs
+// 1 = msg do navegador
+// 2 = msg do navegador e erros do server
+$mail->SMTPDebug = 2;
+//o ip do servidor de email de sua preferencia
+$mail->Host = 'smtp.gmail.com';
+//colocar a porta do smtp
+$mail->Port = 587;
+//definir o tipo de criptografia https
+$mail->SMTPSecure = 'tls';
+//verificação se o email é válido mesmo
+$mail->SMTPAuth = true;
+//Email de quem vai enviar 
+$mail->Username = "monitoriadigitalsuporte@gmail.com";
+//Senha do email a cima  kkk
+$mail->Password = "monitoriaTop69";
+//Aqui a gente coloca realmente o titulo e o email de quem está enviando
+$mail->setFrom('monitoriadigitalsuporte@gmail.com', 'Monitoria Digital Suporte');
+//Aqui já é no caso se a pessoa tiver outro email pra enviar.
+$mail->addReplyTo('monitoriadigitalsuporte@gmail.com', 'Monitoria Digital Suporte');
+//Atenção, aqui é aonde o email e o nome dos usuários ficaram
+$mail->addAddress($email, $nome);
+//Corpo, oq vai ter dentro da caixa de email
+$mail->Subject = 'Testando Email';
+//Aqui a gente coloca um html básico para envio
+$mail->msgHTML(file_get_contents('email.html'),dirname(__FILE__));
+//Replace the plain text body with one created manually
+$mail->AltBody = 'Teste';
+// $mail->addAttachment('images/phpmailer_mini.png');
+//se caso ocorrerem erros, ele imprime na tela ypah
+try (!$mail->send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+} catch {
     echo "Message sent!";
+
 }
 
 
