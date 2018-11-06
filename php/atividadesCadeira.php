@@ -68,7 +68,7 @@ $data_monitor = $query_monitor->fetchALL();
 						<td><?= $monitoria['termino_monitoria'] ?></td>
 						<td><?= $monitoria['descricao_atividade'] ?></td>
 						<?php if ($monitoria['matricula_monitor'] == $_SESSION['matricula']) : ?>
-							<td><a href="mvRegisto.php">marcar como realizada</a></td>
+							<td><a href="mvRegistro.php?id=<?= $monitoria['id_monitoria'] ?>">marcar como realizada</a></td>
 						<?php endif ?>
 					</tr>
 				<?php endforeach ?>

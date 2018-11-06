@@ -1,5 +1,5 @@
 -- cria banco
-DROP DATABASE relatoriodigital;
+DROP DATABASE IF EXISTS relatoriodigital;
 
 CREATE DATABASE relatoriodigital;
 
@@ -27,21 +27,6 @@ CREATE TABLE disciplina(
     nome_cadeira VARCHAR(255),
     curso_cadeira VARCHAR(255) 
 ); 
-
--- cria tabela registro: irá armazenar os registros das aulas/CH semanal das bolsas
-
-CREATE TABLE registro(
-    id_registro INT  AUTO_INCREMENT,
-    matricula_rg VARCHAR(50),
-    data_monitoria DATE ,
-    hora_inicio TIME ,
-    hora_termino TIME ,
-    atividade VARCHAR(500),
-    tipo_atividade VARCHAR(100),
-    data_registro DATE ,
-    PRIMARY KEY (id_registro),
-    FOREIGN KEY (matricula_rg) REFERENCES aluno(matricula)
-);
 
 -- Cria tabela de agendamento das monitorias 
 
@@ -79,3 +64,5 @@ CREATE TABLE respostas(
     FOREIGN KEY (resp_id_pergunta) REFERENCES perguntas(id_pergunta),
     FOREIGN KEY (resp_matricula) REFERENCES aluno(matricula)
 );
+
+USE relatoriodigital;

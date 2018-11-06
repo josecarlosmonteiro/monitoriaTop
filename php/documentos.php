@@ -30,7 +30,7 @@ if (isset($_SESSION['user'])) { ?>
 		</div>
 		
 			<?php
-			$query = $conn->prepare("SELECT registro.id_registro, registro.data_monitoria, registro.hora_inicio, registro.hora_termino, registro.atividade, registro.tipo_atividade FROM registro INNER JOIN aluno ON registro.matricula_rg = aluno.matricula WHERE registro.matricula_rg = ?");
+			$query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m INNER JOIN aluno ON m.matricula_monitor = aluno.matricula WHERE m.matricula_monitor = ? AND status = 'realizada'");
 			$query->execute([$_SESSION['matricula']]);
 
 			$data = $query->fetchALL(PDO::FETCH_ASSOC);
@@ -46,10 +46,10 @@ if (isset($_SESSION['user'])) { ?>
 			<?php	foreach ($data as $lista) : ?>
 						<tr>
 							<td><?= $lista['data_monitoria'] ?> </td>
-							<td><?= $lista['hora_inicio'] ?> </td>
-							<td><?= $lista['hora_termino'] ?> </td>
-							<td><?= $lista['tipo_atividade'] ?></td>
-							<td><?= $lista['atividade'] ?> </td>
+							<td><?= $lista['inicio_monitoria'] ?> </td>
+							<td><?= $lista['termino_monitoria'] ?> </td>
+							<td><?= $lista['titulo_atividade'] ?></td>
+							<td><?= $lista['descricao_atividade'] ?> </td>
 							<td><a href="editRegistro.php?id=<?=$lista['id_registro']?>"> <i class="far fa-edit"></i> </a></td>
 							<td><a href="rmRegistro.php?id=<?=$lista['id_registro']?>"> <i class="far fa-trash-alt"></i> </a></td>
 						</tr>

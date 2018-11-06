@@ -2,6 +2,10 @@
 session_start();
 include 'conn.php';
 
+if (!isset($_SESSION['matricula'])) {
+	header('location: home.php');
+}
+
 
 $id = $_SESSION['id'];
 $matricula = $_SESSION['matricula'];
