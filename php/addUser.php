@@ -47,18 +47,18 @@ if(sizeof($data)>=1){
 	header('location: cadastro.php');
 
 }else{
-		if ($_POST['tipo']=="aluno") {
+	if ($_POST['tipo']=="aluno") {
 			$aluno = $conn->prepare('INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, password, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 			$aluno->execute([$_POST['nome'], $_POST['sobrenome'], $_POST['matricula'], $_POST['tipo'], $curso, $_POST['periodoCursando'], $_POST['senha'], $_POST['email']]);
-			header('location:../index.php');
+			$_SESSION['emailCadastrado'] = $_POST['email'];
 		}else{
-
-
-
 			$monitor = $conn->prepare("INSERT INTO aluno(nome, sobrenome, email, matricula, curso, periodo, tipo, curso_monitoria, cadeira_monitoria, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			$monitor->execute([$nome, $sobrenome, $email, $matricula, $curso_aluno, $curso_periodo, $tipo, $monitoria_curso, $monitoria_cursoP, $senha]);
-			header('location: ../index.php');
+			
 		}
 	}
+	$_SESSION['emailCadastrado'] = $email;
+	$_SESSION['nomeCadastrado'] = $nome;
+	header('location:email.php');
 }
 ?>

@@ -1,19 +1,21 @@
 <?php 
+session_start();
 use PHPMailer\PHPMailer\PHPMailer;
-require './vendor/autoload.php';
+require '../Mail/vendor/autoload.php';
+$nome = $_SESSION['nomeCadastrado'];
+$email = $_SESSION['emailCadastrado'];
+$emailHash = md5($email);
+$data = date('d/m/y');
 
-
-$post = filter_input_array(INPUT_POST,FILTER_DEFAULT);
-$nome = $post['nome'];
-$email = $post['email'];
 $mail = new PHPMailer;
+
 //Aqui é a call do bozo, onde você decide qual protocolo vai usar, se é pop3 etc..
 $mail->isSMTP();
 //Aqui é onde os erros vão ficar evidentes
 // 0 = não mostrar msgs
 // 1 = msg do navegador
 // 2 = msg do navegador e erros do server
-$mail->SMTPDebug = 2;
+$mail->SMTPDebug = 0;
 //o ip do servidor de email de sua preferencia
 $mail->Host = 'smtp.gmail.com';
 //colocar a porta do smtp
@@ -33,19 +35,20 @@ $mail->addReplyTo('monitoriadigitalsuporte@gmail.com', 'Monitoria Digital Suport
 //Atenção, aqui é aonde o email e o nome dos usuários ficaram
 $mail->addAddress($email, $nome);
 //Corpo, oq vai ter dentro da caixa de email
-$mail->Subject = 'Testando Email';
-//Aqui a gente coloca um html básico para envio
-$mail->msgHTML(file_get_contents('email.html'),dirname(__FILE__));
-//Replace the plain text body with one created manually
-$mail->AltBody = 'Teste';
+$mail->Subject = 'Confirme seu email no MonitoriaDigital - 	'.$data;
+//Aqui a gente especifica um html básico para envio
+$mail->IsHTML(true);
+//Colocar algum corpo se quiser...
+$mail->Body = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
+//$mail->Body = file_get_contents('emailTemplate.php');
+$mail->AltBody = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
 // $mail->addAttachment('images/phpmailer_mini.png');
 //se caso ocorrerem erros, ele imprime na tela ypah
-try (!$mail->send()) {
+if(!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
-} catch {
-    echo "Message sent!";
-
+} else {
+   $_SESSION['recebido'] = true;
+   header('location:aguardandoConfirm.php?email='.trim(md5($email)));
 }
-
 
  ?>

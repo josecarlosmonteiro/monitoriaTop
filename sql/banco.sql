@@ -8,7 +8,7 @@ USE relatoriodigital;
 -- cria primeira tabela
 
 CREATE TABLE aluno(
-	matricula VARCHAR(50) PRIMARY KEY,
+    matricula VARCHAR(50) PRIMARY KEY,
     nome VARCHAR(250) ,
     sobrenome VARCHAR(250) ,
     email VARCHAR(250),
@@ -17,6 +17,7 @@ CREATE TABLE aluno(
     periodo INT ,
     curso_monitoria VARCHAR(50),
     cadeira_monitoria VARCHAR(50),
+    status TINYINT,
     password VARCHAR(32)
 );
 
