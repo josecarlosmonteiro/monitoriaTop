@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php session_start(); ?>
-<?php if (!isset($_SESSION['recebido'])) {
-	header('location:../index.php');
-}
-?>
+<?php if ($_SESSION['ativo'] == false){
+	header('location:senhaForm.php');
+} 
+?>	
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
@@ -40,21 +40,14 @@
      		
 		}
 		span{
-			color: white;
-			background-color: red;
-			padding: 5px;
+			color: black;
+			padding: 10px;
 			border-radius: 10px;
+			font-size: 20px;
 		}
 		body{
 			background-color: black;
 			background-size: cover;
-		}
-		.img{
-			width: auto;
-			max-width: 410px;
-			height: auto;
-			margin: auto;
-			position: relative;
 		}
 		button{
 			padding: 20px;
@@ -76,20 +69,34 @@
 			color: white;
 			font-size: 20px;
 		}
+		input{
+			font-size: 20px;
+			font-family: 'monitoria';
+			border-radius: 10px;
+			outline: none;
+			padding: 10px;
+			transition: 0.5s;
+			border: 4px outset red;
+			text-align: center;
+		}
+		input:focus{
+			background-color: yellow;
+		}
+		@media only screen and (max-width: 500px){
+			body{
+				font-size: 15px;
+			}
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="img">
-          	<br>
-			<img src="../imgs/footer.png" alt="">
-		</div>
 		<div class="confirmado">
-			<h1>Olá, <?php echo $_SESSION['nomeCadastrado'];?></h1><br>
-			<h2>Seu Email : <span><?php echo $_SESSION['emailCadastrado'];?></span></h4><br>
-			<h2>Enviamos um link de confirmação para você. Aguardando confirmação!</h4><br>
-			<a href="email.php"><button>Reenviar Link de Confirmação <i class="fas fa-redo"></i></button></a>
+			<h1>Olá, <?php echo $_SESSION['nome'];?></h1><br>
+			<h2>Senha Alterada com sucesso!</h4><br>
+			<a href="../index.php"><button>Logue-se Agora <i class="fas fa-undo-alt"></i></button></a>
 		</div>
 	</div>
+	<?php session_destroy(); ?>
 </body>
 </html>

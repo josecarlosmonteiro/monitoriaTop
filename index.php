@@ -97,6 +97,20 @@
 input:focus{
  background-color: none;
 }
+.forgot{
+	float: right;
+	text-decoration: none;
+	background-color: red;
+	padding: 10px;
+	color: white;
+	transition: 0.5s;
+	border-radius: 20px;
+
+}
+.forgot:hover{
+	background-color: white;
+	color: red;
+}
 	</style>
 </head>
 <body>
@@ -179,6 +193,7 @@ input:focus{
 						<input type="password" placeholder="Senha" name="senha"  required=""  >
 					</div>
 					<input type="submit" name="" value="Entrar">
+					<a href="./php/senhaForm.php" class="forgot">Esqueceu sua senha?</a>
 				</form>
 			</div>	
 		</div>

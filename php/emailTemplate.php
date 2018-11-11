@@ -22,7 +22,7 @@
 <body bgcolor="red">
 	<div class="email">
 		<h1>EAEE MEN</h1>
-		<img src="../imgs/footer.png" alt="">
+		<img src="../imgs/Logoxs.png" alt="">
 	</div>
 </body>
 </html>
