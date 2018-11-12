@@ -18,6 +18,7 @@ CREATE TABLE aluno(
     curso_monitoria VARCHAR(50),
     cadeira_monitoria VARCHAR(50),
     status TINYINT,
+    cadastro timestamp default current_timestamp,
     password VARCHAR(32)
 );
 
