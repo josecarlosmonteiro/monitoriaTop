@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])) {
 
 include 'conn.php';
 
-$query = $conn->prepare("SELECT p.id_pergunta, p.titulo, a.nome, a.tipo, a.periodo, a.curso FROM perguntas p INNER JOIN aluno a ON a.matricula = p.perg_matricula ORDER BY p.id_pergunta DESC");
+$query = $conn->prepare("SELECT p.id_pergunta, p.titulo, p.perg_matricula, a.nome, a.tipo, a.periodo, a.curso FROM perguntas p INNER JOIN aluno a ON a.matricula = p.perg_matricula ORDER BY p.id_pergunta DESC");
 $query->execute();
 $data = $query->fetchALL(PDO::FETCH_ASSOC);
 ?>
@@ -39,7 +39,9 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 
             <?php foreach ($data as $forum) { ?>    
                 <div class="card">
-                    <a id="topico" href="perg.php?id=<?= $forum['id_pergunta'] ?>"> <h3> <?= $forum['titulo'] ?> </h3> <a href="#" id="userForum"><?= $forum['nome'] ?> (<?=$forum['tipo']?>) <?= $forum['curso'] ?>/<?= $forum['periodo'] ?></a></a>
+                    <a id="topico" href="perg.php?id=<?= $forum['id_pergunta'] ?>"> <h3> <?= $forum['titulo'] ?> </h3> <a href="#" id="userForum"><?= $forum['nome'] ?> (<?=$forum['tipo']?>) <?= $forum['curso'] ?>/<?= $forum['periodo'] ?></a></a> <?php if ($forum['perg_matricula'] == $_SESSION['matricula']) : ?>
+                    <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>">Deletar</a>
+                 <?php endif ?> 
                 </div> 
         <?php } ?>
     </div>
