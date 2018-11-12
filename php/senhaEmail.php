@@ -45,7 +45,7 @@ $mail->Subject = 'Altere sua senha do MonitoriaDigital - '.$data;
 //Aqui a gente especifica um html básico para envio
 $mail->IsHTML(true);
 //Colocar algum corpo se quiser...
-$mail->Body = "http://relatoriodigital.epizy.com/php/alterarSenha.php?m=".md5($matricula['matricula']);
+$mail->Body = "http://localhost:8000/php/alterarSenha.php?m=".md5($matricula['matricula']);
 //$mail->Body = file_get_contents('emailTemplate.php');
 $mail->AltBody = "";
 // $mail->addAttachment('images/phpmailer_mini.png');

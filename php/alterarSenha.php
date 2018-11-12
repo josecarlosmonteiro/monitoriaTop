@@ -24,7 +24,10 @@
 	
 		.container{
 			width: 100%;
-			height: auto;
+			max-width: 1000px;
+			display: flex;
+			justify-content: center;
+			margin: auto
 		}
 		.confirmado{
 			width: 100%;
@@ -34,26 +37,17 @@
 			background-color: white;
 			border:none;
 			text-align: center;
-			margin: -100px auto auto auto;
+			margin: 160px auto auto auto;
 			font-family: 'monitoria';
      		
 		}
 		span{
-			color: black;
-			padding: 10px;
+			color: lightblue;
 			border-radius: 10px;
-			font-size: 20px;
 		}
 		body{
 			background-color: black;
 			background-size: cover;
-		}
-		.img{
-			width: auto;
-			max-width: 410px;
-			height: 180px;
-			margin: auto;
-			position: relative;
 		}
 		button{
 			padding: 20px;
@@ -88,6 +82,10 @@
 		input:focus{
 			background-color: yellow;
 		}
+		.img{
+			position: absolute;
+			margin: 10px;
+		}
 		@media only screen and (max-width: 500px){
 			body{
 				font-size: 15px;
@@ -98,7 +96,7 @@
 <body>
 	<div class="container">
 		<div class="img">
-          	<br>
+        <img src="../footer.png" alt="">
 		</div>
 		<div class="confirmado">
 			<?php 
@@ -106,8 +104,8 @@
 			 ?>
 			<h1>Recupere sua senha</h1><br>
 			<form action="senhaConfirmada.php" method="post">
-				<h2><i class="fas fa-arrow-down"></i> Informe a nova senha abaixo <i class="fas fa-arrow-down"></i><br><br></h4> <input type="text" name="senha" maxlength="16" size="20" placeholder="Senha" required=""><br><br><br>
-					<h2><i class="fas fa-arrow-down"></i> Confirme a nova senha abaixo <i class="fas fa-arrow-down"></i><br><br></h4> <input type="text" name="senhaConfirm" maxlength="16" size="20" placeholder="Confirm Senha" required=""><br><br><br>
+				<h2><i class="fas fa-arrow-down"></i> Informe a nova senha abaixo <i class="fas fa-arrow-down"></i><br><br></h4> <input type="password" name="senha" maxlength="16" size="20" placeholder="Senha" required=""><br><br><br>
+					<h2><i class="fas fa-arrow-down"></i> Confirme a nova senha abaixo <i class="fas fa-arrow-down"></i><br><br></h4> <input type="password" name="senhaConfirm" maxlength="16" size="20" placeholder="Confirm Senha" required=""><br><br><br>
 						<?php if ($_GET['error'] == 2) {
 							echo "<span>Senhas incorretas, por favor repita.<br><br>";
 						} 

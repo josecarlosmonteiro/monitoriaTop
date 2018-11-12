@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php session_start(); ?>
-<?php if ($_SESSION['ativo'] == false){
-	header('location:senhaForm.php');
+<?php if (!isset($_SESSION['recebido'])){
+	header('location:index.php');
 } 
 ?>
 <html lang="pt-br">
@@ -43,10 +43,11 @@
      		
 		}
 		span{
-			color: black;
+			color: white;
 			padding: 10px;
 			border-radius: 10px;
 			font-size: 20px;
+			background-color: lightblue;
 		}
 		body{
 			background-color: black;

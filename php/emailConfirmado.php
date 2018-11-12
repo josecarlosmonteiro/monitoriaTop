@@ -1,6 +1,6 @@
 <?php session_start(); ?>
-<?php if ($_SESSION['ativo'] == false){
-	header('location:senhaForm.php');
+<?php if (!isset($_SESSION['recebido'])){
+	header('location:../index.php');
 } 
 ?>
 <!DOCTYPE html>
@@ -41,10 +41,8 @@
      		
 		}
 		span{
-			color: black;
-			padding: 10px;
+			color: red;	
 			border-radius: 10px;
-			font-size: 20px;
 		}
 		body{
 			background-color: black;
@@ -100,7 +98,7 @@
 			<img src="../footer.png" alt="">
 		</div>
 		<div class="confirmado">
-			<h1>Seu email foi confirmado com sucesso, <span><?php echo $_SESSION['nomeCadastrado']; ?></span></h1><br>
+			<h1>Seu email foi confirmado com sucesso, <span>Eduguedes</span></h1><br>
 			<h2>Você será redirecionado para a página principal em 5 segundos.</h2><br>
 			<a href="../index.php"><button>Redirecionar <i class="fas fa-sync-alt"></i></button></a>
 		</div>
@@ -110,8 +108,8 @@
 	unset($_SESSION['recebido']);
 	 ?>
 	</div>
-<!-- <script language= "JavaScript">
+<script language= "JavaScript">
 	setTimeout("document.location = '../index.php'",5000);
-</script> -->
+</script>
 </body>
 </html>

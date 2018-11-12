@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php session_start(); ?>
-<?php if ($_SESSION['ativo'] == false){
+<?php if (!isset($_SESSION['ativo'])){
 	header('location:senhaForm.php');
 } 
 ?>
@@ -43,10 +43,8 @@
      		
 		}
 		span{
-			color: black;
-			padding: 10px;
+			color: lightblue;
 			border-radius: 10px;
-			font-size: 20px;
 		}
 		body{
 			background-color: black;

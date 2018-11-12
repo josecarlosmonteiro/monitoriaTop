@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php session_start(); ?>
-<?php if ($_SESSION['ativo'] == false){
-	header('location:senhaForm.php');
+<?php if (!isset($_SESSION['ativo'])){
+	header('location:index.php');
 } 
 ?>	
 <html lang="pt-br">
