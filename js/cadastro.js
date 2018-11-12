@@ -33,18 +33,12 @@ function cursoatual() {
 function tipoAluno(){
 	tipo = document.getElementById('tipoaluno').value;
 
-	if (tipo == "Aluno") {
-		document.getElementById("sub").style.display = "block";
-		document.getElementById("monitor").style.display = "none";
-		document.getElementById("sub").style.display = "block";
-		document.getElementById("curso_m").style.display = "none";
-	}else if (tipo == "Monitor") {
+	if (tipo == "Monitor") {
 		document.getElementById("curso_m").style.display = "block";
 		document.getElementById("sub").style.display = "none";
 		document.getElementById("sub").style.display = "block";
 	}else{
-		document.getElementById("sub").style.display = "none";
-		document.getElementById("sub").style.display = "none";
+		document.getElementById("sub").style.display = "block";
 		document.getElementById("curso_m").style.display = "none";
 	}
 }
