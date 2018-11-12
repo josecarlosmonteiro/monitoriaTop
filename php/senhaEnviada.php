@@ -3,7 +3,7 @@
 <?php if ($_SESSION['ativo'] == false){
 	header('location:senhaForm.php');
 } 
-?>	
+?>
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
@@ -25,7 +25,10 @@
 	
 		.container{
 			width: 100%;
-			height: auto;
+			max-width: 1000px;
+			display: flex;
+			justify-content: center;
+			margin: auto
 		}
 		.confirmado{
 			width: 100%;
@@ -35,7 +38,7 @@
 			background-color: white;
 			border:none;
 			text-align: center;
-			margin: 50px auto auto auto;
+			margin: 160px auto auto auto;
 			font-family: 'monitoria';
      		
 		}
@@ -48,14 +51,6 @@
 		body{
 			background-color: black;
 			background-size: cover;
-		}
-		.img{
-			width: auto;
-			max-width: 410px;
-			height: auto;
-			margin: auto;
-			position: relative;
-			background-image: url('../imgs/Logoxs.png');
 		}
 		button{
 			padding: 20px;
@@ -90,6 +85,10 @@
 		input:focus{
 			background-color: yellow;
 		}
+		.img{
+			position: absolute;
+			margin: 10px;
+		}
 		@media only screen and (max-width: 500px){
 			body{
 				font-size: 15px;
@@ -100,10 +99,10 @@
 <body>
 	<div class="container">
 		<div class="img">
-	
+			<img src="../footer.png" alt="">
 		</div>
 		<div class="confirmado">
-			<h1>Olá, <?php echo $_SESSION['nome'];?></h1><br>
+			<h1>Olá, <span><?php echo $_SESSION['nome'];?></span></h1><br>
 			<h2>Enviamos um link de redefinição de senha para você. Aguardando confirmação!</h4><br>
 			<a href="senhaForm.php"><button>Voltar <i class="fas fa-undo-alt"></i></button></a>
 		</div>

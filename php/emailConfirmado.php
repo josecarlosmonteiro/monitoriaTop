@@ -1,8 +1,7 @@
 <?php session_start(); ?>
-<?php if (!isset($_SESSION['recebido'])) {
-	header('location:../index.php');
-}
-
+<?php if ($_SESSION['ativo'] == false){
+	header('location:senhaForm.php');
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,42 +13,42 @@
 	<link rel="stylesheet" href="../css/fontAwesome">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<style>
-		@font-face{
-		font-family: 'monitoria';
-		src:url('../fonts/pn.otf');
-		}
-      *{
-      		padding:0;
-      		 margin:0;
-        }
+			@font-face{
+				font-family: 'monitoria';
+				src:url('../fonts/pn.otf');
+     		}    
+     *{
+      padding:0;
+      margin:0;
+     }
 		.container{
 			width: 100%;
-			height: auto;
+			max-width: 1000px;
+			display: flex;
+			justify-content: center;
+			margin: auto
 		}
 		.confirmado{
 			width: 100%;
 			height: auto;
-			padding: 10px;
+			padding: 30px;
 			color: red;
 			background-color: white;
-			border: 2px inset white;
+			border:none;
 			text-align: center;
-			margin: 50px auto auto auto;
+			margin: 160px auto auto auto;
 			font-family: 'monitoria';
+     		
 		}
 		span{
-			color: red;
+			color: black;
+			padding: 10px;
+			border-radius: 10px;
+			font-size: 20px;
 		}
 		body{
 			background-color: black;
 			background-size: cover;
-		}
-		.img{
-			width: auto;
-			max-width: 410px;
-			height: auto;
-			margin: auto;
-			position: relative;
 		}
 		button{
 			padding: 20px;
@@ -71,12 +70,34 @@
 			color: white;
 			font-size: 20px;
 		}
+		input{
+			font-size: 20px;
+			font-family: 'monitoria';
+			border-radius: 10px;
+			outline: none;
+			padding: 10px;
+			transition: 0.5s;
+			border: 4px outset red;
+			text-align: center;
+		}
+		input:focus{
+			background-color: yellow;
+		}
+		.img{
+			position: absolute;
+			margin: 10px;
+		}
+		@media only screen and (max-width: 500px){
+			body{
+				font-size: 15px;
+			}
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="img"><br>
-			<img src="../imgs/footer.png" alt="">
+		<div class="img">
+			<img src="../footer.png" alt="">
 		</div>
 		<div class="confirmado">
 			<h1>Seu email foi confirmado com sucesso, <span><?php echo $_SESSION['nomeCadastrado']; ?></span></h1><br>
@@ -89,8 +110,8 @@
 	unset($_SESSION['recebido']);
 	 ?>
 	</div>
-<script language= "JavaScript">
+<!-- <script language= "JavaScript">
 	setTimeout("document.location = '../index.php'",5000);
-</script>
+</script> -->
 </body>
 </html>

@@ -20,7 +20,10 @@
 	
 		.container{
 			width: 100%;
-			height: auto;
+			max-width: 1000px;
+			display: flex;
+			justify-content: center;
+			margin: auto
 		}
 		.confirmado{
 			width: 100%;
@@ -30,7 +33,7 @@
 			background-color: white;
 			border:none;
 			text-align: center;
-			margin: 50px auto auto auto;
+			margin: 160px auto auto auto;
 			font-family: 'monitoria';
      		
 		}
@@ -43,14 +46,6 @@
 		body{
 			background-color: black;
 			background-size: cover;
-		}
-		.img{
-			width: auto;
-			max-width: 410px;
-			height: auto;
-			margin: auto;
-			position: relative;
-			background-image: url('../imgs/Logoxs.png');
 		}
 		button{
 			padding: 20px;
@@ -85,6 +80,10 @@
 		input:focus{
 			background-color: yellow;
 		}
+		.img{
+			position: absolute;
+			margin: 10px;
+		}
 		@media only screen and (max-width: 500px){
 			body{
 				font-size: 15px;
@@ -95,7 +94,7 @@
 <body>
 	<div class="container">
 		<div class="img">
-
+				<img src="../footer.png" alt="">
 		</div>
 		<div class="confirmado">
 			<h1>Recupere sua senha</h1><br>

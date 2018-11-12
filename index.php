@@ -91,7 +91,13 @@
 .modal-container .modal	{
 	animation: modal 0.8s;
 }
-@media only screen and(max-width: 450px){
+@media only screen and (max-width:600px){
+	.modal-container{
+		background-color: rgba(0,0,0);
+	}
+	.box{
+		border: none;
+	}
 
 }
 input:focus{
