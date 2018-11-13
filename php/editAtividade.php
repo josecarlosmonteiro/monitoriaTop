@@ -4,8 +4,10 @@ session_start();
 if (!isset($_SESSION ['matricula'])){
 	header('location:../index.php');
 }else{
+	$matricula = addslashes($_SESSION['matricula']);
 	$id_monitoria = $_GET['id'];
-	$banco = $conn->query("SELECT titulo_atividade,data_monitoria,inicio_monitoria,termino_monitoria,descricao_atividade FROM monitoria WHERE id_monitoria =".$id_monitoria);
+	$banco = $conn->prepare("SELECT titulo_atividade,data_monitoria,inicio_monitoria,termino_monitoria,descricao_atividade FROM monitoria WHERE id_monitoria = ? AND matricula_monitor = ?");
+	$banco->execute([$id_monitoria, $matricula]);
 	$dadosForm = $banco->fetch(PDO::FETCH_ASSOC);
 }
  ?>
