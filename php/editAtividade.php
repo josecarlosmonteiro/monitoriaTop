@@ -5,9 +5,11 @@ if (!isset($_SESSION ['matricula'])){
 	header('location:../index.php');
 }else{
 	$matricula = addslashes($_SESSION['matricula']);
-	$id_monitoria = $_GET['id'];
+	$id_monitoria = filter_input_array(INPUT_GET,FILTER_DEFAULT);
+	$monitor = $id_monitoria['id'];
+	echo "$monitor";
 	$banco = $conn->prepare("SELECT titulo_atividade,data_monitoria,inicio_monitoria,termino_monitoria,descricao_atividade FROM monitoria WHERE id_monitoria = ? AND matricula_monitor = ?");
-	$banco->execute([$id_monitoria, $matricula]);
+	$banco->execute([$id_monitoria['id'], $matricula]);
 	$dadosForm = $banco->fetch(PDO::FETCH_ASSOC);
 }
  ?>
@@ -15,7 +17,7 @@ if (!isset($_SESSION ['matricula'])){
 	<head>
 	</head>
 	<body>
-		<form action="updateAtividades.php?id=<?= $id_monitoria?>" method="post">
+		<form action="updateAtividades.php?id=<?= $id_monitoria['id']?>" method="post">
 			<input type="text" placeholder="Nome da atividade" value="<?= $dadosForm['titulo_atividade']?>" name="Titulo">
 			<input type="date" placeholder="Data" value="<?=$dadosForm ['data_monitoria']?>" name="Data">
 			<input type="time" placeholder="Hora de inicio" value="<?=$dadosForm['inicio_monitoria']?>" name="Inicio">

@@ -30,10 +30,10 @@ if (isset($_SESSION['user'])) { ?>
 		</div>
 		
 			<?php
-			$query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m INNER JOIN aluno ON m.matricula_monitor = aluno.matricula WHERE m.matricula_monitor = ? AND status = 'realizada'");
+			$query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m WHERE m.matricula_monitor = ? AND status = 'realizada'");
 			$query->execute([$_SESSION['matricula']]);
 
-			$data = $query->fetchALL(PDO::FETCH_ASSOC);
+			$data = $query->fetchALL();
 
 			// if (sizeof($data)>1) {?>
 

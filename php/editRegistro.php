@@ -4,7 +4,7 @@ include 'conn.php';
 if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
-$_SESSION['id'] = $_GET['id'];
+$_SESSION['id'] = addslashes($_GET['id']);
 
 $query = $conn->prepare("SELECT registro.data_monitoria, registro.hora_inicio, registro.hora_termino, registro.atividade, registro.tipo_atividade FROM registro INNER JOIN aluno ON registro.matricula_rg = aluno.matricula WHERE registro.matricula_rg = ? AND registro.id_registro = ?");
 $query->execute([$_SESSION['matricula'], $_GET['id']]);
