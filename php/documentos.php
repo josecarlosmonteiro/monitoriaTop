@@ -2,8 +2,9 @@
 include 'conn.php';
 session_start();
 include 'menu.php';
-if (isset($_SESSION['user'])) { ?>
-
+if (!isset($_SESSION['matricula'])) { ?>
+	header('location: index.php');
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +62,3 @@ if (isset($_SESSION['user'])) { ?>
 	</div>
 </body>
 </html>
-<?php
-}else{
-	header('location: index.php');
-} ?>

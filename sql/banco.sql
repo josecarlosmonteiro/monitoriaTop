@@ -67,4 +67,4 @@ CREATE TABLE respostas(
     FOREIGN KEY (resp_matricula) REFERENCES aluno(matricula)
 );
 
-USE relatoriodigital;
+INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, password, email, status, curso_monitoria, cadeira_monitoria) VALUES ('Test', 'top', '123', 'monitor', 'IPI', '2', '202cb962ac59075b964b07152d234b70', '123@123.123', '1', 'IPI', 'LÃ³gica de ProgramaÃ§Ã£o e Estrutura de Dados');
