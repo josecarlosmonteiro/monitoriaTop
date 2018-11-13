@@ -39,9 +39,9 @@ $mail->Subject = 'Confirme seu email no MonitoriaDigital - 	'.$data;
 //Aqui a gente especifica um html básico para envio
 $mail->IsHTML(true);
 //Colocar algum corpo se quiser...
-$mail->Body = "http://localhost:8000/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
+$mail->Body = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
 //$mail->Body = file_get_contents('emailTemplate.php');
-$mail->AltBody = "http://localhost:8000/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
+$mail->AltBody = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
 // $mail->addAttachment('images/phpmailer_mini.png');
 //se caso ocorrerem erros, ele imprime na tela ypah
 if(!$mail->send()) {

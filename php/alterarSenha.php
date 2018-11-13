@@ -96,7 +96,7 @@
 <body>
 	<div class="container">
 		<div class="img">
-        <img src="../footer.png" alt="">
+        <img src="../imgs/footer.png" alt="">
 		</div>
 		<div class="confirmado">
 			<?php 

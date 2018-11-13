@@ -94,7 +94,7 @@
 <body>
 	<div class="container">
 		<div class="img">
-				<img src="../footer.png" alt="">
+				<img src="../imgs/footer.png" alt="">
 		</div>
 		<div class="confirmado">
 			<h1>Recupere sua senha</h1><br>
