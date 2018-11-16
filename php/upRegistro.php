@@ -6,16 +6,18 @@ if (!isset($_SESSION['matricula'])) {
 	header('location: home.php');
 }
 
+$data_form = filter_input_array(INPUT_POST);
+$matricula = addslashes($_SESSION['matricula']);
 
-$id = $_SESSION['id'];
-$matricula = $_SESSION['matricula'];
-$data_monitoria = addslashes($_POST['data_monitoria']);
-$hora_inicio = addslashes($_POST['hora_inicio']);
-$hora_termino = addslashes($_POST['hora_termino']);
-$tipo_atividade = addslashes($_POST['tipo_atividade']);
-$descricao = addslashes($_POST['descricao']);
+$id = addslashes($_SESSION['id']['id']);
+$matricula = addslashes($_SESSION['matricula']);
+$data_monitoria = $data_form['data_monitoria'];
+$hora_inicio = $data_form['hora_inicio'];
+$hora_termino = $data_form['hora_termino'];
+$tipo_atividade = $data_form['tipo_atividade'];
+$descricao = $data_form['descricao'];
 
-$query = $conn->prepare("UPDATE registro SET data_monitoria = ?, hora_inicio = ?, hora_termino = ?, tipo_atividade = ?, atividade = ? WHERE id_registro = ? AND matricula_rg = ?");
+$query = $conn->prepare("UPDATE monitoria SET data_monitoria = ?, inicio_monitoria = ?, termino_monitoria = ?, titulo_atividade = ?, descricao_atividade = ? WHERE id_monitoria = ? AND matricula_monitor = ?");
 $query->bindParam(1,$data_monitoria);
 $query->bindParam(2,$hora_inicio);
 $query->bindParam(3,$hora_termino);

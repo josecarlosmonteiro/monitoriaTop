@@ -34,7 +34,6 @@ CREATE TABLE disciplina(
 
 CREATE TABLE monitoria(
     id_monitoria INT  PRIMARY KEY AUTO_INCREMENT,
-    id_curso_monitoria INT,
     matricula_monitor VARCHAR(50),
     titulo_atividade VARCHAR(50),
     descricao_atividade VARCHAR(100),
@@ -43,7 +42,6 @@ CREATE TABLE monitoria(
     data_monitoria DATE,
     status enum('agendada', 'realizada'),
     FOREIGN KEY (matricula_monitor) REFERENCES aluno(matricula),
-    FOREIGN KEY (id_curso_monitoria) REFERENCES disciplina(id_curso)
 );  
 
 -- Cria a tabela de perguntas do forum
@@ -67,4 +65,3 @@ CREATE TABLE respostas(
     FOREIGN KEY (resp_matricula) REFERENCES aluno(matricula)
 );
 
-INSERT INTO aluno (nome, sobrenome, matricula, tipo, curso, periodo, password, email, status, curso_monitoria, cadeira_monitoria) VALUES ('Test', 'top', '123', 'monitor', 'IPI', '2', '202cb962ac59075b964b07152d234b70', '123@123.123', '1', 'IPI', 'LÃ³gica de ProgramaÃ§Ã£o e Estrutura de Dados');

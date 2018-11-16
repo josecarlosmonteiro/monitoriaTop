@@ -2,9 +2,10 @@
 include 'conn.php';
 session_start();
 include 'menu.php';
-if (!isset($_SESSION['matricula'])) { ?>
+if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,7 @@ if (!isset($_SESSION['matricula'])) { ?>
 
 			$data = $query->fetchALL();
 
-			// if (sizeof($data)>1) {?>
+			?>
 
 				<table>
 					<th>Data</th>						
@@ -51,14 +52,11 @@ if (!isset($_SESSION['matricula'])) { ?>
 							<td><?= $lista['termino_monitoria'] ?> </td>
 							<td><?= $lista['titulo_atividade'] ?></td>
 							<td><?= $lista['descricao_atividade'] ?> </td>
-							<td><a href="editRegistro.php?id=<?=$lista['id_registro']?>"> <i class="far fa-edit"></i> </a></td>
-							<td><a href="rmRegistro.php?id=<?=$lista['id_registro']?>"> <i class="far fa-trash-alt"></i> </a></td>
+							<td><a href="editRegistro.php?id=<?=$lista['id_monitoria']?>"> <i class="far fa-edit"></i> </a></td>
+							<td><a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>"> <i class="far fa-trash-alt"></i> </a></td>
 						</tr>
 			<?php	endforeach; ?>
 				</table>
-			 <?php// }else{ ?>
-				<!-- <h3>Nenhum registro a ser exibido</h3> -->
-			 <?php// } ?>
 	</div>
 </body>
 </html>
