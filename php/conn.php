@@ -4,7 +4,7 @@ $usuario="epiz_22976507";
 $senha = "monitoriaTop69";*/
 $dbname = "relatoriodigital";
 $usuario = "root";
-$senha = "";
+$senha = "ifpe";
 
 try {
 	$conn = new PDO("mysql:host=localhost;dbname=$dbname", $usuario, $senha);

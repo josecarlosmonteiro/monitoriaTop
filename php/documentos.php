@@ -30,6 +30,18 @@ if (!isset($_SESSION['matricula'])) {
 				<input id="sub" class="btnSubmit" type="submit" value="Adicionar">
 			</form>
 		</div>
+
+		<div id="blockForm">
+			<form action="pdf.php" method="post">
+				Digite o periodo desejado: <br>
+				
+				Inicio:
+				<input type="date" name="inicio"> 
+				Termino:
+				<input type="date" name="termino">
+				<input type="submit" class="btnSubmit" value="Gerar PDF">
+			</form>
+		</div>
 		
 			<?php
 			$query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m WHERE m.matricula_monitor = ? AND status = 'realizada'");
