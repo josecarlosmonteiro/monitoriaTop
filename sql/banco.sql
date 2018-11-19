@@ -34,6 +34,7 @@ CREATE TABLE disciplina(
 
 CREATE TABLE monitoria(
     id_monitoria INT  PRIMARY KEY AUTO_INCREMENT,
+    id_curso_monitoria INT,
     matricula_monitor VARCHAR(50),
     titulo_atividade VARCHAR(50),
     descricao_atividade VARCHAR(100),
@@ -42,6 +43,7 @@ CREATE TABLE monitoria(
     data_monitoria DATE,
     status enum('agendada', 'realizada'),
     FOREIGN KEY (matricula_monitor) REFERENCES aluno(matricula),
+    FOREIGN KEY (id_curso_monitoria) REFERENCES disciplina(id_curso)
 );  
 
 -- Cria a tabela de perguntas do forum
