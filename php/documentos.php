@@ -6,8 +6,9 @@ if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
 ?>
+!
 <!DOCTYPE html>
-<html>
+<html lang="pt_BR">
 <head>
 	<meta charset="utf-8">
 	<title>Registros</title>
@@ -32,7 +33,7 @@ if (!isset($_SESSION['matricula'])) {
 		</div>
 
 		<div id="blockForm">
-			<form action="pdf.php" method="post">
+			<form action="relatorio.php" method="post">
 				Digite o periodo desejado: <br>
 				
 				Inicio:
