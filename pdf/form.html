@@ -2,59 +2,60 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Relatório</title>
+	<title>Do Zero</title>
 	<style>
-		.table-container{
-			margin: auto;	
+		.centro, .centro2{
+			width: 100%;	
+			height: auto;
+			display: flex;
+			justify-content: center;
+			text-align: left;
 		}
-		.table-dados{
-			width:100%;
-			max-width: 300px;
-			border: 1px solid black;	
-			position:relative;
-			left:50%; top:50%;
-			transform: translate(-50%,-50%);
-		}
-		.table-dados tr td{
+		table tr td{
 			border: 1px solid black;
 		}
-		.container{
-			width: 100%;
-			display: flex;
-			/*align-items: center;*/	
+		.dados tr th, .dados2 tr th{
+			border: 1px solid black;
+		}
+		.dados2 tr td{
+			padding:5px;
+
+
 		}
 	</style>
 </head>
 <body>
-<div class="container">
-	<!-- tabela 1 dados do user-->
-	<div class="dados">
-		<table class="table-dados">
+<div class="centro">  
+	<table class="dados"> 	
 			<tr>
-				<td>Nome do Orientador:</td>
+				<th>Nome Orientador:</th>
 			</tr>
 			<tr>
-				<td>Componente Curricular:</td>
+				<th>Nome Estudante:</th>
 			</tr>
 			<tr>
-				<td>Estudante:</td>
+				<th>Componente Curricular:</th>
 			</tr>
-			<tr> 
-				<td>Monitoria:  Voluntário( ) Bolsista( )</td>
-			</tr>
-		</table>	
-	</div>
-	<!-- tabela 2 dados atividade -->
-	<div class="table-container">
-		<table>
 			<tr>
-				<th>Data</th>
-				<th>Horário</th>
-				<th>Atividade</th>
-				<th>Assinatura</th>
-			</tr>
-		</table>
-	</div>
+				<th>Monitor: Bolsista () Voluntário ()</th>
+			</tr>		
+	</table>
 </div>
+<div class="centro2">
+	<table class="dados2">
+		<tr>
+		<th>Data</th>
+		<th>Horário</th>
+		<th>Atividade</th>
+		<th>Assinatura</th>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>A</td>
+			<td>A</td>
+			<td>A</td>
+		</tr>
+	</table>
+</div>	
 </body>
 </html>
