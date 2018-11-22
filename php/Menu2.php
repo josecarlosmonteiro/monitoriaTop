@@ -38,52 +38,41 @@
 				transition: 0.5s;
 				cursor: pointer;
 			}
-			.navbar ul {
+			.navbar ul{
 				text-align: center;
 				margin: auto;
 			}
-			.navbar i{
+			.dropdown{
 				font-size: 50px;
-				color: white;
-				padding: 0px 60px 0px 0px;
+				display: flex;
+				justify-content: flex-end;
+				padding: 5px 60px 0px 0px;
+				color:white;
+				/*transition: 1s;*/
 			}
-			.navbar i:hover{
+			.dropdown:hover{
 				color: red;
-				transition: 0.5s;
 				cursor: pointer;
 			}
 			.absolute{
-				position: absolute;
-				right: 0;
-				margin: 60px 20px 0px 0px;
-				width: 100px;
-				height: auto;
 				background-color: red;
-				z-index: 1000;
-				border-radius: 10px;
-				padding: 10px;
-				color: white;
-				box-shadow: 1px 1px 20px black;
-				text-align: center;
+				position: absolute;
 				display: none;
-				transition: 1s;
-			}
-			.absolute li {
-				list-style-type: none;
+				top: 60px;
+				right: 20px;	
 				padding: 10px;
-				width: 100%;
-				max-width: 82px;
-				transition:1s;
-				color: white;
-
+				border-radius: 10px;
+				width: 125px;
 			}
-			.absolute li:hover{
+			.absolute li{
+				padding: 10px;
+			}
+			.dropdown li:hover{
 				background-color: white;
-				color: red;
 				border-radius: 10px;
 			}
-			a{
-				text-decoration: none;
+			.dropdown:hover .absolute	{
+				display: block;
 			}
 		</style>
 	</head>
@@ -95,19 +84,14 @@
 				<li>Documentos</li>
 				<li>Atividades</li>
 			</ul>
-			<i class="fas fa-user-circle" onmouseover="mostrar()" onmouseout="esconder()"></i>
+			<div class="dropdown">
+				<i class="fas fa-user-circle"></i>
+					<ul class="absolute">
+						<a href=""><li><i class="fas fa-user"></i>   J.R</li></a>
+						<!-- <a href=""><li><i class="fas fa-user"></i>  Perfil</li></a> -->
+						<a href=""><li><i class="fas fa-sign-out-alt"></i>  Logout</li></a>
+					</ul>
+			</div>
 		</div>
-			<ul class="absolute">
-				<a href=""><li><i class="fas fa-user"></i>  Perfil</li></a>
-				<a href=""><li><i class="fas fa-sign-out-alt"></i>  Logout</li></a>
-			</ul>
-		<script>
-			function mostrar(){	
-				var x = document.getElementsByClassName("absolute")[0].style.display="block";
-			}
-			function esconder(){
-				var y = document.getElementsByClassName("absolute")[0].style.display="none";
-			}
-		</script>
 	</body>
 </html>

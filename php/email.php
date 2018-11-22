@@ -2,9 +2,9 @@
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 require '../Mail/vendor/autoload.php';
-// $nome = $_SESSION['nomeCadastrado'];
-// $email = $_SESSION['emailCadastrado'];
-// $emailHash = md5($email);
+$nome = $_SESSION['nomeCadastrado'];
+$email = $_SESSION['emailCadastrado'];
+$emailHash = md5($email);
 $data = date('d/m/y');
 
 $mail = new PHPMailer;
