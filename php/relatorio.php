@@ -20,39 +20,70 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Relatório</title>
 	<style>
-		* {
-			color: blue;
+		.centro, .centro2{
+			width: 100%;	
+			height: auto;
+			display: flex;
+			justify-content: center;
+			text-align: left;
 		}
-		h1 {
-			color: red;
-			background: #20fe20;
+		table tr td{
+			border: 1px solid black;
+		}
+		.dados tr th, .dados2 tr th{
+			border: 1px solid black;
+		}
+		.dados2 tr td{
+			padding:5px;
+
+
 		}
 	</style>
 </head>
 <body>
-	<h1>Hello World</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus voluptate, odio, expedita tempore cupiditate blanditiis ipsam non explicabo molestias accusantium voluptas consectetur. Commodi assumenda iure accusamus reiciendis doloremque, esse nisi?</p>{{$matricula}}
+<br><br><br>
 
-	<table>
-		<tr>
-			<th>Atividade</th>
-			<th>Data</th>
-			<th>Horári</th>
-		</tr>
+<strong><center><p>INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE PERNAMBUCO</p></center></strong>
+<strong><center><p>CAMPUS IGARASSU</p></center></strong>
+<strong><center><p>DIRETORIA DE ENSINO</p></center></strong>
+<strong><center><p>DIVISÃO DE APOIO AO ENSINO E AO ESTUDANTE</p></center></strong>
+<strong><center><p>PROGRAMA DE MONITORIA</p></center></strong>
+<strong><center><p>Edital nº 04/2018 - DGCIGR</p></center></strong>
 
-	<?php
-	foreach ($data as $lista) : ?>
-		<tr>
-			<td> <?= $lista['titulo_atividade'] ?> </td>
-			<td> <?= $lista['data_monitoria'] ?> </td>
-			<td> <?= $lista['inicio_monitoria'] ?> / <?= $lista['termino_monitoria'] ?> </td>
-		</tr>
-	<?php 
-	endforeach;
-	?>
+<br><br><br>
+
+<strong><center><p>RELATÓRIO MENSAL DE FREQUÊNCIA</p></center></strong>
+<br>
+<center><p>Frequencia Mensal:			Mês/Ano:____/_______</p></center>
+<br>
+<div class="centro">  
+	<table class="dados" style="width: 1000%"> 	
+			<tr>
+				<th>Nome Orientador:</th>
+			</tr>
+			<tr>
+				<th>Nome Estudante:</th>
+			</tr>
+			<tr>
+				<th>Componente Curricular:</th>
+			</tr>
+			<tr>
+				<th>Monitor: Bolsista ( ) Voluntário ( )</th>
+			</tr>		
 	</table>
+</div> <p>
+<div class="centro2">
+	<table class="dados2" style="width: 1000%">
+		<tr>
+		<th>Data</th>
+		<th>Horário</th>
+		<th>Atividade</th>
+		<th>Assinatura</th>
+		</tr>
+	</table>
+</div>	
 	<?php
 	$html = ob_get_clean();
 	?>
