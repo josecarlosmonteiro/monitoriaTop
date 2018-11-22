@@ -25,9 +25,10 @@ $data_resp = $query_resp->fetchALL();
 	<title></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<?php include "menu.php" ?>
+	<?php include "Menu2.php" ?>
 </head>
 <body>
+	<br><br><br>
 	<div class="content">
 		<div class="card">
 			<input type="hidden">

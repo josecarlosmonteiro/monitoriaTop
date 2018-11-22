@@ -40,7 +40,7 @@ $mail->Subject = 'Confirme seu email no MonitoriaDigital - 	'.$data;
 $mail->IsHTML(true);
 $mail->msgHTML(file_get_contents('emailTeste.php'), dirname(__FILE__));
 //Colocar algum corpo se quiser...
-$mail->Body = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
+$mail->Body = "http://localhost:8000/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
 //$mail->Body = file_get_contents('emailTemplate.php');
 $mail->AltBody = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
 // $mail->addAttachment('images/phpmailer_mini.png');

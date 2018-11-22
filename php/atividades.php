@@ -22,7 +22,7 @@ if (!isset($_SESSION['matricula'])) {
 	<meta charset="UTF-8">
 	<title></title>
 	<link rel="stylesheet" href="../css/global.css">
-	<?php	include 'menu.php';	?>
+	<?php	include 'Menu2.php';	?>
 
 	<style>
 		#tabelaIpi, #tabelaLog, #listaIpi, #listaLog{
@@ -36,6 +36,7 @@ if (!isset($_SESSION['matricula'])) {
 
 </head>
 <body>
+	<br><br><br>
 	<div class="content">
 
 		<h1>Atividades</h1>

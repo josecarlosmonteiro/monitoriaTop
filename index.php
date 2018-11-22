@@ -33,6 +33,7 @@
 }
 .box .inputBox{
 	position: relative;
+	font-family: 'monitoria';
 }
 .box .inputBox input{
 	width: 100%;
@@ -100,6 +101,7 @@
 	}
 
 }
+
 input:focus{
  background-color: none;
 }
@@ -122,6 +124,11 @@ input:focus{
 <body>
 	<div class="container">
 		<header class="background">
+			<?php 
+			if(isset($_SESSION['matricula'])) {
+				include 'php/menuIndex.php';
+			}else{
+			 ?>
 			<div class="nav">
 					<a href="index.php"><img src="imgs/lmd.png" class="animated swing"></a>
         			<label for="h"><font color="white">&#9776;</font></label>
@@ -132,6 +139,7 @@ input:focus{
           			<a href="php/cadastro.php" class="botao">CADASTRAR</a>
           		</div>			  
         	</div>
+        	<?php } ?>
         		<div class="title">
       				<h1 class="font">Monitoria <font color="red">Digital</font> - IFPE</h1><br>
       				<h4 class="sub">Ser monitor agora <font color="white">ficou muito mais fácil</font></h4>
@@ -192,13 +200,13 @@ input:focus{
 						<?php unset($_SESSION['erroLogin']) ?>
 				<?php } ?>
 				<form action="php/verifLogin.php" method="POST">
-					<div class="inputBox">
-						<input type="text" placeholder="Matricula" name="matricula" required=""  >
+					<div class="inputBox"><span style="color: white;">Matricula :</span>
+						<input type="text" placeholder="Sua matricula" name="matricula" required=""  >
 					</div>
-					<div class="inputBox">
+					<div class="inputBox"><span style="color: white;">Senha :</span>
 						<input type="password" placeholder="Senha" name="senha"  required=""  >
 					</div>
-					<input type="submit" name="" value="Entrar">
+					<input type="submit" name="" value="Entrar" style="font-family:'monitoria';">
 					<a href="./php/senhaForm.php" class="forgot">Esqueceu sua senha?</a>
 				</form>
 			</div>	

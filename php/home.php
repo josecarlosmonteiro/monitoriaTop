@@ -18,10 +18,10 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
     <title>Navegação TOP</title>
     <link rel="stylesheet" type="text/css" href="../css/global.css">
     <meta charset="utf-8">
-    <?php include 'menu.php'; ?>
+    <?php include 'Menu2.php'; ?>
 </head>
 <body>
-    
+    <br><br><br>
     <div class="content">
         <h1 style="text-decoration: underline;">Tópicos</h1>
         <div class="campoInput">

@@ -95,7 +95,7 @@
 <body>
 	<div class="container">
 		<div class="img">
-			<img src="../footer.png" alt="">
+			<img src="../imgs/cabecalho.png" alt="">
 		</div>
 		<div class="confirmado">
 			<h1>Seu email foi confirmado com sucesso, <span>Eduguedes</span></h1><br>

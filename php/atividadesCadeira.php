@@ -29,10 +29,10 @@ $data_monitor = $query_monitor->fetchALL();
 <head>
 	<title>Lista de Atividades</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<?php	include "menu.php" ?>
+	<?php	include "Menu2.php" ?>
 </head>
 <body>
-
+	<br><br><Br>
 	<div class="content">
 		<h1><?= $data_nome[0]['nome_cadeira']?></h1>
 		<?php if ($_SESSION['tipo'] == "monitor" && $_SESSION['cadeira_monitor'] == $data_nome[0]['nome_cadeira']): ?>

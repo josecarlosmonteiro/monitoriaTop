@@ -100,7 +100,7 @@
 <body>
 	<div class="container">
 		<div class="img">
-				<img src="../footer.png" alt="">
+				<img src="../imgs/cabecalho.png" alt="">
 		</div>
 		<div class="confirmado">
 			<h1>Olá, <?php echo $_SESSION['nomeCadastrado'];?></h1><br>

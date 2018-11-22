@@ -1,5 +1,6 @@
 <?php 
 include 'conn.php';
+include 'Menu2.php';
 session_start();
 if (!isset($_SESSION ['matricula'])){
 	header('location:../index.php');
@@ -17,6 +18,7 @@ if (!isset($_SESSION ['matricula'])){
 	<head>
 	</head>
 	<body>
+		<br><br><br><br><br>
 		<form action="updateAtividades.php?id=<?= $id_monitoria['id']?>" method="post">
 			<input type="text" placeholder="Nome da atividade" value="<?= $dadosForm['titulo_atividade']?>" name="Titulo">
 			<input type="date" placeholder="Data" value="<?=$dadosForm ['data_monitoria']?>" name="Data">

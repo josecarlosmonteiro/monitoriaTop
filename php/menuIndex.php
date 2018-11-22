@@ -83,18 +83,18 @@
 		$sobrenome = substr($_SESSION['sobrenome'],0,1);
 		 ?>
 		<div class="navbar">
-			<a href="../"><img src="../imgs/lmd.png" alt=""></a>
+			<img src="../imgs/lmd.png" alt="">
 			<ul>
-				<a href="home.php"><li>Inicio</li></a>
-				<a href="documentos.php"><li>Documentos</li></a>
-				<a href="atividades.php"><li>Atividades</li></a>
+				<a href="php/home.php"><li>Inicio</li></a>
+				<a href="php/documentos.php"><li>Documentos</li></a>
+				<a href="php/atividades.php"><li>Atividades</li></a>
 			</ul>
 			<div class="dropdown">
 				<i class="fas fa-user-circle"></i>
 					<ul class="absolute">
-						<a href="userPag.php"><li><i class="fas fa-user"></i>  <?php echo $nome.".".$sobrenome;?></li></a>
+						<a href="php/userPag.php"><li><i class="fas fa-user"></i>  <?php echo $nome.".".$sobrenome;?></li></a>
 						<!-- <a href=""><li><i class="fas fa-user"></i>  Perfil</li></a> -->
-						<a href="logout.php"><li><i class="fas fa-sign-out-alt"></i>  Logout</li></a>
+						<a href="php/logout.php"><li><i class="fas fa-sign-out-alt"></i>  Logout</li></a>
 					</ul>
 			</div>
 		</div>

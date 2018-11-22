@@ -97,7 +97,7 @@
 <body>
 	<div class="container">
 		<div class="img">
-			<img src="../imgs/footer.png" alt="">
+			<img src="../imgs/cabecalho.png" alt="">
 		</div>
 		<div class="confirmado">
 			<h1>Olá, <span><?php echo $_SESSION['nome'];?></span></h1><br>

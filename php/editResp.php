@@ -21,9 +21,10 @@ $data_edit = $query_edit->fetchALL();
  	<meta charset="UTF-8">
  	<title>Editar Resposta</title>
  	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<?php	include "menu.php" ?>
+	<?php	include "Menu2.php" ?>
  </head>
  <body>
+ 	<br><br><br><br>
  <form action="upResp.php" method="POST">
  	<input type="text" name="corpo" value="<?= $data_edit[0]['text_resposta'] ?>">
  	<input type="submit" value="salvar">

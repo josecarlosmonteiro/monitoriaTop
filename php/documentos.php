@@ -1,7 +1,7 @@
 <?php
 include 'conn.php';
 session_start();
-include 'menu.php';
+include 'Menu2.php';
 if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
@@ -14,6 +14,15 @@ if (!isset($_SESSION['matricula'])) {
 	<title>Registros</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<style>
+		@font-face{
+			font-family: 'monitoria';
+			src:url('../fonts/pn.otf');
+		}
+		.navbar{
+			font-family: 'monitoria';
+		}
+	</style>
 </head>
 <body>
 
