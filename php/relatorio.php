@@ -1,7 +1,6 @@
 <?php 
 include 'conn.php';
 session_start();
-//çoshfpokjh
 $dataP = filter_input_array(INPUT_POST);
 $matricula = addslashes($_SESSION['matricula']);
 if (!isset($_SESSION['matricula'])) {
@@ -59,7 +58,7 @@ ob_start();
 <center><p>Frequencia Mensal:			Mês/Ano:____/_______</p></center>
 <br>
 <div class="centro">  
-	<table class="dados" style="width: 1000%"> 	
+	<table class="dados" style="width: 100%"> 	
 			<tr>
 				<th>Nome Orientador:</th>
 			</tr>
@@ -75,7 +74,7 @@ ob_start();
 	</table>
 </div> <p>
 <div class="centro2">
-	<table class="dados2" style="width: 1000%">
+	<table class="dados2" style="width: 100%">
 		<tr>
 		<th>Data</th>
 		<th>Horário</th>
@@ -88,6 +87,7 @@ ob_start();
 			<td> <?= $list['inicio_monitoria'] ?> | <?= $list['termino_monitoria'] ?> </td>
 			<td> <?= $list['titulo_atividade'] ?> </td>
 			<td> <?= $list['data_monitoria'] ?> </td>
+			<td>                   </td>
 		</tr>
 		<?php endforeach ?>
 	</table>
@@ -106,7 +106,8 @@ $dompdf = new Dompdf();
 $dompdf->loadHtml ($html);
 
 //definindo papel e orientação
-$dompdf->setPaper('A4', 'landscape');
+$dompdf->set_paper(array(0, 0, 595, 841), 'portrait');
+//$dompdf->setPaper('A4', 'attachment');
 
 //renderizando HTML no PDF
 $dompdf->render();
