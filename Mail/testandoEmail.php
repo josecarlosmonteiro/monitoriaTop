@@ -1,14 +1,12 @@
 <?php 
-session_start();
 use PHPMailer\PHPMailer\PHPMailer;
-require '../Mail/vendor/autoload.php';
-// $nome = $_SESSION['nomeCadastrado'];
-// $email = $_SESSION['emailCadastrado'];
-// $emailHash = md5($email);
+require 'vendor/autoload.php';
 $data = date('d/m/y');
-
+$email = "jhonsnoow32@gmail.com";
+$nome = "jhonatas";
 $mail = new PHPMailer;
-
+//Aqui é a call do bozo, onde você decide qual protocolo vai usar, se é pop3 etc..
+$mail = new PHPMailer;
 //Aqui é a call do bozo, onde você decide qual protocolo vai usar, se é pop3 etc..
 $mail->isSMTP();
 //Aqui é onde os erros vão ficar evidentes
@@ -35,21 +33,21 @@ $mail->addReplyTo('monitoriadigitalsuporte@gmail.com', 'Monitoria Digital Suport
 //Atenção, aqui é aonde o email e o nome dos usuários ficaram
 $mail->addAddress($email, $nome);
 //Corpo, oq vai ter dentro da caixa de email
-$mail->Subject = 'Confirme seu email no MonitoriaDigital - 	'.$data;
-//Aqui a gente especifica um html básico para envio
-$mail->IsHTML(true);
-$mail->msgHTML(file_get_contents('emailTeste.php'), dirname(__FILE__));
-//Colocar algum corpo se quiser...
-$mail->Body = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
-//$mail->Body = file_get_contents('emailTemplate.php');
-$mail->AltBody = "http://monitoriadigital.epizy.com/php/confirmarEmail.php?email=".$emailHash."&&nome=".$nome;
+$mail->Subject = 'Testando Email';
+//Aqui a gente coloca um html básico para envio
+$mail->msgHTML(file_get_contents('emailTeste.php'),dirname(__FILE__));
+//Replace the plain text body with one created manually
+// $mail->Body = "https://www.youtube.com/watch?v=BS2h8U989fM";
+$mail->AltBody = 'Teste';
 // $mail->addAttachment('images/phpmailer_mini.png');
 //se caso ocorrerem erros, ele imprime na tela ypah
 if(!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
-   $_SESSION['recebido'] = true;
-   header('location:aguardandoConfirm.php?email='.trim(md5($email)));
+    echo "Message sent!";
+
 }
+
+
 
  ?>
