@@ -19,7 +19,7 @@ $dompdf = new Dompdf();
 
 // $html = file_get_contents('relatorio.php')
 include('relatorio.php');
-// $html = getData();
+//$html = getData();
 
 //inserindo o HTML no PDF;
 $dompdf->loadHtml ($html);

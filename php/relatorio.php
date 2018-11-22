@@ -7,13 +7,13 @@ $matricula = addslashes($_SESSION['matricula']);
 if (!isset($_SESSION['matricula'])) {
 	header('location: ../index.php');
 }
+$queryList = $conn->prepare("SELECT m.titulo_atividade, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria FROM monitoria m INNER JOIN aluno a ON m.matricula_monitor = a.matricula WHERE a.matricula = ? AND a.tipo = 'monitor' AND m.data_monitoria > ? AND m.data_monitoria < ?");
+$queryList->bindParam(1, $matricula);
+$queryList->bindParam(2, $dataP['inicio']);
+$queryList->bindParam(3, $dataP['termino']);
+$queryList->execute();
+$dataList = $queryList->fetchALL(PDO::FETCH_ASSOC);
 ob_start();
-$query = $conn->prepare("SELECT m.titulo_atividade, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria FROM monitoria m INNER JOIN aluno a ON m.matricula_monitor = a.matricula WHERE a.matricula = ? AND a.tipo = 'monitor' AND m.data_monitoria > ? AND m.data_monitoria < ?");
-$query->bindParam(1, $matricula);
-$query->bindParam(2, $dataP['inicio']);
-$query->bindParam(3, $dataP['termino']);
-$query->execute();
-$data = $query->fetchALL(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -82,15 +82,20 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 		<th>Atividade</th>
 		<th>Assinatura</th>
 		</tr>
+
+		<?php foreach ($dataList as $list) : ?>
+		<tr>
+			<td> <?= $list['inicio_monitoria'] ?> | <?= $list['termino_monitoria'] ?> </td>
+			<td> <?= $list['titulo_atividade'] ?> </td>
+			<td> <?= $list['data_monitoria'] ?> </td>
+		</tr>
+		<?php endforeach ?>
 	</table>
 </div>	
-	<?php
-	$html = ob_get_clean();
-	?>
-
 </body>
 </html>
 <?php
+$html = ob_get_clean();
 require_once '../pdf/vendor/autoload.php';
 use Dompdf\Dompdf;
 
@@ -109,4 +114,4 @@ $dompdf->render();
 //enviando o PDF pro navegador
 $dompdf->stream('relatorio.pdf', array('Attachment' => false));
 
- ?>
+?>
