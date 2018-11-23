@@ -86,7 +86,10 @@
 			<a href="../"><img src="../imgs/lmd.png" alt=""></a>
 			<ul>
 				<a href="home.php"><li>Inicio</li></a>
-				<a href="documentos.php"><li>Documentos</li></a>
+				<?php if ($_SESSION['tipo'] == "monitor") : ?>
+					<a href="documentos.php"><li>Documentos</li></a>
+				<?php endif ?>
+					
 				<a href="atividades.php"><li>Atividades</li></a>
 			</ul>
 			<div class="dropdown">

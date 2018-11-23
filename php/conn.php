@@ -3,8 +3,8 @@
 $usuario="epiz_22976507";
 $senha = "monitoriaTop69";*/
 $dbname = "relatoriodigital";
-$usuario = "root";
-$senha = "Jhon2626@";
+$usuario = "edu";
+$senha = "edu@edu";
 
 try {
 	$conn = new PDO("mysql:host=localhost;dbname=$dbname", $usuario, $senha);

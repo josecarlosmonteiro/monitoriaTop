@@ -3,9 +3,18 @@ include 'conn.php';
 session_start();
 $dataP = filter_input_array(INPUT_POST);
 $matricula = addslashes($_SESSION['matricula']);
-if (!isset($_SESSION['matricula'])) {
+$tipo = "monitor";
+
+if (!isset($_SESSION['matricula']) && $tipo == "monitor") {
 	header('location: ../index.php');
 }
+
+$queryAluno = $conn->prepare("SELECT nome, matricula, sobrenome FROM aluno WHERE matricula = ? AND tipo = ?");
+$queryAluno->bindParam(1, $matricula);
+$queryAluno->bindParam(2, $tipo);
+$queryAluno->execute();
+$dataAluno = $queryAluno->fetchALL(PDO::FETCH_ASSOC);
+
 $queryList = $conn->prepare("SELECT m.titulo_atividade, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria FROM monitoria m INNER JOIN aluno a ON m.matricula_monitor = a.matricula WHERE a.matricula = ? AND a.tipo = 'monitor' AND m.data_monitoria > ? AND m.data_monitoria < ?");
 $queryList->bindParam(1, $matricula);
 $queryList->bindParam(2, $dataP['inicio']);
@@ -55,7 +64,7 @@ ob_start();
 
 <strong><center><p>RELATÓRIO MENSAL DE FREQUÊNCIA</p></center></strong>
 <br>
-<center><p>Frequencia Mensal:			Mês/Ano:____/_______</p></center>
+<center><p>Frequencia Mensal:_______________ Mês/Ano:____/_______</p></center>
 <br>
 <div class="centro">  
 	<table class="dados" style="width: 100%"> 	
@@ -63,7 +72,7 @@ ob_start();
 				<th>Nome Orientador:</th>
 			</tr>
 			<tr>
-				<th>Nome Estudante:</th>
+				<th>Nome Estudante: <?= $dataAluno[0]['nome'] ?> <?= $dataAluno[0]['sobrenome'] ?></th>
 			</tr>
 			<tr>
 				<th>Componente Curricular:</th>
@@ -84,9 +93,9 @@ ob_start();
 
 		<?php foreach ($dataList as $list) : ?>
 		<tr>
+			<td> <?= $list['data_monitoria'] ?> </td>
 			<td> <?= $list['inicio_monitoria'] ?> | <?= $list['termino_monitoria'] ?> </td>
 			<td> <?= $list['titulo_atividade'] ?> </td>
-			<td> <?= $list['data_monitoria'] ?> </td>
 			<td>                   </td>
 		</tr>
 		<?php endforeach ?>
@@ -96,6 +105,7 @@ ob_start();
 </html>
 <?php
 $html = ob_get_clean();
+
 require_once '../pdf/vendor/autoload.php';
 use Dompdf\Dompdf;
 
