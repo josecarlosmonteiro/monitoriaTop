@@ -5,6 +5,10 @@ include 'Menu2.php';
 if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
+$query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m WHERE m.matricula_monitor = ? AND status = 'realizada'");
+$query->execute([$_SESSION['matricula']]);
+
+$data = $query->fetchALL();
 ?>
 !
 <!DOCTYPE html>
@@ -14,6 +18,7 @@ if (!isset($_SESSION['matricula'])) {
 	<title>Registros</title>
 	<link rel="stylesheet" type="text/css" href="../css/global.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../css/micro-bootstrap.css">
 	<style>
 		@font-face{
 			font-family: 'monitoria';
@@ -22,63 +27,94 @@ if (!isset($_SESSION['matricula'])) {
 		.navbar{
 			font-family: 'monitoria';
 		}
+		tr:hover{
+			background-color: #e22424;
+		}
 	</style>
 </head>
-<body>
+<body class="inverted">
 
-	<div class="content">
-		<h1>Registro de Atividades</h1>
-		<h3>Documentação</h3>
-		<hr><br><br>
-		<div id="blockForm">
-			<form action="addEvento.php" method="POST">
-				Data da monitoria:<input required type="date" name="data_monitoria">
-				Hora de início:<input required type="time" name="hora_inicio"> 
-				Hora de termino:<input required type="time" name="hora_termino"> 
-				Tipo da atividade (ex: reunião, aula, etc...):<input required type="text" name="tipo_atividade"> 
-				Descrição da atividade:<input required type="text" name="descricao"> 
-				<input id="sub" class="btnSubmit" type="submit" value="Adicionar">
-			</form>
+	<div class="container">
+		<div class="page-header">
+			<h1>Documentos</h1>
 		</div>
+		<div class="col-sm">
+			<div class="page-header">
+				<h2>Adicionar atividade</h2>
+			</div>
 
-		<div id="blockForm">
-			<form action="relatorio.php" method="post">
-				Digite o periodo desejado: <br>
-				
-				Inicio:
-				<input type="date" name="inicio"> 
-				Termino:
-				<input type="date" name="termino">
-				<input type="submit" class="btnSubmit" value="Gerar PDF">
+			<form action="addEvento.php" method="POST">
+				<label class="form-control">
+					Título da atividade:
+					<input type="text" name="tipo_atividade" class="form-input" placeholder="Título...">
+				</label>
+				<label class="form-control">
+					Descrição da atividade:
+					<textarea class="form-input" name="descricao" placeholder="Breve comentário sobre a atividade..."></textarea>
+				</label>
+				<label class="form-control">
+					Data:
+					<input type="date" name="data_monitoria" class="form-input">
+				</label>
+				<label class="form-control">
+					Início:
+					<input type="time" name="hora_inicio" class="form-input">
+				</label>
+				<label class="form-control">
+					Término:
+					<input type="time" name="hora_termino" class="form-input">
+				</label>
+
+				<button class="btn btn-default" type="reset">Limpar</button>
+				<button class="btn btn-danger" type="submit">Adicionar</button>
 			</form>
+
+			
+			<br>
+
+			<div class="page-header">
+				<h2>Gerar Documento</h2>
+			</div>
+			<form action="relatorio.php" method="post">
+				<label class="form-control">
+					Primeiro dia:
+					<input type="date" name="inicio" class="form-input">
+				</label>
+				<label class="form-control">
+					Último dia:
+					<input type="date" name="termino" class="form-input">
+				</label>
+
+				<button type="reset" class="btn btn-default">Limpar</button>
+				<button type="submit" class="btn btn-danger">Gerar</button>
+			</form>
+
 		</div>
 		
-			<?php
-			$query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m WHERE m.matricula_monitor = ? AND status = 'realizada'");
-			$query->execute([$_SESSION['matricula']]);
-
-			$data = $query->fetchALL();
-
-			?>
-
-				<table>
-					<th>Data</th>						
-					<th>Hora de início</th>						
-					<th>Hora de termino</th>	
-					<th>Tipo da atividade</th>					
-					<th>Descrição da atividade</th>						
+					<div class="centralized">
+				<table style="text-align: left;">
+					<tr>
+						<th>Data</th>
+						<th>Início - Término</th>
+						<th>Atividade</th>
+						<th>Descrição</th>
+						<th>Opções</th>
+					</tr>
 			<?php	foreach ($data as $lista) : ?>
 						<tr>
-							<td><?= $lista['data_monitoria'] ?> </td>
-							<td><?= $lista['inicio_monitoria'] ?> </td>
-							<td><?= $lista['termino_monitoria'] ?> </td>
+							<td><?= $lista['data_monitoria'] ?></td>
+							<td><?= $lista['inicio_monitoria'] ?> - <?= $lista['termino_monitoria'] ?></td>
 							<td><?= $lista['titulo_atividade'] ?></td>
-							<td><?= $lista['descricao_atividade'] ?> </td>
-							<td><a href="editRegistro.php?id=<?=$lista['id_monitoria']?>"> <i class="far fa-edit"></i> </a></td>
-							<td><a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>"> <i class="far fa-trash-alt"></i> </a></td>
+							<td><?= $lista['descricao_atividade'] ?></td>
+							<td>
+								<a href="editRegistro.php?id=<?=$lista['id_monitoria']?>" class="link">Editar</a>
+								<a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>" class="link">Remover</a>
+							</td>
 						</tr>
 			<?php	endforeach; ?>
 				</table>
+			</div>
+
 	</div>
 </body>
 </html>

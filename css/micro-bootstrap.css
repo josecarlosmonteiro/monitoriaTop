@@ -1,0 +1,266 @@
+
+/*
+============= MICRO-BOOTSTRAP =============
+
+Developer: Carlos Monteiro;
+Version: 1.1.12;
+
+ */
+
+/* Conteúdo geral */
+
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-color: #fafbfc;
+}
+
+a{
+	color: #555;
+}
+
+form{
+	padding: 0;
+	margin: 0;
+	position: relative;
+}
+
+table {
+	margin: 10px auto;
+}
+
+table *{
+	padding: 10px;
+}
+
+table td, table th{
+	border: 1px solid silver;
+}
+
+select option{
+	padding: 7.3px;
+	border: 2px solid silver;
+	border-radius: 8px;
+}
+
+.container{
+	width: 95%;
+	padding: 10px;
+	margin: 0 auto;
+	color: #555;
+	font-family: 'Tahoma', sans-serif;
+}
+
+.inverted, .inverted *{
+	color: #fff;
+	background-color: #333;
+}
+
+.inverted .navbar ul{
+	background-color: #555;
+}
+
+.page-header{
+	margin-bottom: 20px;
+	border-bottom: 2px solid #cacbcc;
+	width: 100%;
+	text-align: left;
+}
+
+/* Conceitos de colunas (resumidas em small, medium e large) */
+.col-sm, .col-md, .col-lg, .col-total{
+	margin-right: 20px;
+	margin-bottom: 10px;
+	padding: 0px;
+	min-height: 1px;
+	position: relative;
+	float: left;
+	text-align: justify;
+	display: inline-block;
+}
+
+.col-sm, .small{
+	width: 24%;
+	min-width: 260px;
+}
+
+.col-sm .form-input, .col-sm select option{
+	width: 91%;
+}
+
+.col-md, .medium{
+	width: 46.6%;
+	min-width: 280px;
+}
+
+.col-md .form-input, .col-md option{
+	width: 96%;
+}
+
+.col-lg, .large{
+	width: 70%;
+}
+
+.col-lg .form-input, .col-lg select option{
+	width: 97%;
+}
+
+.col-total, .total{
+	width: 97%;
+}
+
+/* Classe de alteração de display e alinhamento */
+.center-block{
+	padding: 10px;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	object-position: center;
+}
+
+.center-block *{
+	display: inline-block;
+}
+
+.bordered{
+	padding: 12px;
+	border: 2px solid silver;
+	border-radius: 5px;
+}
+
+.bordered-left{
+	border-left: 2px solid silver;
+	padding-left: 20px;
+}
+
+.bordered-right{
+	border-right: 2px solid silver;
+	padding-right: 20px;
+}
+
+.centralized{
+	text-align: center;
+}
+
+.right{
+	float: right;
+}
+
+.footer{
+	width: 100%;
+	margin-top: 90px;
+	padding: 30px 0px;
+	position: relative;
+	bottom: 0%;
+	text-align: center;
+	display: block;
+	float: left;
+	background-color: silver;
+}
+
+/* Botões */
+.btn {
+	border: none;
+	border-radius: 4px;
+	color: white;
+	text-align: center;
+	width: 110px;
+	padding: 10px 15px;
+	margin: 10px 10px 10px 0px;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btn:hover{
+	transition: 0.2s;
+	box-shadow: 0px 0px 10px black;
+	cursor: pointer;
+}
+
+.btn-default{
+	background-color: #777;
+}
+
+.btn-primary{
+	background-color: #367ced;
+}
+
+.btn-info{
+	background-color: #79a9f7;
+}
+
+.btn-sucess{
+	background-color: #2dd847;
+}
+
+.btn-warning{
+	background-color: #f7ad00;
+}
+
+.btn-danger{
+	background-color: #e22424;
+}
+
+/* Formatação de formulários */
+.form-control, select{
+	margin: 5px auto;
+	padding: 0;
+	width: 100%;
+	display: inline-block;
+	text-align: left;
+}
+
+.form-control *{
+	width: 100%;
+	text-align: left;
+}
+
+.form-input{
+	margin: 5px 0px;
+	border: 2px solid silver;
+	border-radius: 5px;
+	padding: 10px;
+	display: block;
+	transition: 0.3s;
+	position: relative;
+}
+
+.link{
+	margin: 5px;
+	padding: 0px;
+	display: inline-block;
+}
+
+/* Responsividade */
+
+@media(max-width: 720px){
+	.container{
+		min-width: 300px;
+	}
+	
+	
+	.col-sm, .col-md, .col-lg, .col-total{
+		width: 95.58%;
+		min-width: 180px;
+		margin: 5px auto;
+		padding: 5px;
+		font-size: 14px;
+		text-align: left;
+	}
+	
+	.page-header{
+		text-align: center;
+	}
+	
+	p{
+		font-size: 12px;
+	}
+	
+	.btn{
+		margin: 5px 5px;
+		padding: 10px 0px;
+	  font-size: 12px;
+		width: 75px;
+	}
+}

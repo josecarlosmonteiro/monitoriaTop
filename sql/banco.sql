@@ -37,7 +37,7 @@ CREATE TABLE monitoria(
     id_curso_monitoria INT,
     matricula_monitor VARCHAR(50),
     titulo_atividade VARCHAR(50),
-    descricao_atividade VARCHAR(100),
+    descricao_atividade TEXT,
     inicio_monitoria TIME,
     termino_monitoria TIME,
     data_monitoria DATE,
@@ -51,8 +51,9 @@ CREATE TABLE monitoria(
 CREATE TABLE perguntas(
     id_pergunta int(20) PRIMARY KEY AUTO_INCREMENT,
     perg_matricula VARCHAR(50),
-    titulo VARCHAR(50) ,
-    corpo VARCHAR(500) ,
+    titulo VARCHAR(100),
+    corpo TEXT,
+    perg_hora timestamp default current_timestamp,
     FOREIGN KEY (perg_matricula) REFERENCES aluno(matricula)
 );
 
@@ -60,9 +61,10 @@ CREATE TABLE perguntas(
 
 CREATE TABLE respostas(
     id_resposta int PRIMARY KEY AUTO_INCREMENT,
-    resp_id_pergunta INT ,
-    resp_matricula VARCHAR(50) ,
-    text_resposta VARCHAR(500) ,
+    resp_id_pergunta INT,
+    resp_matricula VARCHAR(50),
+    text_resposta TEXT,
+    resp_hora timestamp default current_timestamp,
     FOREIGN KEY (resp_id_pergunta) REFERENCES perguntas(id_pergunta),
     FOREIGN KEY (resp_matricula) REFERENCES aluno(matricula)
 );
