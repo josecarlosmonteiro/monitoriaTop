@@ -232,8 +232,6 @@ select option{
 	display: inline-block;
 }
 
-/* Responsividade */
-
 @media(max-width: 720px){
 	.container{
 		min-width: 300px;

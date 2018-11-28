@@ -8,15 +8,15 @@ if (!isset($_SESSION['matricula'])) {
 
 $_SESSION['idperg'] = $_GET['id'];
 
-$query_perg = $conn->prepare("SELECT p.titulo,p.corpo, p.perg_matricula, a.nome, a.tipo, a.curso, a.periodo FROM perguntas p INNER JOIN aluno a ON p.perg_matricula = a.matricula WHERE p.id_pergunta = ?");
+$query_perg = $conn->prepare("SELECT p.titulo,p.corpo, p.perg_matricula,p.perg_hora, a.nome, a.tipo, a.curso, a.periodo FROM perguntas p INNER JOIN aluno a ON p.perg_matricula = a.matricula WHERE p.id_pergunta = ?");
 $query_perg->execute([$_SESSION['idperg']]);
 
-$query_resp = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.resp_id_pergunta, r.resp_matricula, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? ORDER BY r.id_resposta ASC");
+$query_resp = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.resp_id_pergunta, r.resp_matricula, r.resp_hora, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? ORDER BY r.id_resposta ASC");
 $query_resp->execute([$_SESSION['idperg']]);
 
 
-$data_perg = $query_perg->fetchALL();
-$data_resp = $query_resp->fetchALL(); 
+$data_perg = $query_perg->fetchALL(PDO::FETCH_ASSOC);
+$data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC); 
 
  ?>
 <!DOCTYPE html>
@@ -24,38 +24,56 @@ $data_resp = $query_resp->fetchALL();
 <head>
 	<title></title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/micro-bootstrap.css">
 	<?php include "Menu2.php" ?>
 </head>
-<body>
-	<br><br><br>
-	<div class="content">
-		<div class="card">
-			<input type="hidden">
-			<h3 id="topico"> <?= $data_perg[0]['titulo'] ?> <br> <?= $data_perg[0]['nome'] ?>(<?=$data_perg[0]['tipo']?> <?= $data_perg[0]['curso'] ?><?= $data_perg[0]['periodo'] ?>) </h3><br>
-			<p><?= $data_perg[0]['corpo'] ?></p><br><hr>
-			
-		<?php foreach ($data_resp as $resp) { ?>	
-			<div class="card">
-				<p><span style="font-size: 18px; color: #ff3030;"><?= $resp['nome'] ?> (<?= $resp['tipo'] ?>):</span>
-				<?= $resp['text_resposta'] ?></p><a href="editResp.php?id=<?=$resp['id_resposta']?>" id="linksResp">editar</a><br>
-				<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) { ?>
-					<a style="color: white; text-decoration: underline;" href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
-				<?php } ?>
-			</div>
-		<?php }
+<body class="inverted">
+	<div class="container">
+		<div class="page-header">
+			<h1>Comentários</h1>
+		</div>
 
-			if (isset($_SESSION['matricula'])) { ?>
-			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST" id="formResp">
-				<div class="resposta">
-					<input id="inputForum" type="text" name="resposta" required placeholder="Responder...">
-					<input type="submit" value="&#10095;" id="btnResposta">
+		<div class="col-lg ">
+			<div class="container">
+				<div class="page-header">
+					<h2><?= $data_perg[0]['titulo'] ?> - <?= $data_perg[0]['perg_hora'] ?></h2>				
 				</div>
+				<h3><?= $data_perg[0]['nome'] ?> - (<?=$data_perg[0]['tipo']?>)</h3>
+				<p><?= $data_perg[0]['corpo'] ?></p>
+			</div>
+
+			<div class="container" style="font-size: 14px;">
+				<!-- Div de título do bloco -->
+				<div class="page-header">
+					<h2>Respostas</h2>
+				</div>
+
+				<!-- Container contendo informação de quem respondeu, data e corpo do comentário -->
+				<?php foreach ($data_resp as $resp) : ?>
+					<div class="container">
+						<h3><?= $resp['nome'] ?> - (<?= $resp['tipo'] ?>) - <?= $resp['resp_hora'] ?></h3>
+						<p><?= $resp['text_resposta'] ?></p>
+						<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) : ?>
+							<a href="editResp.php?id=<?=$resp['id_resposta']?>" class="btn btn-default right">editar</a>
+							<a style="color: white; text-decoration: underline;" class="btn btn-default right" href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
+						<?php endif ?>
+					</div>
+				<?php endforeach ?>
+			</div>
+		</div>
+			
+
+		<div class="col-sm bordered">
+			<h2>Adicione um comentário</h2>
+			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
+				<label class="form-control">
+					Digite um comentário:
+					<textarea class="form-input" name="resposta" placeholder="Deixe seu comentário..."></textarea>
+				</label>
+				<button type="submit" class="btn btn-danger">Comentar</button>
+				<button type="reset" class="btn btn-default">Limpar</button>
 			</form>
-			<?php }else{
-				echo "Faça login para responder perguntas.";
-			} ?>
-		</div>	
+		</div>
 	</div>
 
 	<div class="footer">
