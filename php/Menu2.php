@@ -17,8 +17,11 @@
 				left: 0;
 				padding: 5px;
 				box-shadow: 1px 1px 10px black;
-				position: fixed;
+				position: relative;
 				z-index: 100;
+			}
+			.navbar *{
+				background-color: #333;
 			}
 			body{
 				font-family: 'monitoria';
@@ -74,6 +77,9 @@
 			}
 			.dropdown:hover .absolute	{
 				display: block;
+			}
+			ul a{
+				background-color: #000;
 			}
 		</style>
 	</head>

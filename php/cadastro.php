@@ -27,7 +27,6 @@ if (isset($_SESSION['mt'])) {
 	$matForm = "";
 }
 
-include 'Menu2.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,6 +38,7 @@ include 'Menu2.php';
 	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<script type="text/javascript" src="../js/cadastro.js"></script>
 </head>
+	<?php include 'Menu2.php'; ?>
 <body class="inverted">
 	
 	<div class="container">
@@ -47,7 +47,7 @@ include 'Menu2.php';
 			<h1>Cadastro</h1>
 		</div>
 
-		<form action="addUSer.php" method="POST" name="cadastro">
+		<form action="addUser.php" method="POST" name="cadastro">
 			<div class="col-sm">
 					<div class="page-header">
 						<h2>Dados pessoais</h2>
@@ -68,7 +68,7 @@ include 'Menu2.php';
 
 					<label class="form-control">
 						E-mail:
-						<input type="email" class="form-input" placeholder="user@mail.com" name="e-mail">
+						<input type="email" class="form-input" placeholder="user@mail.com" name="email">
 					</label>
 					<label class="form-control">
 						Senha:
