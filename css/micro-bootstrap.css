@@ -156,7 +156,10 @@ select option{
 	text-align: center;
 	display: block;
 	float: left;
-	background-color: silver;
+	background-color: #555;
+}
+.footer *{
+	background-color: #555;
 }
 
 /* Botões */

@@ -1,10 +1,10 @@
 <?php
 session_start();
-
+/*
 if (!isset($_SESSION['user'])) {
     header('location:../index.php');
 }
-
+*/
 include 'conn.php';
 
 $query = $conn->query("SELECT p.id_pergunta, p.titulo, p.corpo, p.perg_matricula, p.perg_hora, a.nome, a.tipo, a.periodo, a.curso FROM perguntas p INNER JOIN aluno a ON a.matricula = p.perg_matricula ORDER BY p.id_pergunta DESC");
