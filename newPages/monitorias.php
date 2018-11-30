@@ -49,7 +49,7 @@
 				<div class="page-header">
 					<h2>Suas monitorias</h2>
 				</div>
-				<div style="overflow: auto; min-height: 200px; max-height: 300px;">
+				<div style="overflow: auto; min-height: 200px; max-height: 300px; padding: 10px;">
 					<table>
 						<tr>
 							<th>Data</th>
@@ -79,13 +79,14 @@
 				<div class="page-header">
 					<h2>Atividades de seus monitores</h2>
 				</div>
-				<div style="overflow: auto; min-height: 200px; max-height: 300px;"">
+				<div style="overflow: auto; min-height: 200px; max-height: 300px; padding: 10px;">
 					<table>
 						<tr>
 							<th>Data</th>
 							<th>Início / Término</th>
 							<th>Título</th>
 							<th>Descrição</th>
+							<th>Cadeira</th>
 						</tr>
 						<?php for ($i=0; $i < 8; $i++): ?>
 							<tr>
@@ -93,6 +94,7 @@
 								<td>00:00 / 00:00</td>
 								<td>Lorem ipsum</td>
 								<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sit consequatur tenetur molestiae qui doloribus.</td>
+								<td>Cadeira</td>
 							</tr>
 						<?php endfor; ?>
 					</table>
