@@ -2,14 +2,16 @@
 session_start();
 require_once 'conn.php';
 
-$nome = $_POST['nome'];
-$sobrenome = $_POST['sobrenome'];
-$matricula = $_POST['matricula'];
-$tipo = $_POST['tipo'];
-$curso_aluno = $_POST['curso_aluno'];
-$monitoria_curso = $_POST['monitoria_curso'];
-$senha = md5($_POST['senha']);
-$email = $_POST['email'];
+$nome = addslashes($_POST['nome']);
+$sobrenome = addslashes($_POST['sobrenome']);
+$matricula = addslashes($_POST['matricula']);
+$tipo = addslashes($_POST['tipo']);
+$curso_aluno = addslashes($_POST['curso_aluno']);
+$monitoria_curso = addslashes($_POST['monitoria_curso']);
+$senha = md5(addslashes($_POST['senha']));
+$email = addslashes($_POST['email']);
+
+var_dump($curso_aluno);
 
 
 if ($monitoria_curso == "IPI") {
@@ -20,9 +22,9 @@ if ($monitoria_curso == "IPI") {
 	$monitoria_cursoP = null;
 }
 
-if ($_POST['curso_aluno'] == "IPI") {
+if ($curso_aluno == "IPI") {
 	$curso_periodo = $_POST['periodoCursandoipi'];
-}elseif ($_POST['curso_aluno'] == "LOG") {
+}elseif ($curso_aluno == "LOG") {
 	$curso_periodo = $_POST['periodoCursandolog'];
 }else{
 	$curso_periodo = null;

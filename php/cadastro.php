@@ -99,7 +99,7 @@ if (isset($_SESSION['mt'])) {
 				</label>
               	<label class="form-control">
                   Curso:
-                  <select class="form-input">
+                  <select class="form-input" name="curso_aluno">
                     <option>--</option>
                     <option value="IPI">IPI</option>
                     <option value="LOG">LOG</option>
@@ -107,11 +107,11 @@ if (isset($_SESSION['mt'])) {
               	</label>
 				<label class="form-control">
 					Período que está cursando:
-					<select class="form-input" >
-						<option>--</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
+					<select class="form-input" name="curso_aluno" >
+						<option> -- </option>
+						<?php for ($i=1; $i <= 6; $i++) : ?> 
+							<option value="<?= $i ?>"><?= $i ?></option>
+					<?php	endfor ?>
 					</select>
 				</label>
           </div>
@@ -121,6 +121,13 @@ if (isset($_SESSION['mt'])) {
 				</div>
 				<label class="form-control">
 					<div id="ipi_m">
+						Cadeira que é monitor:<br>
+						<select name="monitoria_curso" class="form-input">
+							<option>--</option>
+							<option value="IPI" >IPI</option>
+							<option value="LOG" >LOG</option>
+						</select>
+					</div><div id="ipi_m">
 						Cadeira que é monitor:<br>
                       	IPI:
 						<select name="monitor_disciplinaipi" class="form-input">
