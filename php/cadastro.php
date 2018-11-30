@@ -1,4 +1,3 @@
-
 <?php 
 session_start();
 include 'conn.php';
@@ -27,114 +26,140 @@ if (isset($_SESSION['mt'])) {
 }else{
 	$matForm = "";
 }
+
+include 'Menu2.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Teste</title>
-	<link rel="stylesheet" href="../css/global.css">
-	<link rel="stylesheet" href="../css/cadastro.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+	<title>Cadastro</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width, initial-scale=1">
+	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<script type="text/javascript" src="../js/cadastro.js"></script>
 </head>
-<body>
-	<fieldset>
-		<h3>Cadastro de Alunos</h3>
+<body class="inverted">
+	
+	<div class="container">
 
-			<?php if (isset($_SESSION['erroMat'])) {
-				echo $_SESSION['erroMat'];
-			}?>
-		<form action="addUser.php" method="POST" name="cadastro">
-			<div id="blockForm">
-				Nome:
-				<input id="inputAcess" type="text" name="nome" placeholder="Nome" required value="<?= $nomeForm; ?>">
-	 			Matrícula:
-				<input id="inputAcess" type="text" name="matricula" placeholder="matric0000" required value="<?= $matForm; ?>">
-				Senha:
-				<input id="inputAcess" type="password" name="senha" placeholder="senha"  required="">
-			</div>
-			<div id="blockForm">
-				Sobrenome:
-	 			<input id="inputAcess" type="text" name="sobrenome" placeholder="Sobrenome" required value="<?= $sobreNomeForm; ?>">
-				E-mail:
-				<input id="inputAcess" type="email"  name="email" placeholder="aluno@email.com" required="e-mail inválido">
-				<?php 
-				if (isset($_SESSION['nao'])) {
-						echo "<br><br><font color=red><h3 class= 'animated shake' >".$_SESSION['nao']."</h3></font>";
-				}
+		<div class="page-header">
+			<h1>Cadastro</h1>
+		</div>
 
-				 ?>
-				Repetir senha:
-				<input id="inputAcess" type="password" name="confirmSenha" placeholder="repetir" required="">
+		<form action="addUSer.php" method="POST" name="cadastro">
+			<div class="col-sm">
+					<div class="page-header">
+						<h2>Dados pessoais</h2>
+					</div>
+
+					<label class="form-control">
+						Nome:
+						<input type="text" name="nome" class="form-input" placeholder="Nome">
+					</label>
+					<label class="form-control">
+						Sobrenome:
+						<input type="text" class="form-input" placeholder="Sobrenome" name="sobrenome">
+					</label>
+
+					<div class="page-header">
+						<h2>Dados da conta</h2>
+					</div>
+
+					<label class="form-control">
+						E-mail:
+						<input type="email" class="form-input" placeholder="user@mail.com" name="e-mail">
+					</label>
+					<label class="form-control">
+						Senha:
+						<input type="password" class="form-input" placeholder="Senha" name="senha">
+					</label>
+					<label class="form-control">
+						Repita a senha:
+						<input type="password" class="form-input" placeholder="Repita a senha" name="confirmSenha">
+					</label>
 			</div>
-				<label>
-				Curso: <br> <select name="curso_aluno" id="curso" onchange="cursoatual()" required >
+
+			<div class="col-md">
+				<div class="page-header">
+					<h2>Dados do aluno</h2>
+				</div>
+
+				<label class="form-control">
+					Matrícula:
+					<input type="text" class="form-input" placeholder="201XXXinfig0000" name="matricula">
+				</label>
+				<label class="form-control">
+					Seu papel:
+					<select class="form-input" name="tipo">
 						<option>--</option>
-						<option value="IPI">IPI</option>
-						<option value="LOG">LOG</option>
+						<option value="Monitor">monitor</option>
+						<option value="Aluno">aluno</option>
 					</select>
 				</label>
-				<label name="periodoCursando" id="LOG" style="display: none">
-					Período(cursando)<br> <select id="cursoLOG" name="periodoCursandolog" onchange="tipoAluno()">
-						<option></option>
+              	<label class="form-control">
+                  Curso:
+                  <select class="form-input">
+                    <option>--</option>
+                    <option value="IPI">IPI</option>
+                    <option value="LOG">LOG</option>
+                  </select>
+              	</label>
+				<label class="form-control">
+					Período que está cursando:
+					<select class="form-input" >
 						<option>--</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
-						<option value="4">4</option>
 					</select>
 				</label>
-				<label id="IPI" style="display: none">
-					Período(cursando)<br> <select id="cursoIPI" name="periodoCursandoipi" onchange="tipoAluno()">
-						<option></option>
-						<option>--</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
+          </div>
+          <div class="col-sm">
+            <div class="page-header">
+					<h2>Área do monitor</h2>
+				</div>
+				<label class="form-control">
+					<div id="ipi_m">
+						Cadeira que é monitor:<br>
+                      	IPI:
+						<select name="monitor_disciplinaipi" class="form-input">
+							<option>--</option>
+							<?php foreach ($data_ipi as $ipi) : ?>
+								<option value="<?= $ipi['nome_cadeira'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
+							<?php endforeach ?>
+						</select>
+					</div>
+					<div id="log_m">
+                      	LOG:
+						<select name="monitor_disciplinalog" class="form-input">
+							<option>--</option>
+							<?php foreach ($data_log as $log) : ?>
+								<option value="<?= $log['nome_cadeira'] ?>"><?= $log['nome_cadeira'] ?></option>
+							<?php endforeach ?>
+							<option></option>
+						</select>
+					</div>
 				</label>
-			
-				<label id="tipo" style="display: none">
-					Qual o seu papel? <br> <select id="tipoaluno" name="tipo" onchange="tipoAluno()">
-						<option></option>
-						<option >--</option>
-						<option value="Aluno">Aluno</option>
-						<option value="Monitor">Monitor</option>
-					</select>
-				</label>
-				<label id="curso_m" style="display: none;">
-					Curso (monitoria) <br> <select id="monitoria_curso" name="monitoria_curso" onchange="curso_monitoria()">
-					<option value="">--</option>
-					<option value="IPI">Informática para Internet</option>
-					<option value="LOG">Logística</option>
-					</select>
-				</label>
-			
-				<label id="ipi_m" style="display: none;">
-					Cadeira(monitoria) <br> <select name="monitor_disciplinaipi">
-						<option>--</option>
-						<?php foreach ($data_ipi as $ipi) : ?>
-							<option value="<?= $ipi['nome_cadeira'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
-						<?php endforeach ?>
-					</select>
-				</label>
-				<label id="log_m" style="display: none;">
-					Cadeira (monitoria) <br> <select name="monitor_disciplinalog">
-						<option>--</option>
-						<?php foreach ($data_log as $log) : ?>
-							<option value="<?= $log['nome_cadeira'] ?>"><?= $log['nome_cadeira'] ?></option>
-						<?php endforeach ?>
-						<option></option>
-					</select>
-				</label>
-				
-			
-			<input class="btnSubmit" id="sub" type="submit" value="Cadastrar" style="display: none">
-			<a class="btnSubmit" href="../">Retornar</a>
+
+				<button type="reset" class="btn btn-default">Limpar</button>
+				<button type="submit" class="btn btn-danger">Cadastrar</button>
+			</div>
+          </div>
 		</form>
-		
-	</fieldset>
+	</div><br>
+  	<div class='container'>
+      <div class="col-lg">
+			<div class="page-header">
+				<h2>Observações</h2>
+			</div>
+			<p>* Para acessar sua conta serão pedidos matrícula e senha.</p>
+			<p>* Caso não seja um monitor e preencha informações no campo do mesmo, o cadastro será ignorado.</p>
+			<p>* No caso de perda de senha, enviaremos uma mensagem ao e-mail cadastrado para alteração da mesma.</p>
+			<p>* Todas as contas estão sujeitas à exclusão em caso de comportamento indevido no uso da ferramenta.</p>
+       		<p>* Caso seja monitor, selecione sua cadeira no campo específico e ignore o campo de cadeiras do outro curso.</p>
+		</div>
+  	</div>
 </body>
 </html>
 <?php session_destroy(); ?>
