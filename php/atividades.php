@@ -6,10 +6,10 @@
 if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
-	$query_log = $conn->prepare("SELECT id_curso, nome_cadeira FROM disciplina WHERE curso_cadeira = 'LOG'");
+	$query_log = $conn->prepare("SELECT id_disciplina, nome_cadeira FROM disciplina WHERE curso_cadeira = 'LOG'");
 	$query_log->execute();
 
-	$query_ipi = $conn->prepare("SELECT id_curso, nome_cadeira FROM disciplina WHERE curso_cadeira = 'IPI'");
+	$query_ipi = $conn->prepare("SELECT id_disciplina, nome_cadeira FROM disciplina WHERE curso_cadeira = 'IPI'");
 	$query_ipi->execute();
 
 	$data_log = $query_log->fetchALL();
@@ -55,7 +55,7 @@ if (!isset($_SESSION['matricula'])) {
 					<hr><br>
 					<?php foreach ($data_ipi as $disc) : ?> 
 						<tr>
-							<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
+							<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_disciplina'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
 					<?php endforeach ?>
 				</table>
 			</div>
@@ -66,7 +66,7 @@ if (!isset($_SESSION['matricula'])) {
 					<hr><br>
 					<?php foreach ($data_log as $disc) : ?> 
 						<tr>
-							<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_curso'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
+							<td><a id="linksTable" href="atividadesCadeira.php?cadeira=<?= $disc['id_disciplina'] ?>"><?= $disc['nome_cadeira'] ?></a></td>
 					<?php endforeach ?>
 				</table>
 			</div>

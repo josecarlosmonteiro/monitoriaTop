@@ -25,16 +25,17 @@ CREATE TABLE aluno(
 -- Cria a tabela de cursos
 
 CREATE TABLE disciplina(
-    id_curso INT  PRIMARY KEY AUTO_INCREMENT,
+    id_disciplina INT  PRIMARY KEY AUTO_INCREMENT,
     nome_cadeira VARCHAR(255),
-    curso_cadeira VARCHAR(255) 
+    curso_cadeira VARCHAR(255),
+    periodo_cadeira INT(2)
 ); 
 
 -- Cria tabela de agendamento das monitorias 
 
 CREATE TABLE monitoria(
     id_monitoria INT  PRIMARY KEY AUTO_INCREMENT,
-    id_curso_monitoria INT,
+    id_disciplina_monitoria INT,
     matricula_monitor VARCHAR(50),
     titulo_atividade VARCHAR(50),
     descricao_atividade TEXT,
@@ -43,7 +44,7 @@ CREATE TABLE monitoria(
     data_monitoria DATE,
     status enum('agendada', 'realizada'),
     FOREIGN KEY (matricula_monitor) REFERENCES aluno(matricula),
-    FOREIGN KEY (id_curso_monitoria) REFERENCES disciplina(id_curso)
+    FOREIGN KEY (id_disciplina_monitoria) REFERENCES disciplina(id_disciplina)
 );  
 
 -- Cria a tabela de perguntas do forum

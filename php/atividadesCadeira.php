@@ -9,7 +9,7 @@ if (!isset($_SESSION['matricula'])) {
 $_SESSION['idCadeira'] = $_GET['cadeira'];
 
 //query que exibe o nome da cadeira selecionada
-$query_nome = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE id_curso = ?");
+$query_nome = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE id_disciplina = ?");
 $query_nome->execute([$_SESSION['idCadeira']]);
 $data_nome = $query_nome->fetchALL();
 

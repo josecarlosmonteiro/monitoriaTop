@@ -16,8 +16,8 @@ foreach ($ipi as $disc_ipi) {
 }
 
 foreach ($log as $disc_log) {
-	$queryCond = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE nome_cadeira = ? AND curso_cadeira = 'IPI'");
-	$queryCond->execute([$disc_ipi]);
+	$queryCond = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE nome_cadeira = ? AND curso_cadeira = 'LOG'");
+	$queryCond->execute([$disc_log]);
 	$dataCond = $queryCond->fetchALL();
 
 	if (sizeof($dataCond)<=0) {
