@@ -2,17 +2,14 @@
 include 'conn.php';
 session_start();
 
-$idCadeira = $_SESSION['idCadeira'];
-$matricula = $_SESSION['matricula'];
-$titulo = $_POST['titulo'];
-$data = $_POST['data_monitoria'];
-$hora_inicio = $_POST['hora_inicio'];
-$hora_termino = $_POST['hora_termino'];
-$descricao = $_POST['descricao'];
+$idCadeira = addslashes($_SESSION['idCadeira']);
+$matricula = addslashes($_SESSION['matricula']);
+
+$data = filter_input_array(INPUT_POST);
 $status = "agendada";
 
-$query = $conn->prepare("INSERT INTO monitoria (id_curso_monitoria, matricula_monitor, titulo_atividade, descricao_atividade, inicio_monitoria, termino_monitoria, data_monitoria, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-$query->execute([$idCadeira, $matricula, $titulo, $descricao, $hora_inicio, $hora_termino, $data, $status]);
+$query = $conn->prepare("INSERT INTO monitoria (id_disciplina_monitoria, matricula_monitor, titulo_atividade, descricao_atividade, inicio_monitoria, termino_monitoria, data_monitoria, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$query->execute([$idCadeira, $matricula, $data['titulo'], $data['descricao'], $data['hora_inicio'], $data['hora_termino'], $data['data_monitoria'], $status]);
 
 header('location: atividadesCadeira.php?cadeira='.$idCadeira);
  ?>

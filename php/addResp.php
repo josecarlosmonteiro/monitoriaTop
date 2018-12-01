@@ -2,10 +2,12 @@
 include 'conn.php';
 session_start();
 
-$text_resposta = $_POST['resposta'];
+$matricula = addslashes($_SESSION['matricula'])
+$idperg = addslashes($_SESSION['idperg']);
+$data = filter_input_array(INPUT_POST);
 
 $query = $conn->prepare("INSERT INTO respostas (resp_id_pergunta, resp_matricula, text_resposta) VALUES (?, ?, ?)");
-$query->execute([$_SESSION['idperg'], $_SESSION['matricula'], $text_resposta]);
+$query->execute([$idperg, $matricula, $data['resposta']]);
 
 header('location: perg.php?id='.$_SESSION['idperg']);
  ?>

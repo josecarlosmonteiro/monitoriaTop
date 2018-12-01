@@ -6,7 +6,7 @@ if (!isset($_SESSION['matricula'])) {
 	header('location: home.php');
 }
 
-$_SESSION['idResp'] = $_GET['id'];
+$_SESSION['idResp'] = addslashes($_GET['id']);
 
 
 $query_edit = $conn->prepare("SELECT id_resposta, resp_matricula, text_resposta FROM respostas WHERE id_resposta = ? AND resp_matricula = ?");

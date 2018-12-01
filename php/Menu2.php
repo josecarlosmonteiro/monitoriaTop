@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start()?>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,10 +93,10 @@
 			<ul>
 				<a href="home.php"><li>Inicio</li></a>
 				<?php if ($_SESSION['tipo'] == "monitor") : ?>
-					<a href="documentos.php"><li>Documentos</li></a>
+					<a href="documentos.php"><li>Gerar Relatório</li></a>
 				<?php endif ?>
 					
-				<a href="atividades.php"><li>Atividades</li></a>
+				<a href="monitorias.php"><li>Monitorias</li></a>
 			</ul>
 			<div class="dropdown">
 				<i class="fas fa-user-circle"></i>

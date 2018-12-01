@@ -6,7 +6,7 @@ if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
 
-$_SESSION['idCadeira'] = $_GET['cadeira'];
+$_SESSION['idCadeira'] = addslashes($_GET['cadeira']);
 
 //query que exibe o nome da cadeira selecionada
 $query_nome = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE id_disciplina = ?");
@@ -14,7 +14,7 @@ $query_nome->execute([$_SESSION['idCadeira']]);
 $data_nome = $query_nome->fetchALL();
 
 //query que exibe as monitorias
-$query_monitoria = $conn->prepare("SELECT id_monitoria, matricula_monitor, titulo_atividade, descricao_atividade, inicio_monitoria, termino_monitoria, data_monitoria FROM monitoria WHERE id_curso_monitoria = ? AND status = 'agendada'");
+$query_monitoria = $conn->prepare("SELECT id_monitoria, matricula_monitor, titulo_atividade, descricao_atividade, inicio_monitoria, termino_monitoria, data_monitoria FROM monitoria WHERE id_disciplina_monitoria = ? AND status = 'agendada'");
 $query_monitoria->execute([$_SESSION['idCadeira']]);
 $data_monitoria = $query_monitoria->fetchALL();
 

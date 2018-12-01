@@ -38,7 +38,6 @@ if (isset($_SESSION['mt'])) {
 	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<script type="text/javascript" src="../js/cadastro.js"></script>
 </head>
-	<?php include 'Menu2.php'; ?>
 <body class="inverted">
 	
 	<div class="container">
@@ -107,7 +106,7 @@ if (isset($_SESSION['mt'])) {
               	</label>
 				<label class="form-control">
 					Período que está cursando:
-					<select class="form-input" name="curso_aluno" >
+					<select class="form-input" name="periodo_cursando" >
 						<option> -- </option>
 						<?php for ($i=1; $i <= 6; $i++) : ?> 
 							<option value="<?= $i ?>"><?= $i ?></option>

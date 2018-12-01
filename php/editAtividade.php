@@ -19,7 +19,7 @@ if (!isset($_SESSION ['matricula'])){
 	</head>
 	<body>
 		<br><br><br><br><br>
-		<form action="updateAtividades.php?id=<?= $id_monitoria['id']?>" method="post">
+		<form action="monitorias.php" method="post">
 			<input type="text" placeholder="Nome da atividade" value="<?= $dadosForm['titulo_atividade']?>" name="Titulo">
 			<input type="date" placeholder="Data" value="<?=$dadosForm ['data_monitoria']?>" name="Data">
 			<input type="time" placeholder="Hora de inicio" value="<?=$dadosForm['inicio_monitoria']?>" name="Inicio">
