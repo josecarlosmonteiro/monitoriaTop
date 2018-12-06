@@ -42,7 +42,7 @@ if(sizeof($data)>=1){
 	header('location: cadastro.php');
 
 }else{
-		$monitor = $conn->prepare("INSERT INTO aluno(nome, sobrenome, email, matricula, curso, periodo, tipo, curso_monitoria, cadeira_monitoria, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$monitor = $conn->prepare("INSERT INTO aluno(nome, sobrenome, email, matricula, curso, periodo, tipo, curso_monitoria, id_cadeira_monitoria_al, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$monitor->execute([$nome, $sobrenome, $email, $matricula, $curso_aluno, $curso_periodo, $tipo, $monitoria_curso, $monitoria_cursoP, $senha]);
 	}
 	$_SESSION['emailCadastrado'] = $email;

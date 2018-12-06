@@ -2,7 +2,7 @@
 include 'conn.php';
 session_start();
 
-$matricula = addslashes($_SESSION['matricula'])
+$matricula = addslashes($_SESSION['matricula']);
 $idperg = addslashes($_SESSION['idperg']);
 $data = filter_input_array(INPUT_POST);
 

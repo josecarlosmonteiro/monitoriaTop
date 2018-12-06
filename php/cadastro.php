@@ -2,10 +2,10 @@
 session_start();
 include 'conn.php';
 
-$query_log = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE curso_cadeira = 'LOG' ORDER BY id_disciplina ASC");
+$query_log = $conn->prepare("SELECT id_disciplina, nome_cadeira FROM disciplina WHERE curso_cadeira = 'LOG' ORDER BY id_disciplina ASC");
 $query_log->execute();
 
-$query_ipi = $conn->prepare("SELECT nome_cadeira FROM disciplina WHERE curso_cadeira = 'IPI' ORDER BY id_disciplina ASC");
+$query_ipi = $conn->prepare("SELECT id_disciplina, nome_cadeira FROM disciplina WHERE curso_cadeira = 'IPI' ORDER BY id_disciplina ASC");
 $query_ipi->execute();
 
 $data_log = $query_log->fetchALL();
@@ -54,11 +54,11 @@ if (isset($_SESSION['mt'])) {
 
 					<label class="form-control">
 						Nome:
-						<input type="text" name="nome" class="form-input" placeholder="Nome">
+						<input type="text" required name="nome" class="form-input" placeholder="Nome">
 					</label>
 					<label class="form-control">
 						Sobrenome:
-						<input type="text" class="form-input" placeholder="Sobrenome" name="sobrenome">
+						<input type="text" required class="form-input" placeholder="Sobrenome" name="sobrenome">
 					</label>
 
 					<div class="page-header">
@@ -67,15 +67,15 @@ if (isset($_SESSION['mt'])) {
 
 					<label class="form-control">
 						E-mail:
-						<input type="email" class="form-input" placeholder="user@mail.com" name="email">
+						<input type="email" required class="form-input" placeholder="user@mail.com" name="email">
 					</label>
 					<label class="form-control">
 						Senha:
-						<input type="password" class="form-input" placeholder="Senha" name="senha">
+						<input type="password" required class="form-input" placeholder="Senha" name="senha">
 					</label>
 					<label class="form-control">
 						Repita a senha:
-						<input type="password" class="form-input" placeholder="Repita a senha" name="confirmSenha">
+						<input type="password" required class="form-input" placeholder="Repita a senha" name="confirmSenha">
 					</label>
 			</div>
 
@@ -86,7 +86,7 @@ if (isset($_SESSION['mt'])) {
 
 				<label class="form-control">
 					Matrícula:
-					<input type="text" class="form-input" placeholder="201XXXinfig0000" name="matricula">
+					<input type="text" required class="form-input" placeholder="201XXXinfig0000" name="matricula">
 				</label>
 				<label class="form-control">
 					Seu papel:
@@ -132,7 +132,7 @@ if (isset($_SESSION['mt'])) {
 						<select name="monitor_disciplinaipi" class="form-input">
 							<option>--</option>
 							<?php foreach ($data_ipi as $ipi) : ?>
-								<option value="<?= $ipi['nome_cadeira'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
+								<option value="<?= $ipi['id_disciplina'] ?>" ><?= $ipi['nome_cadeira'] ?></option>
 							<?php endforeach ?>
 						</select>
 					</div>
@@ -141,7 +141,7 @@ if (isset($_SESSION['mt'])) {
 						<select name="monitor_disciplinalog" class="form-input">
 							<option>--</option>
 							<?php foreach ($data_log as $log) : ?>
-								<option value="<?= $log['nome_cadeira'] ?>"><?= $log['nome_cadeira'] ?></option>
+								<option value="<?= $log['id_disciplina'] ?>"><?= $log['nome_cadeira'] ?></option>
 							<?php endforeach ?>
 							<option></option>
 						</select>

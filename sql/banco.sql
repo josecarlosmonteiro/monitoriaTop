@@ -5,6 +5,15 @@ CREATE DATABASE relatoriodigital;
 
 USE relatoriodigital;
 
+-- Cria a tabela de cursos
+
+CREATE TABLE disciplina(
+    id_disciplina INT  PRIMARY KEY AUTO_INCREMENT,
+    nome_cadeira VARCHAR(255),
+    curso_cadeira VARCHAR(255),
+    periodo_cadeira INT(2)
+); 
+
 -- cria primeira tabela
 
 CREATE TABLE aluno(
@@ -16,20 +25,12 @@ CREATE TABLE aluno(
     curso VARCHAR(50) ,
     periodo INT ,
     curso_monitoria VARCHAR(50),
-    cadeira_monitoria VARCHAR(50),
+    id_cadeira_monitoria_al INT,
     status TINYINT,
     cadastro timestamp default current_timestamp,
-    password VARCHAR(32)
+    password VARCHAR(32),
+    FOREIGN KEY (id_cadeira_monitoria_al) REFERENCES disciplina(id_disciplina)
 );
-
--- Cria a tabela de cursos
-
-CREATE TABLE disciplina(
-    id_disciplina INT  PRIMARY KEY AUTO_INCREMENT,
-    nome_cadeira VARCHAR(255),
-    curso_cadeira VARCHAR(255),
-    periodo_cadeira INT(2)
-); 
 
 -- Cria tabela de agendamento das monitorias 
 

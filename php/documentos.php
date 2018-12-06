@@ -13,14 +13,12 @@ $query->execute([$matricula]);
 
 $data = $query->fetchALL(PDO::FETCH_ASSOC);
 ?>
-!
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html>
 <head>
+	<title>Geração de Relatório</title>
 	<meta charset="utf-8">
-	<title>Registros</title>
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<meta name="viewport" content="width-device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../css/micro-bootstrap.css">
 	<style>
 		@font-face{
@@ -36,47 +34,14 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 	</style>
 </head>
 <body class="inverted">
-
 	<div class="container">
 		<div class="page-header">
-			<h1>Documentos</h1>
+			<h1>Gerar Relatório</h1>
 		</div>
-		<div class="col-sm">
+
+		<div class="col-sm bordered">
 			<div class="page-header">
-				<h2>Adicionar atividade</h2>
-			</div>
-
-			<form action="addEvento.php" method="POST">
-				<label class="form-control">
-					Título da atividade:
-					<input type="text" name="tipo_atividade" class="form-input" placeholder="Título...">
-				</label>
-				<label class="form-control">
-					Descrição da atividade:
-					<textarea class="form-input" name="descricao" placeholder="Breve comentário sobre a atividade..."></textarea>
-				</label>
-				<label class="form-control">
-					Data:
-					<input type="date" name="data_monitoria" class="form-input">
-				</label>
-				<label class="form-control">
-					Início:
-					<input type="time" name="hora_inicio" class="form-input">
-				</label>
-				<label class="form-control">
-					Término:
-					<input type="time" name="hora_termino" class="form-input">
-				</label>
-
-				<button class="btn btn-default" type="reset">Limpar</button>
-				<button class="btn btn-danger" type="submit">Adicionar</button>
-			</form>
-
-			
-			<br>
-
-			<div class="page-header">
-				<h2>Gerar Documento</h2>
+				<h2>Intervalo de Datas</h2>
 			</div>
 			<form action="relatorio.php" method="post">
 				<label class="form-control">
@@ -87,18 +52,22 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 					Último dia:
 					<input type="date" name="termino" class="form-input">
 				</label>
-
-				<button type="reset" class="btn btn-default">Limpar</button>
-				<button type="submit" class="btn btn-danger">Gerar</button>
+				<button class="btn btn-default" type="reset">Limpar</button>
+				<button class="btn btn-danger" type="submit">Gerar</button>
 			</form>
-
+			<p>* Para gerar seu relatório, indique o primeiro e último dia válidos para o documento, o sistema listará automaticamente as atividades dentro do intervalo de dias informado.</p>
 		</div>
-		
-					<div class="centralized">
-				<table style="text-align: left;">
+
+		<div class="col-lg">
+			<div class="container">	
+				<div class="page-header">
+					<h2>Registro Geral de Atividades</h2>
+				</div>
+
+				<table style="text-align: center;">
 					<tr>
 						<th>Data</th>
-						<th>Início - Término</th>
+						<th>Início / Término</th>
 						<th>Atividade</th>
 						<th>Descrição</th>
 						<th>Opções</th>
@@ -110,14 +79,13 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 							<td><?= $lista['titulo_atividade'] ?></td>
 							<td><?= $lista['descricao_atividade'] ?></td>
 							<td>
-								<a href="editRegistro.php?id=<?=$lista['id_monitoria']?>" class="link">Editar</a>
 								<a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>" class="link">Remover</a>
 							</td>
 						</tr>
 			<?php	endforeach; ?>
 				</table>
 			</div>
-
+		</div>
 	</div>
 </body>
 </html>
