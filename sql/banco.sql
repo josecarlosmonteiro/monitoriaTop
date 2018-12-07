@@ -66,6 +66,7 @@ CREATE TABLE respostas(
     resp_id_pergunta INT,
     resp_matricula VARCHAR(50),
     text_resposta TEXT,
+    status BOOLEAN,
     resp_hora timestamp default current_timestamp,
     FOREIGN KEY (resp_id_pergunta) REFERENCES perguntas(id_pergunta),
     FOREIGN KEY (resp_matricula) REFERENCES aluno(matricula)

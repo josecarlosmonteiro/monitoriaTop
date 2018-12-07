@@ -6,12 +6,14 @@ if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
 
+$matricula = addslashes($_SESSION['matricula']);
+
 $_SESSION['idperg'] = $_GET['id'];
 
 $query_perg = $conn->prepare("SELECT p.titulo,p.corpo, p.perg_matricula,p.perg_hora, a.nome, a.tipo, a.curso, a.periodo FROM perguntas p INNER JOIN aluno a ON p.perg_matricula = a.matricula WHERE p.id_pergunta = ?");
 $query_perg->execute([$_SESSION['idperg']]);
 
-$query_resp = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.resp_id_pergunta, r.resp_matricula, r.resp_hora, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? ORDER BY r.id_resposta ASC");
+$query_resp = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.status, r.resp_id_pergunta, r.resp_matricula, r.resp_hora, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? ORDER BY r.status DESC");
 $query_resp->execute([$_SESSION['idperg']]);
 
 
@@ -52,6 +54,12 @@ $data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC);
 				<?php foreach ($data_resp as $resp) : ?>
 					<div class="container">
 						<h3><?= $resp['nome'] ?> - (<?= $resp['tipo'] ?>) - <?= $resp['resp_hora'] ?></h3>
+						<?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
+							<a href="marcResp.php?id=<?= $resp['id_resposta'] ?>" class="btn btn-default">Melhor resposta</a>
+						<?php endif ?>
+						<?php if ($resp['status'] == 1): ?>
+							<button class="btn btn-sucess">Melhor resposta</button>
+						<?php endif ?>
 						<p><?= $resp['text_resposta'] ?></p>
 						<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) : ?>
 							<a href="editResp.php?id=<?=$resp['id_resposta']?>" class="btn btn-default right">editar</a>

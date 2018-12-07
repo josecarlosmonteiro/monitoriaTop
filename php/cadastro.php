@@ -71,11 +71,11 @@ if (isset($_SESSION['mt'])) {
 					</label>
 					<label class="form-control">
 						Senha:
-						<input type="password" required class="form-input" placeholder="Senha" name="senha">
+						<input type="password" required class="form-input" minlength="8" title="Mínino 8 caracteres" placeholder="Senha" name="senha">
 					</label>
 					<label class="form-control">
 						Repita a senha:
-						<input type="password" required class="form-input" placeholder="Repita a senha" name="confirmSenha">
+						<input type="password" required class="form-input" minlength="8" placeholder="Repita a senha" name="confirmSenha">
 					</label>
 			</div>
 
@@ -120,7 +120,7 @@ if (isset($_SESSION['mt'])) {
 				</div>
 				<label class="form-control">
 					<div id="ipi_m">
-						Cadeira que é monitor:<br>
+						Curso que é monitor:<br>
 						<select name="monitoria_curso" class="form-input">
 							<option>--</option>
 							<option value="IPI" >IPI</option>
