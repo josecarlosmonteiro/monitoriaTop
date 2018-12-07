@@ -52,20 +52,23 @@ $data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC);
 
 				<!-- Container contendo informação de quem respondeu, data e corpo do comentário -->
 				<?php foreach ($data_resp as $resp) : ?>
-					<div class="container">
+					<div class="container bordered">
 						<h3><?= $resp['nome'] ?> - (<?= $resp['tipo'] ?>) - <?= $resp['resp_hora'] ?></h3>
-						<?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
-							<a href="marcResp.php?id=<?= $resp['id_resposta'] ?>" class="btn btn-default">Melhor resposta</a>
+						<p style="margin-bottom: 15px;">
+                            <?= $resp['text_resposta'] ?>
+                            <?php if ($resp['status'] == 1): ?>
+							    <a style="color: white; padding: 3px 8px; background-color: green; text-decoration: underline; float: right;">Melhor Resposta</a>
+						    <?php endif ?>
+                        </p>
+                        <?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
+							<a href="marcResp.php?id=<?= $resp['id_resposta'] ?>" class="btn btn-default">Favoritar</a>
 						<?php endif ?>
-						<?php if ($resp['status'] == 1): ?>
-							<button class="btn btn-sucess">Melhor resposta</button>
-						<?php endif ?>
-						<p><?= $resp['text_resposta'] ?></p>
 						<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) : ?>
-							<a href="editResp.php?id=<?=$resp['id_resposta']?>" class="btn btn-default right">editar</a>
-							<a style="color: white; text-decoration: underline;" class="btn btn-default right" href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
+							<a href="editResp.php?id=<?=$resp['id_resposta']?>" class="btn btn-default">editar</a>
+							<a style="color: white; text-decoration: underline;" class="btn btn-default" href="rmResp.php?id=<?= $resp['id_resposta'] ?>">remover</a>
 						<?php endif ?>
 					</div>
+                    <br>
 				<?php endforeach ?>
 			</div>
 		</div>
