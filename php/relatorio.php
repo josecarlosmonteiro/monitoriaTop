@@ -15,7 +15,7 @@ $queryAluno->bindParam(2, $tipo);
 $queryAluno->execute();
 $dataAluno = $queryAluno->fetchALL(PDO::FETCH_ASSOC);
 
-$queryList = $conn->prepare("SELECT m.titulo_atividade, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria FROM monitoria m INNER JOIN aluno a ON m.matricula_monitor = a.matricula WHERE a.matricula = ? AND a.tipo = 'monitor' AND m.data_monitoria > ? AND m.data_monitoria < ?");
+$queryList = $conn->prepare("SELECT m.titulo_atividade, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria FROM monitoria m INNER JOIN aluno a ON m.matricula_monitor = a.matricula WHERE a.matricula = ? AND a.tipo = 'monitor' AND m.data_monitoria >= ? AND m.data_monitoria <= ?");
 $queryList->bindParam(1, $matricula);
 $queryList->bindParam(2, $dataP['inicio']);
 $queryList->bindParam(3, $dataP['termino']);
@@ -45,8 +45,14 @@ ob_start();
 		}
 		.dados2 tr td{
 			padding:5px;
+		}
 
+		h3{
+			text-align: center;
+		}
 
+		td{
+			text-align: center;
 		}
 	</style>
 </head>
@@ -81,7 +87,8 @@ ob_start();
 				<th>Monitor: Bolsista ( ) Voluntário ( )</th>
 			</tr>		
 	</table>
-</div> <p>
+</div> 
+<p>
 <div class="centro2">
 	<table class="dados2" style="width: 100%">
 		<tr>
@@ -90,7 +97,6 @@ ob_start();
 		<th>Atividade</th>
 		<th>Assinatura</th>
 		</tr>
-
 		<?php foreach ($dataList as $list) : ?>
 		<tr>
 			<td> <?= $list['data_monitoria'] ?> </td>
@@ -100,7 +106,14 @@ ob_start();
 		</tr>
 		<?php endforeach ?>
 	</table>
+
+</div>
+
 </div>	
+<h3>
+	_______________________________________________ <br>
+				Assinatura do Orientador
+</h3>
 </body>
 </html>
 <?php
