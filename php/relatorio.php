@@ -15,17 +15,18 @@ $queryAluno->bindParam(2, $tipo);
 $queryAluno->execute();
 $dataAluno = $queryAluno->fetchALL(PDO::FETCH_ASSOC);
 
-$queryList = $conn->prepare("SELECT m.titulo_atividade, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria FROM monitoria m INNER JOIN aluno a ON m.matricula_monitor = a.matricula WHERE a.matricula = ? AND a.tipo = 'monitor' AND m.data_monitoria >= ? AND m.data_monitoria <= ?");
+$queryList = $conn->prepare("SELECT m.titulo_atividade, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria FROM monitoria m INNER JOIN aluno a ON m.matricula_monitor = a.matricula WHERE m.matricula_monitor = ? AND m.data_monitoria >= ? AND m.data_monitoria <= ? AND m.status = 'realizada'");
 $queryList->bindParam(1, $matricula);
 $queryList->bindParam(2, $dataP['inicio']);
 $queryList->bindParam(3, $dataP['termino']);
 $queryList->execute();
 $dataList = $queryList->fetchALL(PDO::FETCH_ASSOC);
+
 ob_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_BR">
 <head>
 	<meta charset="UTF-8">
 	<title>Relatório</title>
