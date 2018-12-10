@@ -57,6 +57,10 @@ select option{
 	background-color: #333;
 }
 
+.inverted .bordered, .inverted .bordered *:not(.btn){
+	background-color: #444;
+}
+
 .inverted .navbar ul{
 	background-color: #555;
 }
@@ -194,7 +198,7 @@ select option{
 }
 
 .btn-sucess{
-	background-color: #2dd847;
+	background-color: green;
 }
 
 .btn-warning{

@@ -25,7 +25,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
         <div class="page-header">
             <h1>Monitoria Digital - Fórum</h1>
         </div>
-
+        <br><br>
         <div class="col-sm ">
             <div class="page-header">
                 <h2>Adicione uma dúvida</h2>
@@ -53,13 +53,16 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 
             <?php foreach ($data as $forum) : ?>
                 <div class="col-total bordered">
-                    <h3><?= $forum['titulo'] ?></h3>
-                    <h5><?= $forum['nome'] ?>(<?= $forum['tipo'] ?>) - <?= $forum['perg_hora'] ?></h5>
-                    <p><?= $forum['corpo'] ?></p>
-                    <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" class="btn btn-danger right">Responder</a>
                     <?php if ($forum['perg_matricula'] == $_SESSION['matricula']) : ?>
-                        <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>"  class="btn btn-default right" >Deletar</a>
+                    <h2><?= $forum['titulo'] ?> <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none; float: right; font-size: 26px;" >&#10005;</a></h2>
+                    <?php else: ?>
+                    <h2><?= $forum['titulo'] ?> <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>"</h2>
                     <?php endif ?>
+                    <h5><?= $forum['nome'] ?>(<?= $forum['tipo'] ?>) - <?= $forum['perg_hora'] ?></h5>
+                    <br>
+                    <p><?= $forum['corpo'] ?></p>
+                    <br><br>
+                    <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" class="btn btn-danger">Responder</a>
                 </div>
 
             <?php endforeach ?>
