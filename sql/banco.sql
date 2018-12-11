@@ -1,7 +1,7 @@
 -- cria banco
 DROP DATABASE IF EXISTS relatoriodigital;
 
-CREATE DATABASE relatoriodigital;
+CREATE DATABASE relatoriodigital DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 USE relatoriodigital;
 

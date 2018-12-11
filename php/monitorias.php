@@ -29,6 +29,7 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 	<title>Monitorias</title>
 	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<meta charset="utf-8">
+	<script src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <body class="inverted">
 	<div class="container">
@@ -41,7 +42,7 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 					<div class="page-header">
 						<h2>Adicione uma atividade</h2>
 					</div>
-					<form action="addMonitoria.php" method="POST">
+					<form action="addMonitoria.php" method="POST" id="add_monitoria">
 						<label class="form-control">
 							Título da atividade:
 							<input type="text" class="form-input" name="titulo" placeholder="Título da atividade...">
@@ -62,7 +63,7 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 							Horário de término:
 							<input type="time" name="hora_termino" class="form-input">
 						</label>
-						<button class="btn btn-danger" type="submit">Adicionar</button>
+						<button class="btn btn-danger" type="submit" >Adicionar</button>
 						<button class="btn btn-default" type="reset">Limpar</button>
 					</form>
 				</div>
@@ -82,7 +83,9 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 									<th>Descrição</th>
 									<th>Opções</th>
 								</tr>
-								
+								<tbody id="listagem">
+									
+								</tbody>
 								<?php foreach ($dataMonitor as $listaMonitor) : ?>
 									<tr>
 										<td><?= $listaMonitor['data_monitoria'] ?></td>
@@ -128,5 +131,55 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 		</div>
 
 	</div>
+	<script>
+		function addMonitoria(){
+			$('#add_monitoria').on('submit', function(e){
+				e.preventDefault();
+				$.ajax({
+					type: "POST",
+					url: $(this).attr('action'),
+					data: $(this).serialize(),
+					success: function(row){
+						$('#add_monitoria').trigger("reset");
+						alert("Monitoria agendada com sucesso");
+						listagemMonitoria();
+					}
+				});
+				
+			});
+		};
+
+		function listagemMonitoria(){
+			$(document).ready(function() {
+				$('#listagem').empty();
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					utl: 'listMonitoria.php',
+					success: function(dados){
+						dados = JSON.parse(dados);
+						for (var i = 0; dados.length>1; i++) {
+							$('$listagem').append(`
+								<tr>
+									<td>
+										${dados['data_monitoria']}
+									</td>
+									<td>
+										${dados['inicio_monitoria']}-${dados['termino_monitoria']}
+									</td>
+									<td>
+										${dados['titulo_atividade']}</td>
+									<td>
+										${dados['descricao_atividade']}
+									<td>
+									</tr>
+							`);
+						}
+					}
+				});
+			});
+		}
+		addMonitoria();
+	</script>
 </body>
 </html>
