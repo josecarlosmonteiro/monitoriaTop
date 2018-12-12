@@ -59,6 +59,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 				<button class="btn btn-default" type="reset">Limpar</button>
 				<button class="btn btn-danger" type="submit">Gerar</button>
 			</form>
+			<br>
 			<p>* Para gerar seu relatório, indique o primeiro e último dia válidos para o documento, o sistema listará automaticamente as atividades dentro do intervalo de dias informado.</p>
 		</div>
 
@@ -74,7 +75,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 						<th>Início / Término</th>
 						<th>Atividade</th>
 						<th>Descrição</th>
-						<th>Opções</th>
+
 					</tr>
 			<?php	foreach ($data as $lista) : ?>
 						<tr>
@@ -83,7 +84,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 							<td><?= $lista['titulo_atividade'] ?></td>
 							<td><?= $lista['descricao_atividade'] ?></td>
 							<td>
-								<a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>" class="link">Remover</a>
+								<a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;"">&#10799;</a>
 							</td>
 						</tr>
 			<?php	endforeach; ?>

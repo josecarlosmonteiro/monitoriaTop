@@ -93,8 +93,8 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 										<td><?= $listaMonitor['titulo_atividade'] ?></td>
 										<td><?= $listaMonitor['descricao_atividade'] ?></td>
 										<td>
-											<a href="editAtividade.php?id=<?= $listaMonitor['id_monitoria'] ?>" class="link">Editar</a>
-											<a href="mvRegistro.php?id=<?= $listaMonitor['id_monitoria'] ?>" class="link">Concluída</a>
+											<a href="editAtividade.php?id=<?= $listaMonitor['id_monitoria'] ?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#9998;</a>
+											<a href="mvRegistro.php?id=<?= $listaMonitor['id_monitoria'] ?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#10003;</a>
 										</td>
 									</tr>
 								<?php endforeach ?>

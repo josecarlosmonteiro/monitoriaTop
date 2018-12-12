@@ -74,7 +74,7 @@ $data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC);
 	              <?= $resp['text_resposta'] ?>
 	            </p>
 	            <?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
-								<a href="marcResp.php?id=<?= $resp['id_resposta'] ?>" class="btn btn-sucess" style="font-size: 13.4px" >Melhor Resposta</a>
+								<a href="marcResp.php?id=<?= $resp['id_resposta'] ?>" class="btn btn-sucess" style="font-size: 11.9px" >Marcar como correta</a>
 							<?php endif ?>
 							<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) : ?>
 								<a href="editResp.php?id=<?=$resp['id_resposta']?>" class="btn btn-default">editar</a>
