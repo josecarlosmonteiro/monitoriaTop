@@ -83,6 +83,9 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 									<th>Descrição</th>
 									<th>Opções</th>
 								</tr>
+								<tbody id="listagem">
+									
+								</tbody>
 								<?php foreach ($dataMonitor as $listaMonitor) : ?>
 									<tr>
 										<td><?= $listaMonitor['data_monitoria'] ?></td>
@@ -128,6 +131,56 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 		</div>
 
 	</div>
+	<script>
+		function addMonitoria(){
+			$('#add_monitoria').on('submit', function(e){
+				e.preventDefault();
+				$.ajax({
+					type: "POST",
+					url: $(this).attr('action'),
+					data: $(this).serialize(),
+					success: function(row){
+						$('#add_monitoria').trigger("reset");
+						$('#listagem').append(row);
+						alert("Monitoria agendada com sucesso");
+						listagemMonitoria();
+					}
+				});
+				
+			});
+		};
+
+		function listagemMonitoria(){
+			$(document).ready(function() {
+				$('#listagem').empty();
+				$.ajax({
+					type: 'POST',
+					dataType: 'json',
+					utl: 'listMonitoria.php',
+					success: function(dados){
+						dados = JSON.parse(dados);
+						for (var i = 0; dados.length>1; i++) {
+							$('$listagem').append(`
+								<tr>
+									<td>
+										${dados[i]data_monitoria}
+									</td>
+									<td>
+										${dados[i]inicio_monitoria}-${dados[i]termino_monitoria}
+									</td>
+									<td>
+										${dados[i]titulo_atividade}</td>
+									<td>
+										${dados[i]descricao_atividade}
+									<td>
+									</tr>
+							`);
+						}
+					}
+				});
+			});
+		}
+		addMonitoria();
 	</script>
 </body>
 </html>
