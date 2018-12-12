@@ -141,12 +141,10 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 					data: $(this).serialize(),
 					success: function(row){
 						$('#add_monitoria').trigger("reset");
-						$('#listagem').append(row);
 						alert("Monitoria agendada com sucesso");
 						listagemMonitoria();
 					}
 				});
-				
 			});
 		};
 
@@ -156,24 +154,24 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 				$.ajax({
 					type: 'POST',
 					dataType: 'json',
-					utl: 'listMonitoria.php',
+					url: 'listMonitoria.php',
 					success: function(dados){
-						dados = JSON.parse(dados);
-						for (var i = 0; dados.length>1; i++) {
-							$('$listagem').append(`
+						for (var i = 0; dados.length>i; i++) {
+							$('#listagem').append(`
 								<tr>
 									<td>
-										${dados[i]data_monitoria}
+										${dados[i].data_monitoria}
 									</td>
 									<td>
-										${dados[i]inicio_monitoria}-${dados[i]termino_monitoria}
+										${dados[i].inicio_monitoria}-${dados[i].termino_monitoria}
 									</td>
 									<td>
-										${dados[i]titulo_atividade}</td>
+										${dados[i].titulo_atividade}</td>
 									<td>
-										${dados[i]descricao_atividade}
+										${dados[i].descricao_atividade}
 									<td>
-									</tr>
+									<td>
+									</tr> <a href="monitorias.php?id=${dados[i].id_monitoria}" "style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#9998;</a>
 							`);
 						}
 					}
@@ -182,5 +180,6 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 		}
 		addMonitoria();
 	</script>
+
 </body>
 </html>

@@ -2,7 +2,6 @@
 include 'conn.php';
 session_start();
 
-include 'Menu2.php';
 if (!isset($_SESSION['matricula'])) {
 	header('location: index.php');
 }
@@ -15,5 +14,5 @@ $query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monit
 $query->execute([$matricula]);
 
 $dataMonitor = $query->fetchALL(PDO::FETCH_ASSOC);
-echo json_decode($dataMonitor);
+echo json_encode($dataMonitor);
  ?>
