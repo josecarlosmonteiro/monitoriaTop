@@ -13,7 +13,7 @@ body{
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	background-color: #fafbfc;
+	background-color: #efefef;
 }
 
 a{
@@ -70,18 +70,24 @@ select option{
 	border-bottom: 2px solid #cacbcc;
 	width: 100%;
 	text-align: left;
+	padding: 5px;
 }
 
-/* Conceitos de colunas (resumidas em small, medium e large) */
+/* Conceitos de colunas (resumidas em small, medium, large e total) */
 .col-sm, .col-md, .col-lg, .col-total{
 	margin-right: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	padding: 0px;
 	min-height: 1px;
 	position: relative;
 	float: left;
 	text-align: justify;
 	display: inline-block;
+}
+
+.shadow{
+	box-shadow: 0px 0px 15px gray;
+	padding: 10px;
 }
 
 .col-sm, .small{
@@ -131,6 +137,7 @@ select option{
 	padding: 12px;
 	border: 2px solid silver;
 	border-radius: 5px;
+	background-color: white;
 }
 
 .bordered-left{
@@ -171,9 +178,9 @@ select option{
 	border: none;
 	border-radius: 4px;
 	color: white;
-	text-align: center;
-	width: 110px;
 	padding: 10px 15px;
+	width: 110px;
+	text-align: center;
 	margin: 10px 10px 10px 0px;
 	text-decoration: none;
 	display: inline-block;
@@ -181,7 +188,7 @@ select option{
 
 .btn:hover{
 	transition: 0.2s;
-	box-shadow: 0px 0px 10px black;
+	box-shadow: 0px 0px 15px 1px gray;
 	cursor: pointer;
 }
 
@@ -197,7 +204,7 @@ select option{
 	background-color: #79a9f7;
 }
 
-.btn-sucess{
+.btn-success{
 	background-color: green;
 }
 

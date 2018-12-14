@@ -18,15 +18,15 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
     <link rel="stylesheet" type="text/css" href="../css/micro-bootstrap.css">
     <?php include 'Menu2.php'; ?>
 </head>
-<body class="inverted">
+<body>
     <div class="container">
         <div class="page-header">
             <h1>Monitoria Digital - Fórum</h1>
         </div>
         <br><br>
-        <div class="col-sm ">
+        <div class="col-sm">
             <div class="page-header">
-                <h2>Adicione uma dúvida</h2>
+                <h2>Adicione um tópico</h2>
             </div>
             <form action="addPerg.php" method="POST">
                 <label class="form-control">
@@ -38,8 +38,8 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
                     <textarea class="form-input" required name="corpo" placeholder="Conteúdo do tópico"></textarea>
                 </label>
                 
-                <button type="reset" class="btn btn-default">Limpar</button>
-                <button type="submit" class="btn btn-danger">Postar</button>
+                <button type="reset" class="btn btn-danger">Limpar</button>
+                <button type="submit" class="btn btn-success">Postar</button>
             </form>
         </div>
 
@@ -51,24 +51,24 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 
             <?php foreach ($data as $forum) : ?>
                 <div class="col-total bordered">
-                    <?php if ($forum['perg_matricula'] == $_SESSION['matricula']) : ?>
-                    <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none;"><h2 style="margin: 5px 0px;"><?= $forum['titulo'] ?></a> 
-                    <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none; float: right; font-size: 26px;" >&#10005;</a></h2>
-                    <?php else: ?>
-                    <h2><?= $forum['titulo'] ?> <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>"</h2>
-                    <?php endif ?>
-                    <h5><?= $forum['nome'] ?>(<?= $forum['tipo'] ?>) - <?= $forum['perg_hora'] ?></h5>
-                    <br>
-                    <p><?= $forum['corpo'] ?></p>
-                    <br><br>
-                    <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" class="btn btn-danger">Responder</a>
+                    <div class="page-header">
+                        <?php if ($forum['perg_matricula'] == $_SESSION['matricula']) : ?>
+                        <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none;"><h2 style="margin: 5px 0px;"><?= $forum['titulo'] ?></a> 
+                        <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none; float: right; font-size: 26px;" >&#10005;</a></h2>
+                        <?php else: ?>
+                        <h2><?= $forum['titulo'] ?> <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>"></h2>
+                        <?php endif ?>
+                        <h5><?= $forum['nome'] ?>(<?= $forum['tipo'] ?>) - <?= $forum['perg_hora'] ?></h5>
+                    </div>
+                    <div class="container">
+                        <p><?= $forum['corpo'] ?></p>
+                        <br><br>
+                    </div>
+                    <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" class="btn btn-success">Responder</a>
                 </div>
 
             <?php endforeach ?>
         </div>
-
-
-
     </div>
     <div class="footer">
         <a href="developers.php" style="color: white;">Developers</a>

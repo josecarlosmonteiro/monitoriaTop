@@ -1,4 +1,4 @@
-a<?php 
+<?php 
 include 'conn.php';
 session_start();
 
@@ -34,13 +34,13 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 	<link rel="stylesheet" type="text/css" href="../css/micro-bootstrap.css">
 	<?php include "Menu2.php" ?>
 </head>
-<body class="inverted">
+<body class="">
 	<div class="container">
 		<div class="page-header">
 			<h1>Comentários</h1>
 		</div>
 
-		<div class="col-lg ">
+		<div class="col-lg bordered">
 			<div class="container">
 				<div class="page-header">
 					<h2><?= $data_perg[0]['titulo'] ?> - <?= $data_perg[0]['perg_hora'] ?></h2>				
@@ -54,11 +54,11 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 				<div class="page-header">
 					<h2>Respostas</h2>
 				</div>
-
+				<br>
 				<!-- Container contendo informação de quem respondeu, data e corpo do comentário -->
 				<?php if (sizeof($data_resp_ok)>0): ?>
 					
-						<div class="container bordered">
+						<div class="bordered" style="background-color: silver;">
 	            <div style="display: inline-block; float: left; min-width: 50px; margin: 0px 20px 0px 10px; text-align: center;	">
 						    <div style="font-size: 16px;">
 									<?php if ($data_resp_ok[0]['status'] == 1): ?>
@@ -71,7 +71,7 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 							    <h1><a href="rmVoto.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" style="text-decoration: none;">&#9661;</a></h1>
 						    </div>
 	            </div>
-	            <div style="display: inline; width: 90%;">
+	            <div style="display: inline; width: 90%; display: none;">
 								<?php if ($data_resp_ok[0]['resp_matricula'] == $_SESSION['matricula']) : ?>
 									<h2><?= $data_resp_ok[0]['nome'] ?> - (<?= $data_resp_ok[0]['tipo'] ?>) - <?= $data_resp_ok[0]['resp_hora'] ?> <a style="color: white; text-decoration: underline; float: right; text-decoration: none; font-size: 26px;" href="rmResp.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>">&#10005;</a> </h2>
 								<?php endif ?>
@@ -91,7 +91,7 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 
 				<?php endif ?>
 				<?php foreach ($data_resp as $resp) : ?>
-					<div class="container bordered">
+					<div class="bordered" style="margin-top: 15px;">
             <div style="display: inline-block; float: left; min-width: 50px; margin: 0px 20px 0px 10px; text-align: center;	">
 					    <div style="font-size: 16px;">
 								<?php if ($resp['status'] == 1): ?>
@@ -113,7 +113,7 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 	              <?= $resp['text_resposta'] ?>
 	            </p>
 	            <?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
-								<a href="marcResp.php?id=<?= $resp['id_resposta'] ?>" class="btn btn-sucess" style="font-size: 11.9px" >Marcar como correta</a>
+								<a href="marcResp.php?id=<?= $resp['id_resposta'] ?>" class="btn btn-success" style="font-size: 11.9px" >Marcar como correta</a>
 							<?php endif ?>
 							<?php if ($resp['resp_matricula'] == $_SESSION['matricula']) : ?>
 								<a href="editResp.php?id=<?=$resp['id_resposta']?>" class="btn btn-default">editar</a>
@@ -126,22 +126,22 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 		</div>
 			
 		<div class="col-sm bordered">
-			<h2>Adicione um comentário</h2>
+			<h2 style="text-align: left;">Adicione um comentário</h2>
 			<br><br>
 			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
 				<label class="form-control">
 					Digite um comentário:
 					<textarea class="form-input" name="resposta" placeholder="Deixe seu comentário..."></textarea>
 				</label>
-				<button type="submit" class="btn btn-danger">Comentar</button>
-				<button type="reset" class="btn btn-default">Limpar</button>
+				<button type="submit" class="btn btn-success">Comentar</button>
+				<button type="reset" class="btn btn-danger">Limpar</button>
 			</form>
 		</div>
 	</div>
 
 	<div class="footer">
-        <a href="#">Developers</p></a>
-    </div>
+    <a href="#">Developers</p></a>
+  </div>
 <?php if (isset($_SESSION['erroVoto'])): ?>
 	<script>alert('Você só pode votar 1 vez por pergunta')</script>
 <?php endif;
