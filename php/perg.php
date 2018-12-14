@@ -56,38 +56,40 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 				</div>
 
 				<!-- Container contendo informação de quem respondeu, data e corpo do comentário -->
+				<?php if (sizeof($data_resp_ok)>0): ?>
+					
+						<div class="container bordered">
+	            <div style="display: inline-block; float: left; min-width: 50px; margin: 0px 20px 0px 10px; text-align: center;	">
+						    <div style="font-size: 16px;">
+									<?php if ($data_resp_ok[0]['status'] == 1): ?>
+									  <h2 style="margin-bottom: 10px;">&#9989;</h2>
+									<?php else: ?>
+										<br><br>
+							    <?php endif ?>
+							    <h1><a href="addVoto.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" style="text-decoration: none;">&#9651;</a></h1>
+							    <h4 style="text-align: center;"><?= $data_resp_ok[0]['votos'] ?></h4>
+							    <h1><a href="rmVoto.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" style="text-decoration: none;">&#9661;</a></h1>
+						    </div>
+	            </div>
+	            <div style="display: inline; width: 90%;">
+								<?php if ($data_resp_ok[0]['resp_matricula'] == $_SESSION['matricula']) : ?>
+									<h2><?= $data_resp_ok[0]['nome'] ?> - (<?= $data_resp_ok[0]['tipo'] ?>) - <?= $data_resp_ok[0]['resp_hora'] ?> <a style="color: white; text-decoration: underline; float: right; text-decoration: none; font-size: 26px;" href="rmResp.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>">&#10005;</a> </h2>
+								<?php endif ?>
+								<br><br>
+								<p style="margin-bottom: 15px;">
+		              <?= $data_resp_ok[0]['text_resposta'] ?>
+		            </p>
+		            <?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
+									<a href="marcResp.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" class="btn btn-sucess" style="font-size: 11.9px" >Marcar como correta</a>
+								<?php endif ?>
+								<?php if ($data_resp_ok[0]['resp_matricula'] == $_SESSION['matricula']) : ?>
+									<a href="editResp.php?id=<?=$data_resp_ok[0]['id_resposta']?>" class="btn btn-default">editar</a>
+								<?php endif ?>
+	            </div>
+						</div>
+	          <br>
 
-					<div class="container bordered">
-            <div style="display: inline-block; float: left; min-width: 50px; margin: 0px 20px 0px 10px; text-align: center;	">
-					    <div style="font-size: 16px;">
-								<?php if ($data_resp_ok[0]['status'] == 1): ?>
-								  <h2 style="margin-bottom: 10px;">&#9989;</h2>
-								<?php else: ?>
-									<br><br>
-						    <?php endif ?>
-						    <h1><a href="addVoto.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" style="text-decoration: none;">&#9651;</a></h1>
-						    <h4 style="text-align: center;"><?= $data_resp_ok[0]['votos'] ?></h4>
-						    <h1><a href="rmVoto.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" style="text-decoration: none;">&#9661;</a></h1>
-					    </div>
-            </div>
-            <div style="display: inline; width: 90%;">
-							<?php if ($data_resp_ok[0]['resp_matricula'] == $_SESSION['matricula']) : ?>
-								<h2><?= $data_resp_ok[0]['nome'] ?> - (<?= $data_resp_ok[0]['tipo'] ?>) - <?= $data_resp_ok[0]['resp_hora'] ?> <a style="color: white; text-decoration: underline; float: right; text-decoration: none; font-size: 26px;" href="rmResp.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>">&#10005;</a> </h2>
-							<?php endif ?>
-							<br><br>
-							<p style="margin-bottom: 15px;">
-	              <?= $data_resp_ok[0]['text_resposta'] ?>
-	            </p>
-	            <?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
-								<a href="marcResp.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" class="btn btn-sucess" style="font-size: 11.9px" >Marcar como correta</a>
-							<?php endif ?>
-							<?php if ($data_resp_ok[0]['resp_matricula'] == $_SESSION['matricula']) : ?>
-								<a href="editResp.php?id=<?=$data_resp_ok[0]['id_resposta']?>" class="btn btn-default">editar</a>
-							<?php endif ?>
-            </div>
-					</div>
-          <br>
-
+				<?php endif ?>
 				<?php foreach ($data_resp as $resp) : ?>
 					<div class="container bordered">
             <div style="display: inline-block; float: left; min-width: 50px; margin: 0px 20px 0px 10px; text-align: center;	">
