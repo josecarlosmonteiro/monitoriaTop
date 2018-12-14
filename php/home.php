@@ -1,10 +1,8 @@
 <?php
 session_start();
-/*
 if (!isset($_SESSION['user'])) {
     header('location:../index.php');
 }
-*/
 include 'conn.php';
 
 $query = $conn->query("SELECT p.id_pergunta, p.titulo, p.corpo, p.perg_matricula, p.perg_hora, a.nome, a.tipo, a.periodo, a.curso FROM perguntas p INNER JOIN aluno a ON a.matricula = p.perg_matricula ORDER BY p.id_pergunta DESC");
@@ -54,7 +52,8 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
             <?php foreach ($data as $forum) : ?>
                 <div class="col-total bordered">
                     <?php if ($forum['perg_matricula'] == $_SESSION['matricula']) : ?>
-                    <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none;"><h2 style="margin: 5px 0px;"><?= $forum['titulo'] ?></a> <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none; float: right; font-size: 26px;" >&#10005;</a></h2>
+                    <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none;"><h2 style="margin: 5px 0px;"><?= $forum['titulo'] ?></a> 
+                    <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none; float: right; font-size: 26px;" >&#10005;</a></h2>
                     <?php else: ?>
                     <h2><?= $forum['titulo'] ?> <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>"</h2>
                     <?php endif ?>

@@ -67,8 +67,20 @@ CREATE TABLE respostas(
     resp_matricula VARCHAR(50),
     text_resposta TEXT,
     status BOOLEAN,
+    votos INT,
     resp_hora timestamp default current_timestamp,
     FOREIGN KEY (resp_id_pergunta) REFERENCES perguntas(id_pergunta),
     FOREIGN KEY (resp_matricula) REFERENCES aluno(matricula)
 );
 
+-- cria tabela de votação do forum
+
+CREATE TABLE voto(
+    id_voto INT PRIMARY KEY AUTO_INCREMENT,
+    voto_matricula_aluno VARCHAR(50),
+    voto_id_pergunta INT,
+    voto_id_resposta INT,
+    FOREIGN KEY (voto_matricula_aluno) REFERENCES aluno(matricula),
+    FOREIGN KEY (voto_id_pergunta) REFERENCES perguntas(id_pergunta),
+    FOREIGN KEY (voto_id_resposta) REFERENCES respostas(id_resposta)
+);

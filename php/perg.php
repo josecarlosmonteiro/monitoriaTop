@@ -1,4 +1,4 @@
-<?php 
+a<?php 
 include 'conn.php';
 session_start();
 
@@ -8,17 +8,22 @@ if (!isset($_SESSION['matricula'])) {
 
 $matricula = addslashes($_SESSION['matricula']);
 
-$_SESSION['idperg'] = $_GET['id'];
+$_SESSION['idperg'] = addslashes($_GET['id']);
 
 $query_perg = $conn->prepare("SELECT p.titulo,p.corpo, p.perg_matricula,p.perg_hora, a.nome, a.tipo, a.curso, a.periodo FROM perguntas p INNER JOIN aluno a ON p.perg_matricula = a.matricula WHERE p.id_pergunta = ?");
 $query_perg->execute([$_SESSION['idperg']]);
 
-$query_resp = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.status, r.resp_id_pergunta, r.resp_matricula, r.resp_hora, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? ORDER BY r.status DESC");
+
+$query_resp = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.status, r.votos, r.resp_id_pergunta, r.resp_matricula, r.resp_hora, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? AND r.status IS NULL OR r.status = 0 ORDER BY r.votos DESC");
 $query_resp->execute([$_SESSION['idperg']]);
 
 
+$query_resp_ok = $conn->prepare("SELECT r.text_resposta, r.id_resposta, r.status, r.votos, r.resp_id_pergunta, r.resp_matricula, r.resp_hora, a.tipo, a.curso, a.nome FROM respostas r INNER JOIN aluno a ON r.resp_matricula = a.matricula WHERE r.resp_id_pergunta = ? AND r.status IS NOT NULL AND r.status = 1 ORDER BY r.status DESC");
+$query_resp_ok->execute([$_SESSION['idperg']]);
+
 $data_perg = $query_perg->fetchALL(PDO::FETCH_ASSOC);
 $data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC); 
+$data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 
  ?>
 <!DOCTYPE html>
@@ -51,6 +56,38 @@ $data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC);
 				</div>
 
 				<!-- Container contendo informação de quem respondeu, data e corpo do comentário -->
+
+					<div class="container bordered">
+            <div style="display: inline-block; float: left; min-width: 50px; margin: 0px 20px 0px 10px; text-align: center;	">
+					    <div style="font-size: 16px;">
+								<?php if ($data_resp_ok[0]['status'] == 1): ?>
+								  <h2 style="margin-bottom: 10px;">&#9989;</h2>
+								<?php else: ?>
+									<br><br>
+						    <?php endif ?>
+						    <h1><a href="addVoto.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" style="text-decoration: none;">&#9651;</a></h1>
+						    <h4 style="text-align: center;"><?= $data_resp_ok[0]['votos'] ?></h4>
+						    <h1><a href="rmVoto.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" style="text-decoration: none;">&#9661;</a></h1>
+					    </div>
+            </div>
+            <div style="display: inline; width: 90%;">
+							<?php if ($data_resp_ok[0]['resp_matricula'] == $_SESSION['matricula']) : ?>
+								<h2><?= $data_resp_ok[0]['nome'] ?> - (<?= $data_resp_ok[0]['tipo'] ?>) - <?= $data_resp_ok[0]['resp_hora'] ?> <a style="color: white; text-decoration: underline; float: right; text-decoration: none; font-size: 26px;" href="rmResp.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>">&#10005;</a> </h2>
+							<?php endif ?>
+							<br><br>
+							<p style="margin-bottom: 15px;">
+	              <?= $data_resp_ok[0]['text_resposta'] ?>
+	            </p>
+	            <?php if ($data_perg[0]['perg_matricula'] == $matricula): ?>
+								<a href="marcResp.php?id=<?= $data_resp_ok[0]['id_resposta'] ?>" class="btn btn-sucess" style="font-size: 11.9px" >Marcar como correta</a>
+							<?php endif ?>
+							<?php if ($data_resp_ok[0]['resp_matricula'] == $_SESSION['matricula']) : ?>
+								<a href="editResp.php?id=<?=$data_resp_ok[0]['id_resposta']?>" class="btn btn-default">editar</a>
+							<?php endif ?>
+            </div>
+					</div>
+          <br>
+
 				<?php foreach ($data_resp as $resp) : ?>
 					<div class="container bordered">
             <div style="display: inline-block; float: left; min-width: 50px; margin: 0px 20px 0px 10px; text-align: center;	">
@@ -60,9 +97,9 @@ $data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC);
 								<?php else: ?>
 									<br><br>
 						    <?php endif ?>
-						    <h1><a href="#" style="text-decoration: none;">&#9651;</a></h1>
-						    <h4 style="text-align: center;">00</h4>
-						    <h1><a href="#" style="text-decoration: none;">&#9661;</a></h1>
+						    <h1><a href="addVoto.php?id=<?= $resp['id_resposta'] ?>" style="text-decoration: none;">&#9651;</a></h1>
+						    <h4 style="text-align: center;"><?= $resp['votos'] ?></h4>
+						    <h1><a href="rmVoto.php?id=<?= $resp['id_resposta'] ?>" style="text-decoration: none;">&#9661;</a></h1>
 					    </div>
             </div>
             <div style="display: inline; width: 90%;">
@@ -103,5 +140,12 @@ $data_resp = $query_resp->fetchALL(PDO::FETCH_ASSOC);
 	<div class="footer">
         <a href="#">Developers</p></a>
     </div>
+<?php if (isset($_SESSION['erroVoto'])): ?>
+	<script>alert('Você só pode votar 1 vez por pergunta')</script>
+<?php endif;
+
+unset($_SESSION['erroVoto']);
+?>
+
 </body>
 </html>
