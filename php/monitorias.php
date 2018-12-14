@@ -11,10 +11,7 @@ $matricula = addslashes($_SESSION['matricula']);
 $tipo = addslashes($_SESSION['tipo']);
 $periodo = addslashes($_SESSION['periodo']);
 
-$query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m WHERE m.matricula_monitor = ? AND status = 'agendada' ORDER BY id_monitoria DESC");
-$query->execute([$matricula]);
 
-$dataMonitor = $query->fetchALL(PDO::FETCH_ASSOC);
 
 $queryMonitoria = $conn->prepare("SELECT m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m INNER JOIN disciplina d ON m.id_disciplina_monitoria = d.id_disciplina INNER JOIN aluno a ON a.periodo = d.periodo_cadeira WHERE a.periodo = ? AND m.status = 'agendada' ORDER BY m.id_monitoria DESC");
 $queryMonitoria->execute([$periodo]);
@@ -86,18 +83,7 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 								<tbody id="listagem">
 									
 								</tbody>
-								<?php foreach ($dataMonitor as $listaMonitor) : ?>
-									<tr>
-										<td><?= $listaMonitor['data_monitoria'] ?></td>
-										<td><?= $listaMonitor['inicio_monitoria'] ?> - <?= $listaMonitor['termino_monitoria'] ?></td>
-										<td><?= $listaMonitor['titulo_atividade'] ?></td>
-										<td><?= $listaMonitor['descricao_atividade'] ?></td>
-										<td>
-											<a href="editAtividade.php?id=<?= $listaMonitor['id_monitoria'] ?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#9998;</a>
-											<a href="mvRegistro.php?id=<?= $listaMonitor['id_monitoria'] ?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#10003;</a>
-										</td>
-									</tr>
-								<?php endforeach ?>
+
 							</table>
 						</div>
 					</div>
@@ -169,15 +155,20 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 										${dados[i].titulo_atividade}</td>
 									<td>
 										${dados[i].descricao_atividade}
+									</td>
 									<td>
-									<td>
-									</tr> <a href="monitorias.php?id=${dados[i].id_monitoria}" "style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#9998;</a>
+										<a href="mvRegistro.php?id=${dados[i].id_monitoria}" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#10003;</a>
+										<a href="editAtividade.php?id=<?= $listaMonitor['id_monitoria'] ?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#9998;</a>
+
+									</td>
+									</tr>
 							`);
 						}
 					}
 				});
 			});
 		}
+		listagemMonitoria();
 		addMonitoria();
 	</script>
 
