@@ -131,7 +131,7 @@ $data_resp_ok = $query_resp_ok->fetchALL(PDO::FETCH_ASSOC);
 			<form action="addResp.php?id=<?= $_SESSION['idperg'] ?>" method="POST">
 				<label class="form-control">
 					Digite um comentário:
-					<textarea class="form-input" name="resposta" placeholder="Deixe seu comentário..."></textarea>
+					<textarea class="form-input" required name="resposta" placeholder="Deixe seu comentário..."></textarea>
 				</label>
 				<button type="submit" class="btn btn-success">Comentar</button>
 				<button type="reset" class="btn btn-danger">Limpar</button>
