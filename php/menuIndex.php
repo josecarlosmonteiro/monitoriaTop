@@ -86,8 +86,8 @@
 			<img src="../imgs/lmd.png" alt="">
 			<ul>
 				<a href="php/home.php"><li>Inicio</li></a>
-				<a href="php/documentos.php"><li>Documentos</li></a>
-				<a href="php/atividades.php"><li>Atividades</li></a>
+				<a href="php/documentos.php"><li>Gerar Relatório</li></a>
+				<a href="php/monitorias.php"><li>Monitorias</li></a>
 			</ul>
 			<div class="dropdown">
 				<i class="fas fa-user-circle"></i>
