@@ -13,14 +13,16 @@
 	<link rel="stylesheet" href="../css/fontAwesome">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<style>
-			@font-face{
-				font-family: 'monitoria';
-				src:url('../fonts/pn.otf');
-     		}    
-     *{
-      padding:0;
-      margin:0;
-     }
+		@font-face{
+		font-family: 'monitoria';
+		src:url('../fonts/pn.otf');
+      }
+          
+        *{
+      		padding:0;
+      		 margin:0;
+        }
+	
 		.container{
 			width: 100%;
 			max-width: 1000px;
@@ -32,7 +34,7 @@
 			width: 100%;
 			height: auto;
 			padding: 30px;
-			color: red;
+			color: darkgreen;
 			background-color: white;
 			border:none;
 			text-align: center;
@@ -41,11 +43,14 @@
      		
 		}
 		span{
-			color: red;	
+			color: white;
+			padding: 10px;
 			border-radius: 10px;
+			font-size: 20px;
+			background-color: lightgreen;
 		}
 		body{
-			background-color: black;
+			background-color: darkgray;
 			background-size: cover;
 		}
 		button{
@@ -55,13 +60,14 @@
 			outline: none;
 			border: none;
 			border-radius: 10px;
-			background-color: #df0000;
+			background-color: green;
 			font-size: 20px;
 			cursor: pointer;
+			transition: 1s;
 
 		}
 		button:hover{
-			background-color:#ff1d0b;
+			background-color:darkgreen;
 		}
 		a{
 			text-decoration: none;
@@ -75,7 +81,7 @@
 			outline: none;
 			padding: 10px;
 			transition: 0.5s;
-			border: 4px outset red;
+			border: 4px outset green;
 			text-align: center;
 		}
 		input:focus{

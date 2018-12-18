@@ -34,7 +34,7 @@
 			width: 100%;
 			height: auto;
 			padding: 30px;
-			color: red;
+			color: darkgreen;
 			background-color: white;
 			border:none;
 			text-align: center;
@@ -43,13 +43,14 @@
      		
 		}
 		span{
-			color: black;
+			color: white;
 			padding: 10px;
 			border-radius: 10px;
 			font-size: 20px;
+			background-color: lightgreen;
 		}
 		body{
-			background-color: black;
+			background-color: darkgray;
 			background-size: cover;
 		}
 		button{
@@ -59,13 +60,14 @@
 			outline: none;
 			border: none;
 			border-radius: 10px;
-			background-color: #df0000;
+			background-color: green;
 			font-size: 20px;
 			cursor: pointer;
+			transition: 1s;
 
 		}
 		button:hover{
-			background-color:#ff1d0b;
+			background-color:darkgreen;
 		}
 		a{
 			text-decoration: none;
@@ -79,7 +81,7 @@
 			outline: none;
 			padding: 10px;
 			transition: 0.5s;
-			border: 4px outset red;
+			border: 4px outset green;
 			text-align: center;
 		}
 		input:focus{
