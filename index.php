@@ -17,7 +17,7 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 	width: 400px;padding: 40px;
-	background: rgba(0,0,0,.9);
+	background: white;
 	box-sizing: border-box;
 	box-shadow: 0 15px 25px rgba(0,0,0,0.9);
 	border-radius: 10px; 
@@ -52,14 +52,14 @@
 	border: none;
 	outline: none;
 	color: #fff;
-	background: red;
+	background: green;
 	padding: 10px 20px;
 	cursor: pointer;
 	border-radius: 5px; 
 	transition: 1s;
 }
 .box input[type="submit"]:hover{
-	background-color:darkred;
+	background-color:darkgreen;
 }
 .box h5{
 	color: red;	
@@ -103,12 +103,12 @@
 }
 
 input:focus{
- background-color: none;
+ background-color: ;
 }
 .forgot{
 	float: right;
 	text-decoration: none;
-	background-color: red;
+	background-color: green;
 	padding: 10px;
 	color: white;
 	transition: 0.5s;
@@ -116,8 +116,8 @@ input:focus{
 
 }
 .forgot:hover{
-	background-color: white;
-	color: red;
+	background-color: darkgreen;
+	color: white;
 }
 	</style>
 </head>
@@ -130,26 +130,26 @@ input:focus{
 			}else{
 			 ?>
 			<div class="nav">
-					<a href="index.php"><img src="imgs/lmd.png" class="animated swing"></a>
-        			<label for="h"><font color="white">&#9776;</font></label>
+					<a href="index.php"><img src="imgs/ifpe.png" class="animated swing" style="padding-top: 2px;"></a>
+        			<label for="h"><font color="green">&#9776;</font></label>
         			<input type="checkbox" id="h"/>
         		<div class="menu">
-           			<a href="php/home.php">FORUM</a>
-           			<button href="php/login.php" class="btn-log" id="botao">LOGIN</button>
-          			<a href="php/cadastro.php" class="botao">CADASTRAR</a>
+           			<a href="php/home.php" style="color:rgb(0,100,0);">FORUM</a>
+           			<button href="php/login.php" class="btn-log" id="botao" style="color:rgb(0,100,0);">LOGIN</button>
+          			<a href="php/cadastro.php" class="botao" style="color:white;">CADASTRAR</a>
           		</div>			  
         	</div>
         	<?php } ?>
         		<div class="title">
-      				<h1 class="font">Monitoria <font color="red">Digital</font> - IFPE</h1><br>
-      				<h4 class="sub">Ser monitor agora <font color="white">ficou muito mais fácil</font></h4>
+      				<h1 class="font">Monitoria <font color="green">Digital</font> - IFPE</h1><br>
+      				<h4 style="color: green;">Ser monitor agora <font color="white">ficou muito mais fácil</font></h4>
       			</div>
 		</header>
 		<center>
 			<!-- aqui arthur  áre dos cards são 3 cards 1 QACADEMICO, 2 SITE DO IF, 3 (OUTROS)-->
 			<div class="cards">
-				<div class="titulo animated bounce"><h1>Links Externos</h1></div>
-					<ul type="none" class="cardes" >
+				<div class="titulo animated bounce" style="background-color: green;"><h1>Links Externos</h1></div>
+					<ul type="none" class="cardes" style="width: 100%;">
 						<a href="https://qacademico.ifpe.edu.br/" target="_blank"><li class="cardq"></li></a>
 						<a href="https://www.ifpe.edu.br/campus/igarassu" target="_blank"><li class="cardif"></li></a>
 						<a href="https://www.ifpe.edu.br/campus/igarassu/noticias/divulgado-resultado-final-do-edital-de-monitoria/resultado-final-bolsa-monitoria2018-2.pdf" target="_blank"><li class="mn"></li></a>
@@ -162,49 +162,46 @@ input:focus{
 				<section class="listas">
 					<ul type="none">
 						<center><h1>Developers</h1></font><br>
-						<li>Arthur Vinicius - <font color="Cyan">El Escanor<font></li>
-						<li>Carlos Monteiro - <font color="Cyan"> El Cana</font></li>
-						<li>Eduardo Bispo - <font color="Cyan">El Bi</font></li>
-						<li>Flávia Regina - <font color="Cyan">El Fast</font></li>
-						<li>Girlâyne Fragoso - <font color="Cyan">El Eat</font></li>
-						<li>Guilherme Evaristo- <font color="Cyan">El Negron</font></li>
-						<li>Jhontas Rodrigues - <font color="Cyan">El Floki</font></li>
+						<li>Arthur Vinicius </li>
+						<li>Carlos Monteiro </li>
+						<li>Eduardo Bispo </li>
+						<li>Flávia Regina </li>
+						<li>Girlâyne Fragoso </li>
+						<li>Guilherme Evaristo</li>
+						<li>Jhontas Rodrigues </li>
 						</center>
 					</ul>
 					<ul type="none">
 						<div class="grande"></div>
 					<center><h1>Contatos</h1></font><br>
-						<li>viniciusarthur41@gmail.<font color="cyan">com</font></li>
-						<li>1monteirocarlos@gmail.<font color="cyan">com</font></li>
-						<li>eduardobispof@gmail.<font color="cyan">com</font></li>
-						<li>flaviareginaf07@gmail.<font color="cyan">com</font></li>
-						<li>girlayne.fragoso@gmail.<font color="cyan">com</font></li>
-						<li>guibalaka123@gmail.<font color="cyan">com</font></li>
-						<li>Jhonsnoow32@gmail.<font color="cyan">com</font></li>
+						<li>viniciusarthur41@gmail.com</li>
+						<li>1monteirocarlos@gmail.com</li>
+						<li>eduardobispof@gmail.com</li>
+						<li>flaviareginaf07@gmail.com</li>
+						<li>girlayne.fragoso@gmail.com</li>
+						<li>guibalaka123@gmail.com</li>
+						<li>Jhonsnoow32@gmail.com</li>
 						</center>
 					</ul>
 				</section>
-			</footer>
-			<footer id="copy">
-				<center><font color="white"><h1>@Copyright - 2018</h1></font></center>
 			</footer>
 		</div>
 	</div>
 	<div id="modal-login" class="modal-container">
 		<div class="modal">
 			<div class="box">
-				<h1>Logar</h1>
+				<h1 style="color: green;">Logar</h1>
 				<?php 
 					if (isset($_SESSION['erroLogin'])) { ?>
 						<h5>   <?= $_SESSION['erroLogin']?></h5>
 						<?php unset($_SESSION['erroLogin']) ?>
 				<?php } ?>
 				<form action="php/verifLogin.php" method="POST">
-					<div class="inputBox"><span style="color: white;">Matricula :</span>
-						<input type="text" placeholder="Sua matricula" name="matricula" required=""  >
+					<div class="inputBox"><span style="color: green;">Matricula :</span>
+						<input type="text" placeholder="Sua matricula" name="matricula" required=""  style="color: black;border-bottom: 1px solid green;">
 					</div>
-					<div class="inputBox"><span style="color: white;">Senha :</span>
-						<input type="password" placeholder="Senha" name="senha"  required=""  >
+					<div class="inputBox"><span style="color: green;" >Senha :</span>
+						<input type="password" placeholder="Senha" name="senha"  required=""  style="color: black;border-bottom: 1px solid green;" >
 					</div>
 					<input type="submit" name="" value="Entrar" style="font-family:'monitoria';">
 					<a href="./php/senhaForm.php" class="forgot">Esqueceu sua senha?</a>
