@@ -27,7 +27,7 @@ $dadosForm = $banco->fetch(PDO::FETCH_ASSOC);
 			<div class="page-header">
 				<h1>Editar Monitoria</h1>
 			</div>
-			<div class="col-md">
+			<div class="col-md bordered">
 				<form action="updateAtividades.php" method="post">
 					<label class="form-control">
 						Título da atividade:
@@ -47,11 +47,11 @@ $dadosForm = $banco->fetch(PDO::FETCH_ASSOC);
 					</label>
 					<label class="form-control">
 						Descrição:
-						<textarea type="text" placeholder="Descrição" value="<?=$dadosForm['descricao_atividade']?>" name="Descricao" class="form-input"></textarea>
+						<input type="text" placeholder="Descrição" value="<?=$dadosForm['descricao_atividade']?>" name="Descricao" class="form-input">
 					</label>
 
-						<button type="reset" class="btn btn-default">Limpar</button>
-						<button type="submit" class="btn btn-danger">Salvar</button>
+						<button type="submit" class="btn btn-success">Salvar</button>
+						<button type="reset" class="btn btn-danger">Limpar</button>
 				</form>
 			</div>
 		</div>

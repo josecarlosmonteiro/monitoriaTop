@@ -44,13 +44,13 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
         </div>
 
 
-        <div class="col-md bordered" style="padding: 30px 60px;">
+        <div class="col-md bordered" style="padding: 30px 60px; background-color: #fafbfc;">
             <div class="page-header">
                 <h2>Tópicos</h2>
             </div>
 
-            <?php foreach ($data as $forum) : ?>
-                <div class="col-total bordered" style="padding: 20px; margin-left: -0.5%;">
+            <?php foreach ($data as $forum): ?>
+                <div class="col-total" style="padding: 20px; margin-left: -0.5%; border: 2px solid silver; border-radius: 8px; background-color: white;">
                     <div class="page-header">
                         <?php if ($forum['perg_matricula'] == $_SESSION['matricula']) : ?>
                         <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none;"><h2 style="margin: 5px 0px;"><?= $forum['titulo'] ?></a> 

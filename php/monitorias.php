@@ -72,7 +72,7 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 							<h2>Suas monitorias</h2>
 						</div>
 						<div style="overflow: auto; min-height: 200px; max-height: 300px; padding: 10px;">
-							<table width="100%">
+							<table width="100%" style="text-align: center;">
 								<tr>
 									<th>Data</th>
 									<th>Início / Término</th>
@@ -159,7 +159,7 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 									</td>
 									<td>
 										<a href="mvRegistro.php?id=${dados[i].id_monitoria}" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#10003;</a>
-										<a href="editAtividade.php?id=<?= $listaMonitor['id_monitoria'] ?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#9998;</a>
+										<a href="editAtividade.php?id=${dados[i].id_monitoria}" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#9998;</a>
 
 									</td>
 									</tr>

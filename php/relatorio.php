@@ -64,8 +64,8 @@ ob_start();
 <strong><center><p>CAMPUS IGARASSU</p></center></strong>
 <strong><center><p>DIRETORIA DE ENSINO</p></center></strong>
 <strong><center><p>DIVISÃO DE APOIO AO ENSINO E AO ESTUDANTE</p></center></strong>
-<strong><center><p>PROGRAMA DE MONITORIA</p></center></strong>
-<strong><center><p>Edital nº 04/2018 - DGCIGR</p></center></strong>
+
+<strong><center>Edital nº: ___ /_____</center></strong>
 
 <br><br><br>
 
