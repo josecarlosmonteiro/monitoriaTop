@@ -23,13 +23,13 @@
  	<link rel="stylesheet" type="text/css" href="../css/micro-bootstrap.css">
 	<?php	include "Menu2.php"; ?>
  </head>
- <body class="inverted">
+ <body class="">
 	<div class="container">
 	 		
 	 	<div class="page-header">
 	 		<h1>Editar resposta</h1>
 	 	</div>
-	 	<div class="col-md bordered">
+	 	<div class="col-lg bordered" style="text-align: left;">
 	 		<h2>Edite seu comentário</h2>
 		 <form action="upResp.php" method="POST">
 		 	<label class="form-control">

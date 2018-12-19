@@ -10,7 +10,7 @@
 			}
 			.navbar{
 				width: 100%;
-				background-color: rgba(0,0,0,0.8);
+				background-color: rgba(5,120,5,0.8);
 				height: auto;
 				top: 0;
 				left: 0;
@@ -18,9 +18,6 @@
 				box-shadow: 1px 1px 10px black;
 				position: relative;
 				z-index: 100;
-			}
-			.navbar *{
-				background-color: #333;
 			}
 			body{
 				font-family: 'monitoria';
@@ -32,12 +29,11 @@
 			.navbar ul li{
 				display: inline-block;
 				color: white;
-				text-decoration: none;
 				margin: 0px 2px 0px 10px;
 				font-size: 20px;
 			}
 			.navbar ul li:hover{
-				color: red;
+				color: #d31313;
 				transition: 0.5s;
 				cursor: pointer;
 			}
@@ -54,11 +50,11 @@
 				/*transition: 1s;*/
 			}
 			.dropdown:hover{
-				color: red;
+				color: green;
 				cursor: pointer;
 			}
 			.absolute{
-				background-color: red;
+				background-color: green;
 				position: absolute;
 				display: none;
 				top: 60px;
@@ -77,16 +73,10 @@
 			.dropdown:hover .absolute	{
 				display: block;
 			}
-			ul a{
-				background-color: #000;
-			}
+			
 		</style>
 	</head>
 	<body>
-		<?php 
-		$nome = substr($_SESSION['user'],0,1);
-		$sobrenome = substr($_SESSION['sobrenome'],0,1);
-		 ?>
 		<div class="navbar">
 			<a href="../"><img src="../imgs/lmd.png" alt=""></a>
 			<ul>
@@ -94,17 +84,9 @@
 				<?php if ($_SESSION['tipo'] == "monitor") : ?>
 					<a href="documentos.php"><li>Gerar Relatório</li></a>
 				<?php endif ?>
-					
 				<a href="monitorias.php"><li>Monitorias</li></a>
+				<a href="logout.php" style="right: 5%;"><li><i class="fas fa-sign-out-alt"></i>Logout</li></a>
 			</ul>
-			<div class="dropdown">
-				<i class="fas fa-user-circle"></i>
-					<ul class="absolute">
-						<a href="userPag.php"><li><i class="fas fa-user"></i>  <?php echo $nome.".".$sobrenome;?></li></a>
-						<!-- <a href=""><li><i class="fas fa-user"></i>  Perfil</li></a> -->
-						<a href="logout.php"><li><i class="fas fa-sign-out-alt"></i>  Logout</li></a>
-					</ul>
-			</div>
 		</div>
 	</body>
 </html>

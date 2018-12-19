@@ -28,14 +28,14 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 	<meta charset="utf-8">
 	<script src="../js/jquery-3.3.1.min.js"></script>
 </head>
-<body class="inverted">
+<body class="">
 	<div class="container">
 		<?php if ($tipo == "monitor"): ?>
 				<div class="page-header">
 					<h1>Listagem de Monitorias</h1>
 				</div>
 
-				<div class="col-sm">
+				<div class="col-sm bordered" style="padding: 25px;">
 					<div class="page-header">
 						<h2>Adicione uma atividade</h2>
 					</div>
@@ -60,19 +60,19 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 							Horário de término:
 							<input type="time" name="hora_termino" class="form-input">
 						</label>
-						<button class="btn btn-danger" type="submit" >Adicionar</button>
-						<button class="btn btn-default" type="reset">Limpar</button>
+						<button class="btn btn-success" type="submit" >Adicionar</button>
+						<button class="btn btn-danger" type="reset">Limpar</button>
 					</form>
 				</div>
 
-				<div class="col-lg">
+				<div class="col-md bordered" style="padding: 25px 40px;">
 					
 					<div>
 						<div class="page-header">
 							<h2>Suas monitorias</h2>
 						</div>
 						<div style="overflow: auto; min-height: 200px; max-height: 300px; padding: 10px;">
-							<table>
+							<table width="100%">
 								<tr>
 									<th>Data</th>
 									<th>Início / Término</th>
@@ -89,12 +89,12 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 					</div>
 		<?php endif ?>
 			<br>
-			<div>
+			<div class="" style="padding: 10px 30px;">
 				<div class="page-header">
 					<h2>Atividades de seus monitores</h2>
 				</div>
-				<div style="overflow: auto; min-height: 200px; max-height: 300px; padding: 10px;">
-					<table>
+				<div class="bordered" style="overflow: auto; min-height: 200px; max-height: 300px; padding: 10px;">
+					<table width="100%">
 						<tr>
 							<th>Data</th>
 							<th>Início / Término</th>

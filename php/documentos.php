@@ -32,18 +32,15 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 		.navbar{
 			font-family: 'monitoria';
 		}
-		tr:hover{
-			background-color: #e22424;
-		}
 	</style>
 </head>
-<body class="inverted">
+<body class="">
 	<div class="container">
 		<div class="page-header">
 			<h1>Gerar Relatório</h1>
 		</div>
 
-		<div class="col-sm bordered">
+		<div class="col-sm bordered" style="padding: 25px 20px;">
 			<div class="page-header">
 				<h2>Intervalo de Datas</h2>
 			</div>
@@ -56,14 +53,14 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 					Último dia:
 					<input type="date" name="termino" class="form-input">
 				</label>
-				<button class="btn btn-default" type="reset">Limpar</button>
-				<button class="btn btn-danger" type="submit">Gerar</button>
+				<button class="btn btn-success" type="submit">Gerar</button>
+				<button class="btn btn-danger" type="reset">Limpar</button>
 			</form>
 			<br>
 			<p>* Para gerar seu relatório, indique o primeiro e último dia válidos para o documento, o sistema listará automaticamente as atividades dentro do intervalo de dias informado.</p>
 		</div>
 
-		<div class="col-lg">
+		<div class="col-md bordered">
 			<div class="container">	
 				<div class="page-header">
 					<h2>Registro Geral de Atividades</h2>
@@ -75,6 +72,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 						<th>Início / Término</th>
 						<th>Atividade</th>
 						<th>Descrição</th>
+						<th>Remover</th>
 
 					</tr>
 			<?php	foreach ($data as $lista) : ?>

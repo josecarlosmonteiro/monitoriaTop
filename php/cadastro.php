@@ -39,7 +39,7 @@ if (isset($_SESSION['mt'])) {
 	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<script type="text/javascript" src="../js/cadastro.js"></script>
 </head>
-<body class="inverted">
+<body class="">
 	
 	<div class="container">
 
@@ -48,7 +48,7 @@ if (isset($_SESSION['mt'])) {
 		</div>
 
 		<form action="addUser.php" method="POST" name="cadastro">
-			<div class="col-sm">
+			<div class="col-sm bordered" style="padding: 20px 30px 20px 15px">
 					<div class="page-header">
 						<h2>Dados pessoais</h2>
 					</div>
@@ -80,7 +80,7 @@ if (isset($_SESSION['mt'])) {
 					</label>
 			</div>
 
-			<div class="col-md">
+			<div class="col-md bordered" style="padding: 15px">
 				<div class="page-header">
 					<h2>Dados do aluno</h2>
 				</div>
@@ -115,23 +115,16 @@ if (isset($_SESSION['mt'])) {
 					</select>
 				</label>
 					<div id="botoes">
-						<button type="reset" class="btn btn-default">Limpar</button>
-						<button type="submit" class="btn btn-danger">Cadastrar</button>
+						<button type="submit" class="btn btn-success">Cadastrar</button>
+						<button type="reset" class="btn btn-danger">Limpar</button>
 					</div>
           </div>
-          <div class="col-sm" id="col-monitor" style="display: none;">
+          <div class="col-sm bordered" id="col-monitor" style="display: none;">
             <div class="page-header">
 							<h2>Área do monitor</h2>
 						</div>
 						<label class="form-control">
 							<div id="ipi_m">
-								Curso que é monitor:<br>
-								<select name="monitoria_curso" class="form-input">
-									<option>--</option>
-									<option value="IPI" >IPI</option>
-									<option value="LOG" >LOG</option>
-								</select>
-							</div><div id="ipi_m">
 								Cadeira que é monitor:<br>
 		                      	IPI:
 								<select name="monitor_disciplinaipi" class="form-input">
@@ -153,15 +146,15 @@ if (isset($_SESSION['mt'])) {
 							</div>
 						</label>
 
-						<button type="reset" class="btn btn-default">Limpar</button>
-						<button type="submit" class="btn btn-danger">Cadastrar</button>
+						<button type="submit" class="btn btn-success">Cadastrar</button>
+						<button type="reset" class="btn btn-danger">Limpar</button>
 					</div>
          </div>
 		</form>
 	</div>
 	<br>
 	<div class='container'>
-    <div class="col-lg">
+    <div class="col-md">
 			<div class="page-header">
 				<h2>Observações</h2>
 			</div>

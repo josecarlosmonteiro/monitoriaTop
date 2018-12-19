@@ -16,10 +16,6 @@ body{
 	background-color: #efefef;
 }
 
-a{
-	color: #555;
-}
-
 form{
 	padding: 0;
 	margin: 0;
@@ -44,25 +40,17 @@ select option{
 	border-radius: 8px;
 }
 
+a{
+	color: #333;
+	text-decoration: underline;
+}
+
 .container{
 	width: 95%;
 	padding: 10px;
 	margin: 0 auto;
 	color: #555;
 	font-family: 'Tahoma', sans-serif;
-}
-
-.inverted, .inverted *{
-	color: #fff;
-	background-color: #333;
-}
-
-.inverted .bordered, .inverted .bordered *:not(.btn){
-	background-color: #444;
-}
-
-.inverted .navbar ul{
-	background-color: #555;
 }
 
 .page-header{
@@ -75,7 +63,7 @@ select option{
 
 /* Conceitos de colunas (resumidas em small, medium, large e total) */
 .col-sm, .col-md, .col-lg, .col-total{
-	margin-right: 20px;
+	margin-right: 10px;
 	margin-bottom: 20px;
 	padding: 0px;
 	min-height: 1px;
@@ -86,13 +74,12 @@ select option{
 }
 
 .shadow{
-	box-shadow: 0px 0px 15px gray;
 	padding: 10px;
 }
 
 .col-sm, .small{
-	width: 24%;
-	min-width: 260px;
+	width: 22%;
+	min-width: 210px;
 }
 
 .col-sm .form-input, .col-sm select option{
@@ -138,6 +125,7 @@ select option{
 	border: 2px solid silver;
 	border-radius: 5px;
 	background-color: white;
+	box-shadow: 0px 5px 15px gray;
 }
 
 .bordered-left{

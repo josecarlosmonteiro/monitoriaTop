@@ -24,7 +24,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
             <h1>Monitoria Digital - Fórum</h1>
         </div>
         <br><br>
-        <div class="col-sm">
+        <div class="col-sm bordered" style="padding: 30px;">
             <div class="page-header">
                 <h2>Adicione um tópico</h2>
             </div>
@@ -38,23 +38,23 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
                     <textarea class="form-input" required name="corpo" placeholder="Conteúdo do tópico"></textarea>
                 </label>
                 
-                <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-success">Postar</button>
+                <button type="reset" class="btn btn-danger">Limpar</button>
             </form>
         </div>
 
 
-        <div class="col-md">
+        <div class="col-md bordered" style="padding: 30px 60px;">
             <div class="page-header">
                 <h2>Tópicos</h2>
             </div>
 
             <?php foreach ($data as $forum) : ?>
-                <div class="col-total bordered">
+                <div class="col-total bordered" style="padding: 20px; margin-left: -0.5%;">
                     <div class="page-header">
                         <?php if ($forum['perg_matricula'] == $_SESSION['matricula']) : ?>
                         <a href="perg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none;"><h2 style="margin: 5px 0px;"><?= $forum['titulo'] ?></a> 
-                        <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none; float: right; font-size: 26px;" >&#10005;</a></h2>
+                        <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>" style="text-decoration: none; float: right; font-size: 26px; padding: 0px 20px" >&#10005;</a></h2>
                         <?php else: ?>
                         <h2><?= $forum['titulo'] ?> <a href="rmPerg.php?id=<?= $forum['id_pergunta'] ?>"></h2>
                         <?php endif ?>
