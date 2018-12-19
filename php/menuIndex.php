@@ -11,7 +11,7 @@
 			}
 			.navbar{
 				width: 100%;
-				background-color: rgba(0,0,0,0.8);
+				background-color: white;
 				height: auto;
 				top: 0;
 				left: 0;
@@ -29,13 +29,13 @@
 			}
 			.navbar ul li{
 				display: inline-block;
-				color: white;
+				color: green;
 				text-decoration: none;
 				margin: 0px 2px 0px 10px;
 				font-size: 20px;
 			}
 			.navbar ul li:hover{
-				color: red;
+				color: darkgreen;
 				transition: 0.5s;
 				cursor: pointer;
 			}
@@ -48,15 +48,15 @@
 				display: flex;
 				justify-content: flex-end;
 				padding: 5px 60px 0px 0px;
-				color:white;
+				color:green;
 				/*transition: 1s;*/
 			}
 			.dropdown:hover{
-				color: red;
+				color: darkgreen;
 				cursor: pointer;
 			}
 			.absolute{
-				background-color: red;
+				background-color: white;
 				position: absolute;
 				display: none;
 				top: 60px;
@@ -69,8 +69,9 @@
 				padding: 10px;
 			}
 			.dropdown li:hover{
-				background-color: white;
+				background-color: green;
 				border-radius: 10px;
+				color: white!important;
 			}
 			.dropdown:hover .absolute	{
 				display: block;
@@ -83,10 +84,12 @@
 		$sobrenome = substr($_SESSION['sobrenome'],0,1);
 		 ?>
 		<div class="navbar">
-			<img src="../imgs/lmd.png" alt="">
+			<img src="../imgs/ifpe.png" alt="">
 			<ul>
 				<a href="php/home.php"><li>Inicio</li></a>
-				<a href="php/documentos.php"><li>Gerar Relatório</li></a>
+				<?php if ($_SESSION['tipo'] == "monitor"): ?>	
+					<a href="php/documentos.php"><li>Gerar Relatório</li></a>
+				<?php endif ?>
 				<a href="php/monitorias.php"><li>Monitorias</li></a>
 			</ul>
 			<div class="dropdown">

@@ -16,9 +16,9 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <meta name="viewport" content="width-device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/micro-bootstrap.css">
-    <?php include 'Menu2.php'; ?>
 </head>
 <body>
+    <?php include 'Menu2.php'; ?>
     <div class="container">
         <div class="page-header">
             <h1>Monitoria Digital - Fórum</h1>

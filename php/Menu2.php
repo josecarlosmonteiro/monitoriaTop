@@ -1,3 +1,4 @@
+<?php session_start();?>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,13 @@
 			}
 			.navbar{
 				width: 100%;
-				background-color: rgba(5,120,5,0.8);
+				background-color: white;
 				height: auto;
 				top: 0;
 				left: 0;
 				padding: 5px;
 				box-shadow: 1px 1px 10px black;
-				position: relative;
+				position: fixed;
 				z-index: 100;
 			}
 			body{
@@ -28,12 +29,13 @@
 			}
 			.navbar ul li{
 				display: inline-block;
-				color: white;
+				color: green;
+				text-decoration: none;
 				margin: 0px 2px 0px 10px;
 				font-size: 20px;
 			}
 			.navbar ul li:hover{
-				color: #d31313;
+				color: darkgreen;
 				transition: 0.5s;
 				cursor: pointer;
 			}
@@ -46,15 +48,15 @@
 				display: flex;
 				justify-content: flex-end;
 				padding: 5px 60px 0px 0px;
-				color:white;
+				color:green;
 				/*transition: 1s;*/
 			}
 			.dropdown:hover{
-				color: green;
+				color: darkgreen;
 				cursor: pointer;
 			}
 			.absolute{
-				background-color: green;
+				background-color: white;
 				position: absolute;
 				display: none;
 				top: 60px;
@@ -67,26 +69,48 @@
 				padding: 10px;
 			}
 			.dropdown li:hover{
-				background-color: white;
+				background-color: green;
 				border-radius: 10px;
+				color: white!important;
 			}
 			.dropdown:hover .absolute	{
 				display: block;
 			}
-			
 		</style>
 	</head>
 	<body>
+		<?php 
+		$nome = substr($_SESSION['user'],0,1);
+		$sobrenome = substr($_SESSION['sobrenome'],0,1);
+		 ?>
 		<div class="navbar">
-			<a href="../"><img src="../imgs/lmd.png" alt=""></a>
+			<a href="../index.php">
+				<img src="../imgs/ifpe.png" alt="">
+			</a>
 			<ul>
-				<a href="home.php"><li>Inicio</li></a>
-				<?php if ($_SESSION['tipo'] == "monitor") : ?>
-					<a href="documentos.php"><li>Gerar Relatório</li></a>
-				<?php endif ?>
+				<?php if (isset($_SESSION['matricula'])): ?>	
+					<?php if ($_SESSION['tipo'] == "monitor" || $_SESSION['tipo'] == "aluno"): ?>
+						<a href="home.php"><li>Inicio</li></a>	
+					<?php endif ?>
+				<a href="documentos.php"><li>Gerar Relatório</li></a>
 				<a href="monitorias.php"><li>Monitorias</li></a>
-				<a href="logout.php" style="right: 5%;"><li><i class="fas fa-sign-out-alt"></i>Logout</li></a>
+			<?php else: ?>
+				<a href="index.php" style="position: absolute;right:50px;margin-top: -10px;"><li>Inicio</li></a>
+				<?php endif ?>
+
+
 			</ul>
+			<?php if (isset($_SESSION['matricula'])): ?>
+				
+			<div class="dropdown">
+				<i class="fas fa-user-circle"></i>
+					<ul class="absolute">
+						<a href="userPag.php"><li><i class="fas fa-user"></i>  <?php echo $nome.".".$sobrenome;?></li></a>
+						<!-- <a href=""><li><i class="fas fa-user"></i>  Perfil</li></a> -->
+						<a href="	logout.php"><li><i class="fas fa-sign-out-alt"></i>  Logout</li></a>
+					</ul>
+			</div>
+			<?php endif ?>
 		</div>
 	</body>
 </html>

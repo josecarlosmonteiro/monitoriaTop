@@ -12,17 +12,17 @@ button{
 	outline: none;
 	border: none;
 	border-radius: 5px;
-	background-color: red;
+	background-color: green;	
 	font-family: 'monitoria';
 	cursor: pointer;
 	color: white;
 	transition: 0.5s;
 }
 button:hover{
-	background-color: #990000;
+	background-color: darkgreen;
 }
 .content{
-	margin: 65px auto 0px;
+	margin: 100px auto 0px;
 	width: 100%;
 	height: auto;
 	/*max-width: 1200px;*/
@@ -41,7 +41,7 @@ button:hover{
 	margin: 20px auto;	
 	width: 150px;
 	height: 150px;
-	background-image: url('../imgs/teste.jpeg');
+	background-image: url('../imgs/teste.png');
 	background-size: cover;
 	border-radius: 10px;
 
@@ -55,7 +55,7 @@ button:hover{
 	cursor: pointer;
 }
 .icons i:hover{
-	color: red;
+	color: lightgreen;
 }
 .content-body{
 	text-align: center;
