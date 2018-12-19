@@ -174,7 +174,7 @@ input:focus{
 					<ul type="none">
 						<div class="grande"></div>
 					<center><h1>Contatos</h1></font><br>
-						<li>viniciusarthur41@gmail.com</li>
+						<li>arthursenju41@gmail.com</li>
 						<li>1monteirocarlos@gmail.com</li>
 						<li>eduardobispof@gmail.com</li>
 						<li>flaviareginaf07@gmail.com</li>
