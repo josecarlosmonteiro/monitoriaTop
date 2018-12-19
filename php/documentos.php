@@ -44,7 +44,7 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 			<div class="page-header">
 				<h2>Intervalo de Datas</h2>
 			</div>
-			<form action="relatorio.php" method="post">
+			<form action="relatorio.php" method="post" target="_blank">
 				<label class="form-control">
 					Primeiro dia:
 					<input type="date" name="inicio" class="form-input">
