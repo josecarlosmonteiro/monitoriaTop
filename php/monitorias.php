@@ -13,7 +13,7 @@ $periodo = addslashes($_SESSION['periodo']);
 
 
 
-$queryMonitoria = $conn->prepare("SELECT m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m INNER JOIN disciplina d ON m.id_disciplina_monitoria = d.id_disciplina INNER JOIN aluno a ON a.periodo = d.periodo_cadeira WHERE a.periodo = ? AND m.status = 'agendada' ORDER BY m.id_monitoria DESC");
+$queryMonitoria = $conn->prepare("SELECT m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade, d.nome_cadeira FROM monitoria m INNER JOIN disciplina d ON m.id_disciplina_monitoria = d.id_disciplina INNER JOIN aluno a ON a.periodo = d.periodo_cadeira WHERE a.periodo = ? AND m.status = 'agendada' ORDER BY m.id_monitoria DESC");
 $queryMonitoria->execute([$periodo]);
 $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 
@@ -108,6 +108,7 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 								<td><?= $listaMonitoria['inicio_monitoria'] ?> - <?= $listaMonitoria['termino_monitoria'] ?></td>
 								<td><?= $listaMonitoria['titulo_atividade'] ?></td>
 								<td><?= $listaMonitoria['descricao_atividade'] ?></td>
+								<td><?= $listaMonitoria['nome_cadeira'] ?></td>
 							</tr>
 						<?php endforeach ?>
 					</table>
