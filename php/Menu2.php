@@ -91,7 +91,9 @@
 					<?php if ($_SESSION['tipo'] == "monitor" || $_SESSION['tipo'] == "aluno"): ?>
 						<a href="home.php"><li>Inicio</li></a>	
 					<?php endif ?>
+				<?php if ($_SESSION['tipo'] == "monitor"): ?>
 				<a href="documentos.php"><li>Gerar Relatório</li></a>
+				<?php endif ?>
 				<a href="monitorias.php"><li>Monitorias</li></a>
 			<?php else: ?>
 				<a href="index.php" style="position: absolute;right:50px;margin-top: -10px;"><li>Inicio</li></a>

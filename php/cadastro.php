@@ -124,6 +124,14 @@ if (isset($_SESSION['mt'])) {
 							<h2>Área do monitor</h2>
 						</div>
 						<label class="form-control">
+							Curso em que é monitor:
+							<select class="form-input" id="tipo" name="monitoria_curso">
+								<option>--</option>
+								<option value="IPI">Informátira para Internet</option>
+								<option value="LOG">Logistica</option>
+							</select>
+						</label>						
+						<label class="form-control">
 							<div id="ipi_m">
 								Cadeira que é monitor:<br>
 		                      	IPI:

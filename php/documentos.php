@@ -1,16 +1,14 @@
 <?php
-include 'conn.php';
 session_start();
+include 'conn.php';
 include 'Menu2.php';
 
 $matricula = addslashes($_SESSION['matricula']);
 $tipo = addslashes($_SESSION['tipo']);
 
-if (!isset($matricula) && $tipo = "monitor") {
+if (!isset($matricula)) {
 	header('location: index.php');
 }
-
-$matricula = addslashes($_SESSION['matricula']);
 
 $query = $conn->prepare("SELECT m.id_monitoria, m.data_monitoria, m.inicio_monitoria, m.termino_monitoria, m.descricao_atividade, m.titulo_atividade FROM monitoria m WHERE m.matricula_monitor = ? AND status = 'realizada' ORDER BY m.id_monitoria DESC");
 $query->execute([$matricula]);
