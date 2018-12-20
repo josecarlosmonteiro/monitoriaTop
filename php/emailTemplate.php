@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
+	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<style>
 		@font-face{
 			font-family: 'monitoria';

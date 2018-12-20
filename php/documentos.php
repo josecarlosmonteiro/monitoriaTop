@@ -75,14 +75,14 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 						<th>Remover</th>
 
 					</tr>
-			<?php	foreach ($data as $lista) : ?>
+			<?php	foreach ($data as $lista): ?>
 						<tr>
 							<td><?= $lista['data_monitoria'] ?></td>
 							<td><?= $lista['inicio_monitoria'] ?> - <?= $lista['termino_monitoria'] ?></td>
 							<td><?= $lista['titulo_atividade'] ?></td>
 							<td><?= $lista['descricao_atividade'] ?></td>
 							<td>
-								<a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;"">&#10799;</a>
+								<a href="rmRegistro.php?id=<?=$lista['id_monitoria']?>" style="margin: 5px 2px; padding: 5px; font-size: 26px; text-decoration: none;">&#10799;</a>
 							</td>
 						</tr>
 			<?php	endforeach; ?>
@@ -90,5 +90,9 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
 			</div>
 		</div>
 	</div>
+	<div class="footer" style="background-color: green;">
+        <a href="developers.php"><img src="../imgs/ifpe.png" alt=""></a>
+        <p style="color: white;">Instituto Federal de Pernambuco</p>
+    </div>
 </body>
 </html>

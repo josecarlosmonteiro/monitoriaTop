@@ -10,6 +10,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Confirme seu Email</title>
 	<link rel="shortcut icon" href="../imgs/Logoxs.png">
+	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<link rel="stylesheet" href="../css/fontAwesome">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<style>
@@ -28,7 +29,8 @@
 			max-width: 1000px;
 			display: flex;
 			justify-content: center;
-			margin: auto
+			margin: auto;
+			margin-top: 100px;
 		}
 		.confirmado{
 			width: 100%;
@@ -99,6 +101,7 @@
 	</style>
 </head>
 <body>
+	<?php include 'Menu2.php'; ?>
 	<div class="container">
 		<div class="img">
 			<img src="../imgs/cabecalho.png" alt="">
@@ -109,6 +112,10 @@
 			<a href="../index.php"><button>Logue-se Agora <i class="fas fa-undo-alt"></i></button></a>
 		</div>
 	</div>
+	<div class="footer" style="background-color: green;">
+        <a href="developers.php"><img src="../imgs/ifpe.png" alt=""></a>
+        <p style="color: white;font-family: 'monitoria';">Instituto Federal de Pernambuco</p>
+    </div>
 	<?php session_destroy(); ?>
 </body>
 </html>

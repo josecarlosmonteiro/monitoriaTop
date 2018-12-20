@@ -11,6 +11,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="../imgs/Logoxs.png">
 	<link rel="stylesheet" href="../css/fontAwesome">
+	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<style>
 		@font-face{
@@ -28,7 +29,8 @@
 			max-width: 1000px;
 			display: flex;
 			justify-content: center;
-			margin: auto
+			margin: auto;
+			margin-top: 100px;
 		}
 		.confirmado{
 			width: 100%;
@@ -99,6 +101,7 @@
 	</style>
 </head>
 <body>
+	<?php include 'Menu2.php'; ?>
 	<div class="container">
 		<div class="img">
 			<img src="../imgs/cabecalho.png" alt="">
@@ -108,6 +111,7 @@
 			<h2>Você será redirecionado para a página principal em 5 segundos.</h2><br>
 			<a href="../index.php"><button>Redirecionar <i class="fas fa-sync-alt"></i></button></a>
 		</div>
+		
 	<?php 
 	unset($_SESSION['emailCadastrado']);
 	unset($_SESSION['nomeCadastrado']);
@@ -117,5 +121,9 @@
 <script language= "JavaScript">
 	setTimeout("document.location = '../index.php'",5000);
 </script>
+<div class="footer" style="background-color: green;">
+    	    <a href="developers.php"><img src="../imgs/ifpe.png" alt=""></a>
+    	    <p style="color: white;font-family: 'monitoria';">Instituto Federal de Pernambuco</p>
+    </div>
 </body>
 </html>

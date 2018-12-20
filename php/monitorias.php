@@ -172,6 +172,9 @@ $dataMonitoria = $queryMonitoria->fetchALL(PDO::FETCH_ASSOC);
 		listagemMonitoria();
 		addMonitoria();
 	</script>
-
+	 <div class="footer" style="background-color: green;">
+        <a href="developers.php"><img src="../imgs/ifpe.png" alt=""></a>
+        <p style="color: white;">Instituto Federal de Pernambuco</p>
+    </div>
 </body>
 </html>

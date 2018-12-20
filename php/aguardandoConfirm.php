@@ -11,6 +11,7 @@
 	<title>Confirme seu Email</title>
 	<link rel="shortcut icon" href="../imgs/Logoxs.png">
 	<link rel="stylesheet" href="../css/fontAwesome">
+	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<style>
 		@font-face{
@@ -28,7 +29,8 @@
 			max-width: 1000px;
 			display: flex;
 			justify-content: center;
-			margin: auto
+			margin: auto;
+			margin-top: 100px;
 		}
 		.confirmado{
 			width: 100%;
@@ -99,6 +101,7 @@
 	</style>
 </head>
 <body>
+	<?php include 'Menu2.php'; ?>
 	<div class="container">
 		<div class="img">
 				<img src="../imgs/cabecalho.png" alt="">
@@ -110,5 +113,9 @@
 			<a href="email.php"><button>Reenviar Link de Confirmação <i class="fas fa-redo"></i></button></a>
 		</div>
 	</div>
+	<div class="footer" style="background-color: green;">
+        <a href="developers.php"><img src="../imgs/ifpe.png" alt=""></a>
+        <p style="color: white;font-family: 'monitoria';">Instituto Federal de Pernambuco</p>
+    </div>
 </body>
 </html>

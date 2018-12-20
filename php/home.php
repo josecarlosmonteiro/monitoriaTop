@@ -70,8 +70,9 @@ $data = $query->fetchALL(PDO::FETCH_ASSOC);
             <?php endforeach ?>
         </div>
     </div>
-    <div class="footer">
-        <a href="developers.php" style="color: white;">Developers</a>
+    <div class="footer" style="background-color: green;">
+        <a href="developers.php"><img src="../imgs/ifpe.png" alt=""></a>
+        <p style="color: white;">Instituto Federal de Pernambuco</p>
     </div>
 </body>
 </html>

@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<title>Profile</title>
 	<link rel="stylesheet" href="../css/user.css">
+	<link rel="stylesheet" href="../css/micro-bootstrap.css">
 </head>
 <body>
 	<div class="content" >
@@ -29,5 +30,9 @@
 			<?php endif; ?>
 		</div>
 	</div>
+	<div class="footer" style="background-color: green;">
+        <a href="developers.php"><img src="../imgs/ifpe.png" alt=""></a>
+        <p style="color: white;">Instituto Federal de Pernambuco</p>
+    </div>
 </body>
 </html>
